@@ -5,10 +5,15 @@ import jwt
 from models import Role, User, db
 import config
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config.from_object(config)
+
+
 app.config['SECRET_KEY'] = 'your-secret-key'
+
+
 
 db.init_app(app)
 
@@ -41,12 +46,11 @@ def token_required(f):
     return decorated_function
 
 
+CORS(app, resources={r"/*": {"origins": "*"}}) 
+
 @app.route("/")
 def index():
     return "hellow"
-
-
-
 
 
 @app.route("/auth/registration", methods=["POST"])
