@@ -6,6 +6,7 @@ from models import Role, User, db
 import config
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
+from models import Instructor  
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -50,7 +51,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route("/")
 def index():
-    return "hellow"
+    return ""
 
 
 @app.route("/auth/registration", methods=["POST"])
@@ -135,12 +136,65 @@ def get_profile(current_user):
     # Assuming the User model has these attributes: id, email, username, role
     profile_data = {
         "id": current_user.id,
+        "first_name": current_user.first_name,
+        "middle_name": current_user.middle_name,
+        "last_name": current_user.last_name,
+        "phone_number": current_user.phone_number,
         "email": current_user.email,
         "role": current_user.role.name  # User role
     }
 
-    return jsonify({"profile": profile_data}), 200
+    return jsonify(profile_data), 200
 
+
+@app.route('/add_instructor', methods=['POST'])
+def add_instructor():
+    try:
+        data = request.get_json()
+        print("✅ JSON received:", data)
+
+        first_name = data.get('first_name')
+        middle_name = data.get('middle_name')
+        last_name = data.get('last_name')
+        phone_number = data.get('phone_number')
+        email = data.get('email')
+        title = data.get('title')
+        coordinator_id = data.get('coordinator_id')
+
+        print("✅ Extracted values:")
+        print(first_name, middle_name, last_name, phone_number, email, title, coordinator_id)
+
+        if not all([first_name, last_name, phone_number, email, title, coordinator_id]):
+            print("❌ Missing required fields")
+            return jsonify({'message': 'Missing required fields'}), 400
+
+        # Optional: check if email or title already exists
+        existing = Instructor.query.filter((Instructor.email == email)).first()
+        if existing:
+            print("❌ Instructor already exists")
+            return jsonify({'message': 'Instructor with this email or title already exists'}), 409
+
+        # ✅ Try saving
+        new_instructor = Instructor(
+            first_name=first_name,
+            middle_name=middle_name,
+            last_name=last_name,
+            phone_number=phone_number,
+            email=email,
+            title=title,
+            coordinator_id=coordinator_id
+        )
+
+        db.session.add(new_instructor)
+        db.session.commit()
+        print("✅ Instructor saved")
+
+        return jsonify({'message': 'Instructor added successfully'}), 201
+
+    except Exception as e:
+        db.session.rollback()
+        print("🔥 Exception occurred:", str(e))
+        return jsonify({'message': 'Error while adding instructor', 'error': str(e)}), 500
 
 if __name__ == "__main__":
     app.run(debug=True)
