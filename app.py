@@ -196,5 +196,33 @@ def add_instructor():
         print("🔥 Exception occurred:", str(e))
         return jsonify({'message': 'Error while adding instructor', 'error': str(e)}), 500
 
+@app.route('/instructors', methods=['GET'])
+def get_instructors():
+    try:
+        instructors = Instructor.query.all()
+        result = []
+
+        for inst in instructors:
+            instructor_data = {
+                'id': inst.id,
+                'first_name': inst.first_name,
+                'middle_name': inst.middle_name,
+                'last_name': inst.last_name,
+                'email': inst.email,
+                'phone_number': inst.phone_number,
+                'title': inst.title,
+            }
+            result.append(instructor_data)
+
+        print("✅ Instructors fetched:", result)
+        return jsonify(result), 200
+
+    except Exception as e:
+        print("🔥 Error fetching instructors:", str(e))
+        return jsonify({'message': 'Error fetching instructors', 'error': str(e)}), 500
+
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)

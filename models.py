@@ -92,10 +92,10 @@ class Instructor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(100), nullable=False)
     middle_name = db.Column(db.String(100), nullable=True)
-    last_name = db.Column(db.String(100), nullable=False)
-    phone_number = db.Column(db.String(10), nullable=False)
+    last_name = db.Column(db.String(100), nullable=True)
+    phone_number = db.Column(db.String(15), nullable=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    title = db.Column(db.String(120), unique=True, nullable=False)
+    title = db.Column(db.String(120), nullable=False)
 
     coordinator_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
