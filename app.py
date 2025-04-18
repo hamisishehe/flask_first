@@ -1,7 +1,10 @@
 from functools import wraps
 import datetime
+import pandas as pd
+import os
 from flask import Flask, request, jsonify
 import jwt
+from flask import session 
 from models import Role, User, db
 import config
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -264,6 +267,57 @@ def add_Student():
         db.session.rollback()
         print("🔥 Exception occurred:", str(e))
         return jsonify({'message': 'Error while adding Student', 'error': str(e)}), 500
+
+
+@app.route('/upload-students', methods=['POST'])
+def upload_students():
+    
+    coordinator_id = 1
+
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part'}), 400
+
+    file = request.files['file']
+
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+
+    if not file.filename.endswith(('.xlsx', '.xls')):
+        return jsonify({'error': 'Invalid file format. Please upload an Excel file.'}), 400
+
+    try:
+        df = pd.read_excel(file)
+
+        required_columns = ['programme', 'total_students']
+        if not all(col in df.columns for col in required_columns):
+            return jsonify({'error': f'Missing required columns. Required: {required_columns}'}), 400
+
+        inserted = 0
+        skipped = []
+
+        for _, row in df.iterrows():
+            existing = Students.query.filter_by(programme=row['programme']).first()
+            if existing:
+                skipped.append(row['programme'])
+                continue
+
+            student = Students(
+                programme=row['programme'],
+                total_students=row['total_students'],
+                coordinator_id=coordinator_id 
+            )
+            db.session.add(student)
+            inserted += 1
+
+        db.session.commit()
+
+        return jsonify({
+            'message': f'{inserted} students inserted successfully.',
+            'skipped_programmes': skipped
+        }), 201
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/students', methods=['GET'])
 def get_students():
