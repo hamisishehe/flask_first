@@ -32,6 +32,16 @@ instructor_course = db.Table(
     db.Column('priority', db.Integer, nullable=False)
 )
 
+class Course_matrix(db.Model):
+    __tablename__ = 'course_matrix'
+
+    id = db.Column(db.Integer, primary_key=True)
+    instructor_id = db.Column(db.Integer, db.ForeignKey('instructor.id'))
+    course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
+    student_id = db.Column(db.Integer, db.ForeignKey('students.id'))
+
+
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)

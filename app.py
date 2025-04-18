@@ -7,6 +7,9 @@ import config
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 from models import Instructor  
+from models import Students
+from models import Course
+from models import Course_matrix
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -221,6 +224,235 @@ def get_instructors():
         print("🔥 Error fetching instructors:", str(e))
         return jsonify({'message': 'Error fetching instructors', 'error': str(e)}), 500
 
+
+@app.route('/add_student_program', methods=['POST'])
+def add_Student():
+    try:
+        data = request.get_json()
+        print("✅ JSON received:", data)
+
+        programme = data.get('programme')
+        total_students = data.get('total_students')
+        coordinator_id = data.get('coordinator_id')
+
+      
+
+        if not all([programme, total_students,  coordinator_id]):
+            print("❌ Missing required fields")
+            return jsonify({'message': 'Missing required fields'}), 400
+
+        # Optional: check if Student program  already exists
+        existing = Students.query.filter((Students.programme == programme)).first()
+        if existing:
+            print("❌ Program already exists")
+            return jsonify({'message': 'Students with this Program  already exists'}), 409
+
+        # ✅ Try saving
+        new_Student = Students(
+            programme = programme,
+            total_students = total_students,
+            coordinator_id=coordinator_id
+        )
+
+        db.session.add(new_Student)
+        db.session.commit()
+        print("✅ Student Program saved")
+
+        return jsonify({'message': 'Student Program added successfully'}), 201
+
+    except Exception as e:
+        db.session.rollback()
+        print("🔥 Exception occurred:", str(e))
+        return jsonify({'message': 'Error while adding Student', 'error': str(e)}), 500
+
+@app.route('/students', methods=['GET'])
+def get_students():
+    try:
+        students = Students.query.all()
+        result = []
+
+        for stu in students:
+            students_data = {
+                'id': stu.id,
+                'programme': stu.programme,
+                'total_students': stu.total_students,
+
+            }
+            result.append(students_data)
+
+        print("✅ Students fetched:", result)
+        return jsonify(result), 200
+
+    except Exception as e:
+        print("🔥 Error fetching Students:", str(e))
+        return jsonify({'message': 'Error fetching Students', 'error': str(e)}), 500
+
+
+@app.route('/add_new_course', methods=['POST'])
+def add_Course():
+    try:
+        data = request.get_json()
+        print("✅ JSON received:", data)
+
+
+        course_code = data.get('course_code')
+        course_name = data.get('course_name')
+        semester = data.get('semester')
+        is_tutorial = data.get('is_tutorial')
+        is_lecture = data.get('is_lecture')
+        time_difference = data.get('time_difference')
+        coordinator_id = data.get('coordinator_id')
+
+      
+
+        if not all([course_code, course_name, semester, is_lecture, is_tutorial, time_difference,  coordinator_id]):
+            print("❌ Missing required fields")
+            return jsonify({'message': 'Missing required fields'}), 400
+
+        # Optional: check if Course  already exists
+        existing = Course.query.filter((Students.course_code == course_code)).first()
+        if existing:
+            print("❌ Course already exists")
+            return jsonify({'message': 'Course already exists'}), 409
+
+        # ✅ Try saving
+        new_Course = Course(
+            course_code = course_code,
+            course_name = course_name,
+            semester = semester,
+            is_tutorial = is_tutorial,
+            is_lecture = is_lecture,
+            time_difference = time_difference,
+            coordinator_id = coordinator_id
+        )
+
+        db.session.add(new_Course)
+        db.session.commit()
+        print("✅ Course Program saved")
+
+        return jsonify({'message': 'Course  added successfully'}), 201
+
+    except Exception as e:
+        db.session.rollback()
+        print("🔥 Exception occurred:", str(e))
+        return jsonify({'message': 'Error while adding Course', 'error': str(e)}), 500
+
+@app.route('/course_list', methods=['GET'])
+def get_course():
+    try:
+        course = Course.query.all()
+        result = []
+
+
+        for cou in course:
+            course_data = {
+                'id': cou.id,
+                'course_name' : cou.course_name,
+                'course_code' : cou.course_code,
+                'semester' :cou.semester,
+                'is_tutorial' : cou.is_tutorial,
+                'is_lecture' : cou.is_lecture,
+                'time_difference' : cou.time_difference,
+            }
+     
+            result.append(course_data)
+
+        print("✅ course fetched:", result)
+        return jsonify(result), 200
+
+    except Exception as e:
+        print("🔥 Error fetching course:", str(e))
+        return jsonify({'message': 'Error fetching course', 'error': str(e)}), 500
+
+
+@app.route('/assign-course', methods=['POST'])
+def assign_Course():
+    try:
+        data = request.get_json()
+        print("✅ JSON received:", data)
+
+
+        instructor_id = data.get('instructor_id')
+        course_id = data.get('course_id')
+        student_id = data.get('student_id')
+ 
+
+        if not all([course_id,instructor_id,student_id]):
+            print("❌ Missing required fields")
+            return jsonify({'message': 'Missing required fields'}), 400
+
+        # Optional: check if Course  already assigned
+        existing = Course_matrix.query.filter((Course_matrix.course_id == course_id)).first()
+        if existing:
+            print("❌ Course already Asigned")
+            return jsonify({'message': 'Course already Asigned'}), 409
+
+        # ✅ Try saving
+        new_assign_course = Course_matrix(
+            instructor_id = instructor_id,
+            course_id = course_id,
+            student_id = student_id,
+        )
+
+        db.session.add(new_assign_course)
+        db.session.commit()
+        print("✅ Course  saved")
+
+        return jsonify({'message': 'Course  added successfully'}), 201
+
+    except Exception as e:
+        db.session.rollback()
+        print("🔥 Exception occurred:", str(e))
+        return jsonify({'message': 'Error while adding Course', 'error': str(e)}), 500
+
+@app.route('/assigned_course_list', methods=['GET'])
+def get_assigned_course_list():
+    try:
+        course = Course.query.all()
+        result = []
+
+        course_matrix_entries = db.session.query(Course_matrix).all()
+
+        for entry in course_matrix_entries:
+            course = Course.query.get(entry.course_id)
+            student = Students.query.get(entry.student_id)
+            instructor = Instructor.query.get(entry.instructor_id)
+
+
+            result = {
+                "course": {
+                    "id": course.id,
+                    "course_name": course.course_name,
+                    "course_code": course.course_code,
+                    "semester": course.semester,
+                    "is_tutorial": course.is_tutorial,
+                    "is_lecture": course.is_lecture,
+                    "time_difference": course.time_difference
+                },
+                "student": {
+                    "id": student.id,
+                    "programme": student.programme,
+                    "total_students": student.total_students
+                },
+                "instructor": {
+                    "id": instructor.id,
+                    "first_name": instructor.first_name,
+                    "middle_name": instructor.middle_name,
+                    "last_name": instructor.last_name,
+                    "email": instructor.email,
+                    "phone_number": instructor.phone_number,
+                    "title": instructor.title
+                }
+            }    
+     
+            result.append(result)
+
+        print("✅ course fetched:", result)
+        return jsonify(result), 200
+
+    except Exception as e:
+        print("🔥 Error fetching course:", str(e))
+        return jsonify({'message': 'Error fetching course', 'error': str(e)}), 500
 
 
 
