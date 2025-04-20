@@ -40,34 +40,29 @@ class Course_matrix(db.Model):
     course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
     student_id = db.Column(db.Integer, db.ForeignKey('students.id'))
 
+    instructor = db.relationship('Instructor', backref='course_matrices')
+    course = db.relationship('Course', backref='course_matrices')
+    student = db.relationship('Students', backref='course_matrices')
 
+class CourseMatrixView(db.Model):
+    __tablename__ = 'course_matrix_view'
+    __table_args__ = {'extend_existing': True}
 
+    course_matrix_id = db.Column(db.Integer, primary_key=True)
+    course_id = db.Column(db.Integer)
+    course_name = db.Column(db.String)
+    course_code = db.Column(db.String)
+    semester = db.Column(db.Integer)
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(100), nullable=False)
-    middle_name = db.Column(db.String(100), nullable=True)
-    last_name = db.Column(db.String(100), nullable=False)
-    phone_number = db.Column(db.String(10), nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password_hash = db.Column(db.String(255), nullable=False)
-    role = db.Column(db.Enum(Role), nullable=False, default=Role.COORDINATOR)
+    instructor_id = db.Column(db.Integer)
+    instructor_first_name = db.Column(db.String)
+    instructor_last_name = db.Column(db.String)
+    instructor_email = db.Column(db.String)
+    instructor_title = db.Column(db.String)
 
-    # Relationships
-    students = db.relationship('Students', backref='coordinator', lazy=True)
-    instructors = db.relationship('Instructor', backref='coordinator', lazy=True)
-    venues = db.relationship('Venue', backref='coordinator', lazy=True)
-    courses = db.relationship('Course', backref='coordinator', lazy=True)  # Added relationship
-
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
-
-    def __repr__(self):
-        return f"<User {self.first_name} {self.last_name}, Role {self.role.name}>"
-
+    student_id = db.Column(db.Integer)
+    programme = db.Column(db.String)
+    total_students = db.Column(db.String)
 
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -125,3 +120,32 @@ class Venue(db.Model):
 
     def __repr__(self):
         return f"<Venue {self.name}, Location {self.location}>"
+
+
+
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(100), nullable=False)
+    middle_name = db.Column(db.String(100), nullable=True)
+    last_name = db.Column(db.String(100), nullable=False)
+    phone_number = db.Column(db.String(10), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password_hash = db.Column(db.String(255), nullable=False)
+    role = db.Column(db.Enum(Role), nullable=False, default=Role.COORDINATOR)
+
+    # Relationships
+    students = db.relationship('Students', backref='coordinator', lazy=True)
+    instructors = db.relationship('Instructor', backref='coordinator', lazy=True)
+    venues = db.relationship('Venue', backref='coordinator', lazy=True)
+    courses = db.relationship('Course', backref='coordinator', lazy=True)  # Added relationship
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
+    def __repr__(self):
+        return f"<User {self.first_name} {self.last_name}, Role {self.role.name}>"
+

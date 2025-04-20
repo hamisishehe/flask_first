@@ -13,6 +13,8 @@ from models import Instructor
 from models import Students
 from models import Course
 from models import Course_matrix
+from models import CourseMatrixView
+
 
 app = Flask(__name__)
 app.config.from_object(config)
@@ -232,7 +234,7 @@ def get_instructors():
 def add_Student():
     try:
         data = request.get_json()
-        print("✅ JSON received:", data)
+        print(" JSON received:", data)
 
         programme = data.get('programme')
         total_students = data.get('total_students')
@@ -241,16 +243,16 @@ def add_Student():
       
 
         if not all([programme, total_students,  coordinator_id]):
-            print("❌ Missing required fields")
+            print(" Missing required fields")
             return jsonify({'message': 'Missing required fields'}), 400
 
         # Optional: check if Student program  already exists
         existing = Students.query.filter((Students.programme == programme)).first()
         if existing:
-            print("❌ Program already exists")
+            print(" Program already exists")
             return jsonify({'message': 'Students with this Program  already exists'}), 409
 
-        # ✅ Try saving
+        #  Try saving
         new_Student = Students(
             programme = programme,
             total_students = total_students,
@@ -259,13 +261,13 @@ def add_Student():
 
         db.session.add(new_Student)
         db.session.commit()
-        print("✅ Student Program saved")
+        print(" Student Program saved")
 
         return jsonify({'message': 'Student Program added successfully'}), 201
 
     except Exception as e:
         db.session.rollback()
-        print("🔥 Exception occurred:", str(e))
+        print(" Exception occurred:", str(e))
         return jsonify({'message': 'Error while adding Student', 'error': str(e)}), 500
 
 
@@ -340,6 +342,8 @@ def get_students():
     except Exception as e:
         print("🔥 Error fetching Students:", str(e))
         return jsonify({'message': 'Error fetching Students', 'error': str(e)}), 500
+
+
 
 
 @app.route('/add_new_course', methods=['POST'])
@@ -419,11 +423,53 @@ def get_course():
         return jsonify({'message': 'Error fetching course', 'error': str(e)}), 500
 
 
-@app.route('/assign-course', methods=['POST'])
-def assign_Course():
+
     try:
         data = request.get_json()
-        print("✅ JSON received:", data)
+        print("JSON received:", data)
+
+        instructor_id = data.get('instructor_id')
+        course_id = data.get('course_id')
+        student_ids = data.get('student_id')
+
+        if not all([course_id, instructor_id, student_ids]):
+            print("Missing required fields")
+            return jsonify({'message': 'Missing required fields'}), 400
+
+        assigned = []
+        skipped = []
+
+        for student_id in student_ids:
+            existing = Course_matrix.query.filter_by(course_id=course_id, student_id=student_id).first()
+            if existing:
+                skipped.append(student_id)
+                continue
+
+            new_assign_course = Course_matrix(
+                instructor_id=instructor_id,
+                course_id=course_id,
+                student_id=student_id,
+            )
+            db.session.add(new_assign_course)
+            assigned.append(student_id)
+
+        db.session.commit()
+        print(f"Assigned to students: {assigned}")
+
+        return jsonify({
+            'message': 'Course assigned successfully',
+            'assigned': assigned,
+            'skipped': skipped
+        }), 201
+
+    except Exception as e:
+        db.session.rollback()
+        print("Exception occurred:", str(e))
+        return jsonify({'message': 'Error while assigning course', 'error': str(e)}), 500
+
+    try:
+        data = request.get_json()
+        print(" JSON received:", data)
 
 
         instructor_id = data.get('instructor_id')
@@ -432,16 +478,16 @@ def assign_Course():
  
 
         if not all([course_id,instructor_id,student_id]):
-            print("❌ Missing required fields")
+            print(" Missing required fields")
             return jsonify({'message': 'Missing required fields'}), 400
 
-        # Optional: check if Course  already assigned
-        existing = Course_matrix.query.filter((Course_matrix.course_id == course_id)).first()
+        # Optional: check if Course and students already assigned
+        existing = Course_matrix.query.filter_by(course_id=course_id, student_id=student_id).first()
         if existing:
-            print("❌ Course already Asigned")
+            print("Course and students already Asigned")
             return jsonify({'message': 'Course already Asigned'}), 409
 
-        # ✅ Try saving
+        # ✅Try saving
         new_assign_course = Course_matrix(
             instructor_id = instructor_id,
             course_id = course_id,
@@ -459,55 +505,83 @@ def assign_Course():
         print("🔥 Exception occurred:", str(e))
         return jsonify({'message': 'Error while adding Course', 'error': str(e)}), 500
 
-@app.route('/assigned_course_list', methods=['GET'])
-def get_assigned_course_list():
+
+
+@app.route('/assign-course', methods=['POST'])
+def assign_Course():
     try:
-        course = Course.query.all()
-        result = []
+        data = request.get_json()
+        print("JSON received:", data)
 
-        course_matrix_entries = db.session.query(Course_matrix).all()
+        instructor_id = data.get('instructor_id')
+        course_id = data.get('course_id')
+        student_ids = data.get('student_id')
 
-        for entry in course_matrix_entries:
-            course = Course.query.get(entry.course_id)
-            student = Students.query.get(entry.student_id)
-            instructor = Instructor.query.get(entry.instructor_id)
+        if not all([course_id, instructor_id, student_ids]):
+            print("Missing required fields")
+            return jsonify({'message': 'Missing required fields'}), 400
 
+        assigned = []
+        skipped = []
 
-            result = {
-                "course": {
-                    "id": course.id,
-                    "course_name": course.course_name,
-                    "course_code": course.course_code,
-                    "semester": course.semester,
-                    "is_tutorial": course.is_tutorial,
-                    "is_lecture": course.is_lecture,
-                    "time_difference": course.time_difference
-                },
-                "student": {
-                    "id": student.id,
-                    "programme": student.programme,
-                    "total_students": student.total_students
-                },
-                "instructor": {
-                    "id": instructor.id,
-                    "first_name": instructor.first_name,
-                    "middle_name": instructor.middle_name,
-                    "last_name": instructor.last_name,
-                    "email": instructor.email,
-                    "phone_number": instructor.phone_number,
-                    "title": instructor.title
-                }
-            }    
-     
-            result.append(result)
+        for student_id in student_ids:
+            existing = Course_matrix.query.filter_by(course_id=course_id, student_id=student_id).first()
+            if existing:
+                skipped.append(student_id)
+                continue
 
-        print("✅ course fetched:", result)
-        return jsonify(result), 200
+            new_assign_course = Course_matrix(
+                instructor_id=instructor_id,
+                course_id=course_id,
+                student_id=student_id,
+            )
+            db.session.add(new_assign_course)
+            assigned.append(student_id)
+
+        db.session.commit()
+        print(f" Assigned to students: {assigned}")
+
+        return jsonify({
+            'message': 'Course assigned successfully',
+            'assigned': assigned,
+            'skipped': skipped
+        }), 201
 
     except Exception as e:
-        print("🔥 Error fetching course:", str(e))
-        return jsonify({'message': 'Error fetching course', 'error': str(e)}), 500
+        db.session.rollback()
+        print(" Exception occurred:", str(e))
+        return jsonify({'message': 'Error while assigning course', 'error': str(e)}), 500
 
+
+@app.route('/view/course-matrix', methods=['GET'])
+def get_course_matrix_view():
+    results = CourseMatrixView.query.all()
+
+    data = []
+    for row in results:
+        item = {
+            "course_matrix_id": row.course_matrix_id,
+            "course": {
+                "id": row.course_id,
+                "name": row.course_name,
+                "code": row.course_code,
+                "semester": row.semester,
+            },
+            "instructor": {
+                "id": row.instructor_id,
+                "name": f"{row.instructor_first_name} {row.instructor_last_name}",
+                "email": row.instructor_email,
+                "title": row.instructor_title,
+            },
+            "student": {
+                "id": row.student_id,
+                "programme": row.programme,
+                "total_students": row.total_students
+            }
+        }
+        data.append(item)
+
+    return jsonify(data)
 
 
 if __name__ == "__main__":
