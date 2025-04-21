@@ -32,18 +32,6 @@ instructor_course = db.Table(
     db.Column('priority', db.Integer, nullable=False)
 )
 
-class Course_matrix(db.Model):
-    __tablename__ = 'course_matrix'
-
-    id = db.Column(db.Integer, primary_key=True)
-    instructor_id = db.Column(db.Integer, db.ForeignKey('instructor.id'))
-    course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
-    student_id = db.Column(db.Integer, db.ForeignKey('students.id'))
-
-    instructor = db.relationship('Instructor', backref='course_matrices')
-    course = db.relationship('Course', backref='course_matrices')
-    student = db.relationship('Students', backref='course_matrices')
-
 class CourseMatrixView(db.Model):
     __tablename__ = 'course_matrix_view'
     __table_args__ = {'extend_existing': True}
@@ -63,6 +51,19 @@ class CourseMatrixView(db.Model):
     student_id = db.Column(db.Integer)
     programme = db.Column(db.String)
     total_students = db.Column(db.String)
+
+class Course_matrix(db.Model):
+    __tablename__ = 'course_matrix'
+
+    id = db.Column(db.Integer, primary_key=True)
+    instructor_id = db.Column(db.Integer, db.ForeignKey('instructor.id'))
+    course_id = db.Column(db.Integer, db.ForeignKey('course.id'))
+    student_id = db.Column(db.Integer, db.ForeignKey('students.id'))
+
+    instructor = db.relationship('Instructor', backref='course_matrices')
+    course = db.relationship('Course', backref='course_matrices')
+    student = db.relationship('Students', backref='course_matrices')
+
 
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -122,6 +123,14 @@ class Venue(db.Model):
         return f"<Venue {self.name}, Location {self.location}>"
 
 
+class ScheduledClass(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    course_name = db.Column(db.String(100), nullable=False)
+    day = db.Column(db.String(20), nullable=False)
+    time_slot = db.Column(db.String(20), nullable=False)
+    venue = db.Column(db.String(100), nullable=False)
+    student_groups = db.Column(db.String(200), nullable=False)
+    instructor = db.Column(db.String(100), nullable=False)
 
 
 class User(db.Model):
