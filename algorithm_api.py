@@ -5,6 +5,9 @@ from models import db, Course, Students, Venue, Instructor, Course_matrix
 
 def generate_timetable(app):
     with app.app_context(): 
+
+        ## Step 1: Problem variables
+        
         venue = {v.name: v.teaching_capacity for v in Venue.query.all()}
         student_groups = {s.programme: int(s.total_students) for s in Students.query.all()}
 
@@ -66,9 +69,9 @@ def generate_timetable(app):
 
         all_courses = list(lecture_domains.keys()) + list(tutorial_domains.keys())
 
-        def backtrack(schedule, prof_schedule, student_group_schedule):
+        def backtrack(schedule, instructor_schedule, student_group_schedule):
             if len(schedule) == len(all_courses):
-                return schedule, prof_schedule
+                return schedule, instructor_schedule
 
             unassigned_class = next(cls for cls in all_courses if cls not in schedule)
 
@@ -76,13 +79,13 @@ def generate_timetable(app):
             for value in domains[unassigned_class]:
                 day, time, room = value
                 course_name = unassigned_class.replace(" (Tutorial)", "")
-                professor = course_instructor_mapping.get(course_name)
+                instructor = course_instructor_mapping.get(course_name)
                 groups = course_group_mapping.get(course_name, [])
 
                 conflict = False
                 for existing_cls, (p_day, p_time, p_room) in schedule.items():
                     if p_day == day and p_time == time:
-                        if prof_schedule.get(existing_cls) == professor or p_room == room:
+                        if instructor_schedule.get(existing_cls) == instructor or p_room == room:
                             conflict = True
                             break
 
@@ -105,25 +108,25 @@ def generate_timetable(app):
                     continue
 
                 schedule[unassigned_class] = (day, time, room)
-                prof_schedule[unassigned_class] = professor
+                instructor_schedule[unassigned_class] = instructor
                 for group in groups:
                     student_group_schedule.setdefault(group, set()).add((day, time))
 
-                result_schedule, result_profs = backtrack(schedule, prof_schedule, student_group_schedule)
+                result_schedule, result_profs = backtrack(schedule, instructor_schedule, student_group_schedule)
                 if result_schedule:
                     return result_schedule, result_profs
 
                 del schedule[unassigned_class]
-                del prof_schedule[unassigned_class]
+                del instructor_schedule[unassigned_class]
                 for group in groups:
                     student_group_schedule[group].remove((day, time))
 
             return None, None
 
         schedule = {}
-        prof_schedule = {}
+        instructor_schedule = {}
         student_group_schedule = {}
-        solution, instructor_assignments = backtrack(schedule, prof_schedule, student_group_schedule)
+        solution, instructor_assignments = backtrack(schedule, instructor_schedule, student_group_schedule)
 
         if solution:
             timetable = []
@@ -144,7 +147,7 @@ def generate_timetable(app):
                 })
 
 
-                with open('last_timetable.json', 'w') as json_file:
+                with open('teaching_timetable/last_timetable.json', 'w') as json_file:
                     json.dump(timetable, json_file)
 
             return timetable
