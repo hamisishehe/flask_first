@@ -2,7 +2,7 @@ from functools import wraps
 import datetime
 import pandas as pd
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, json, request, jsonify, send_file ,send_from_directory, url_for
 import jwt
 from flask import session 
 from models import Role, User, db
@@ -14,6 +14,10 @@ from models import Students
 from models import Course
 from models import Course_matrix
 from models import CourseMatrixView
+from algorithm_api import generate_timetable
+
+
+
 
 
 app = Flask(__name__)
@@ -344,8 +348,6 @@ def get_students():
         return jsonify({'message': 'Error fetching Students', 'error': str(e)}), 500
 
 
-
-
 @app.route('/add_new_course', methods=['POST'])
 def add_Course():
     try:
@@ -505,8 +507,6 @@ def get_course():
         print("🔥 Exception occurred:", str(e))
         return jsonify({'message': 'Error while adding Course', 'error': str(e)}), 500
 
-
-
 @app.route('/assign-course', methods=['POST'])
 def assign_Course():
     try:
@@ -528,7 +528,11 @@ def assign_Course():
             existing = Course_matrix.query.filter_by(course_id=course_id, student_id=student_id).first()
             if existing:
                 skipped.append(student_id)
-                continue
+                return jsonify({
+                    'message': 'Course Already Assigned',
+                    'assigned': assigned,
+                    'skipped': skipped
+                 }), 201
 
             new_assign_course = Course_matrix(
                 instructor_id=instructor_id,
@@ -583,6 +587,53 @@ def get_course_matrix_view():
 
     return jsonify(data)
 
+
+# @app.route('/generate-timetable', methods=['POST'])
+# def generate_timetable_route():
+#     try:
+#         generate_timetable(app)
+#         return jsonify({"message": "Timetable generated successfully.", "status": "success"}), 200
+#     except Exception as e:
+#         return jsonify({"message": str(e), "status": "error"}), 500
+
+@app.route('/api/generate-timetable', methods=['POST'])
+def generate_timetable_route():
+    try:
+        timetable = generate_timetable(app)
+        return jsonify({
+            "message": "Timetable generated successfully.",
+            "status": "success",
+            "data": timetable
+        }), 200
+    except Exception as e:
+        return jsonify({
+            "message": str(e),
+            "status": "error"
+        }), 500
+    
+
+    
+@app.route('/api/last-timetable', methods=['GET'])
+def get_last_timetable():
+    try:
+        # Load the last generated timetable from the JSON file
+        with open('last_timetable.json', 'r') as json_file:
+            timetable = json.load(json_file)
+
+        return jsonify({
+            "message": "Fetched last generated timetable.",
+            "status": "success",
+            "data": timetable
+        }), 200
+    except Exception as e:
+        return jsonify({
+            "message": str(e),
+            "status": "error"
+        }), 500
+
+@app.route('/download-timetable')
+def download_timetable():
+    return send_file("static/timetable.pdf", as_attachment=True)
 
 if __name__ == "__main__":
     app.run(debug=True)

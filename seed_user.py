@@ -13,22 +13,20 @@ def seed_user():
     with app.app_context():
         db.create_all() 
 
-        if not User.query.filter_by(email='coordinator@example.com').first():
-            user = User(
-                first_name='coordinator',
-                middle_name='A.',
-                last_name='Doe',
-                phone_number='0744982380',
-                email='coordinator@example.com',
-                role=Role.COORDINATOR
+        if not User.query.filter_by(email='timetablemaster@example.com').first():
+            user2 = User(
+                first_name='timetablemaster',
+                middle_name='B.',
+                last_name='timetablemaster',
+                phone_number='0744982310',
+                email='timetablemaster@example.com',
+                role=Role.TIMETABLEMASTER
             )
-            user.set_password('123456')
-
-            db.session.add(user)
-            db.session.commit()
-            print("✅ User seeded successfully!")
+            user2.set_password('timetablemaster1234')
+            db.session.add(user2)
+            print(" timetablemaster user seeded successfully!")
         else:
-            print("ℹ️ User already exists.")
+            print("ℹ timetablemaster user already exists.")    
 
 if __name__ == '__main__':
     seed_user()
