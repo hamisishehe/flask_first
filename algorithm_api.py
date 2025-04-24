@@ -146,6 +146,11 @@ def generate_timetable(app):
                     "groups": groups
                 })
 
+                day_order = {day: index for index, day in enumerate(days)}
+                time_order = {time: index for index, time in enumerate(timeslots + tutorial_slots)}
+
+                timetable.sort(key=lambda x: (day_order[x['day']], time_order[x['time']]))
+
 
                 with open('teaching_timetable/last_timetable.json', 'w') as json_file:
                     json.dump(timetable, json_file)

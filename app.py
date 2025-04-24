@@ -14,6 +14,7 @@ from models import Students
 from models import Course
 from models import Course_matrix
 from models import CourseMatrixView
+from models import Venue
 from algorithm_api import generate_timetable
 
 
@@ -159,6 +160,21 @@ def get_profile(current_user):
     return jsonify(profile_data), 200
 
 
+@app.route('/venues', methods=['GET'])
+def list_venues():
+    venues = Venue.query.all()
+    venue_list = [{
+        "id": v.id,
+        "name": v.name,
+        "location": v.location,
+        "exam_capacity": v.exam_capacity,
+        "teaching_capacity": v.teaching_capacity,
+        "type": v.type.name,
+        "coordinator_id": v.coordinator_id
+    } for v in venues]
+    return jsonify(venue_list)
+
+
 @app.route('/add_instructor', methods=['POST'])
 def add_instructor():
     try:
@@ -226,7 +242,6 @@ def get_instructors():
             }
             result.append(instructor_data)
 
-        print("✅ Instructors fetched:", result)
         return jsonify(result), 200
 
     except Exception as e:
