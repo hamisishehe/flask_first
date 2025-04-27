@@ -1,11 +1,11 @@
 from functools import wraps
-from datetime import datetime, timedelta
-from fpdf import FPDF
+import datetime
 import pandas as pd
 import os
 from flask import Flask, json, request, jsonify, send_file ,send_from_directory, url_for
 import jwt
 from flask import session 
+from exam_api import generate_exam_timetable
 from models import Role, User, db
 import config
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -629,6 +629,16 @@ def generate_timetable_route():
     
 
     
+@app.route('/generate_exam_timetable', methods=['GET'])
+def generate_exam_timetable_route():
+    timetable = generate_exam_timetable()
+    if timetable:
+        return jsonify(timetable)  # Return the timetable as a sorted list of dictionaries
+    else:
+        return jsonify({"error": "Could not generate timetable"}), 500  # Return error if no timetable generated
+    
+
+    
 @app.route('/api/last-timetable', methods=['GET'])
 def get_last_timetable():
     try:
@@ -650,6 +660,7 @@ def get_last_timetable():
 @app.route('/download-timetable')
 def download_timetable():
     return send_file("static/timetable.pdf", as_attachment=True)
+
 
 
 
