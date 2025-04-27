@@ -1,5 +1,6 @@
 from functools import wraps
-import datetime
+from datetime import datetime, timedelta
+from fpdf import FPDF
 import pandas as pd
 import os
 from flask import Flask, json, request, jsonify, send_file ,send_from_directory, url_for
@@ -385,7 +386,7 @@ def add_Course():
             return jsonify({'message': 'Missing required fields'}), 400
 
         # Optional: check if Course  already exists
-        existing = Course.query.filter((Students.course_code == course_code)).first()
+        existing = Course.query.filter((Course.course_code == course_code)).first()
         if existing:
             print("❌ Course already exists")
             return jsonify({'message': 'Course already exists'}), 409
@@ -649,6 +650,10 @@ def get_last_timetable():
 @app.route('/download-timetable')
 def download_timetable():
     return send_file("static/timetable.pdf", as_attachment=True)
+
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

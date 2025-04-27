@@ -14,30 +14,30 @@ def generate_timetable(app):
         course_group_mapping = {}
         matrix_entries = Course_matrix.query.all()
         for entry in matrix_entries:
-            course_code = entry.course.course_code  # changed here
+            course_name = entry.course.course_name
             programme = entry.student.programme
-            course_group_mapping.setdefault(course_code, [])
-            if programme not in course_group_mapping[course_code]:
-                course_group_mapping[course_code].append(programme)
+            course_group_mapping.setdefault(course_name, [])
+            if programme not in course_group_mapping[course_name]:
+                course_group_mapping[course_name].append(programme)
 
         course_instructor_mapping = {}
         for entry in matrix_entries:
-            course_code = entry.course.course_code  # changed here
+            course_name = entry.course.course_name
             instructor = entry.instructor
             full_name = f"{instructor.first_name} {instructor.middle_name + ' ' if instructor.middle_name else ''}{instructor.last_name or ''}".strip()
             title = instructor.title or "Mr./Ms."
             instructor_display = f"{title}. {full_name}"
-            course_instructor_mapping[course_code] = instructor_display
+            course_instructor_mapping[course_name] = instructor_display
 
         days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
         start_time = datetime.strptime("07:30", "%H:%M")
         timeslots = [(start_time + timedelta(hours=2 * i)).strftime("%H:%M") + "-" +
-                     (start_time + timedelta(hours=2 * (i + 1))).strftime("%H:%M") for i in range(4)]
+                     (start_time + timedelta(hours=2 * (i + 1))).strftime("%H:%M") for i in range(5)]
 
         # Include tutorial timeslots (1 hour slots in afternoon)
-        tutorial_start = datetime.strptime("17:30", "%H:%M")
+        tutorial_start = datetime.strptime("13:30", "%H:%M")
         tutorial_slots = [(tutorial_start + timedelta(hours=i)).strftime("%H:%M") + "-" +
-                          (tutorial_start + timedelta(hours=i + 1)).strftime("%H:%M") for i in range(2)]
+                          (tutorial_start + timedelta(hours=i + 1)).strftime("%H:%M") for i in range(3)]
 
         lecture_domains = {}
         tutorial_domains = {}
@@ -78,9 +78,9 @@ def generate_timetable(app):
             domains = lecture_domains if "Tutorial" not in unassigned_class else tutorial_domains
             for value in domains[unassigned_class]:
                 day, time, room = value
-                course_code = unassigned_class.replace(" (Tutorial)", "")  # changed here
-                instructor = course_instructor_mapping.get(course_code)
-                groups = course_group_mapping.get(course_code, [])
+                course_name = unassigned_class.replace(" (Tutorial)", "")
+                instructor = course_instructor_mapping.get(course_name)
+                groups = course_group_mapping.get(course_name, [])
 
                 conflict = False
                 for existing_cls, (p_day, p_time, p_room) in schedule.items():
@@ -103,18 +103,6 @@ def generate_timetable(app):
                         if idx < len(timeslots) - 1 and (day, timeslots[idx + 1]) in student_group_schedule.get(group, set()):
                             conflict = True
                             break
-                        if idx > 1 and (day, timeslots[idx - 2]) in student_group_schedule.get(group, set()):
-                            conflict = True
-                            break
-                        if idx < len(timeslots) - 2 and (day, timeslots[idx + 2]) in student_group_schedule.get(group, set()):
-                            conflict = True
-                            break
-                        if idx > 2 and (day, timeslots[idx - 3]) in student_group_schedule.get(group, set()):
-                            conflict = True
-                            break
-                     
-
-                        
 
                 if conflict:
                     continue
@@ -143,19 +131,19 @@ def generate_timetable(app):
         if solution:
             timetable = []
             for cls, (day, time, room) in solution.items():
-                course_code = cls.replace(" (Tutorial)", "")  # changed here
-                session_type = "Tutorial" if "Tutorial" in cls else "Lecture"
-                instructor = instructor_assignments.get(cls, "Unknown Instructor")
-                groups = course_group_mapping.get(course_code, [])
+                course_name = cls.replace(" (Tutorial)", "")
+                is_tutorial = "Tutorial" in cls
+                instructor = instructor_assignments.get(course_name, "Unknown")
+                groups = course_group_mapping.get(course_name, [])
 
                 timetable.append({
-                    "course_code": course_code,
-                    "session_type": session_type,
                     "day": day,
                     "time": time,
-                    "venue": room,
+                    "Course": cls,
+                    "is_tutorial": is_tutorial,
+                    "Venue": room,
                     "instructor": instructor,
-                    "groups":groups
+                    "groups": groups
                 })
 
                 day_order = {day: index for index, day in enumerate(days)}
@@ -163,7 +151,11 @@ def generate_timetable(app):
 
                 timetable.sort(key=lambda x: (day_order[x['day']], time_order[x['time']]))
 
+
+                with open('teaching_timetable/last_timetable.json', 'w') as json_file:
+                    json.dump(timetable, json_file)
+
             return timetable
-        
         else:
-            return None
+            raise Exception("No valid timetable could be generated.")
+

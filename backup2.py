@@ -32,7 +32,8 @@ def generate_timetable(app):
         days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
         start_time = datetime.strptime("07:30", "%H:%M")
         timeslots = [(start_time + timedelta(hours=2 * i)).strftime("%H:%M") + "-" +
-                     (start_time + timedelta(hours=2 * (i + 1))).strftime("%H:%M") for i in range(4)]
+             (start_time + timedelta(hours=2 * (i + 1))).strftime("%H:%M") for i in range(4)]
+
 
         # Include tutorial timeslots (1 hour slots in afternoon)
         tutorial_start = datetime.strptime("17:30", "%H:%M")
@@ -103,18 +104,6 @@ def generate_timetable(app):
                         if idx < len(timeslots) - 1 and (day, timeslots[idx + 1]) in student_group_schedule.get(group, set()):
                             conflict = True
                             break
-                        if idx > 1 and (day, timeslots[idx - 2]) in student_group_schedule.get(group, set()):
-                            conflict = True
-                            break
-                        if idx < len(timeslots) - 2 and (day, timeslots[idx + 2]) in student_group_schedule.get(group, set()):
-                            conflict = True
-                            break
-                        if idx > 2 and (day, timeslots[idx - 3]) in student_group_schedule.get(group, set()):
-                            conflict = True
-                            break
-                     
-
-                        
 
                 if conflict:
                     continue
