@@ -68,53 +68,6 @@ def index():
     return ""
 
 
-@app.route("/auth/registration", methods=["POST"])
-def create_user():
-    data = request.get_json()
-
-    # Validate required fields
-    required_fields = ["first_name", "last_name", "email", "password", "role", "phone_number"]
-    for field in required_fields:
-        if field not in data:
-            return jsonify({"error": f"{field} is required"}), 400
-
-    # Extract user data from request
-    first_name = data["first_name"]
-    middle_name = data.get("middle_name", "")  # Middle name is optional
-    last_name = data["last_name"]
-    phone_number = data["phone_number"]
-    email = data["email"]
-    password = data["password"]
-    role = data["role"]
-
-    # Check if the email already exists
-    if User.query.filter_by(email=email).first():
-        return jsonify({"error": "Email already exists"}), 400
-
-    # Create new user
-    new_user = User(
-        first_name=first_name,
-        middle_name=middle_name,
-        last_name=last_name,
-        phone_number=phone_number,
-        email=email,
-        role=Role(role),  # Convert string to Enum
-    )
-    new_user.set_password(password)
-
-    # Add user to database
-    db.session.add(new_user)
-    db.session.commit()
-
-    return jsonify({"message": "User created successfully!", "user": {
-        "id": new_user.id,
-        "first_name": new_user.first_name,
-        "last_name": new_user.last_name,
-        "email": new_user.email,
-        "role": new_user.role.name,
-    }}), 201
-
-
 @app.route("/auth/login", methods=["POST"])
 def login():
     data = request.get_json()
@@ -289,6 +242,45 @@ def add_Student():
         db.session.rollback()
         print(" Exception occurred:", str(e))
         return jsonify({'message': 'Error while adding Student', 'error': str(e)}), 500
+
+@app.route('/update_student_program', methods=['PUT'])
+def update_student_program():
+    try:
+        data = request.get_json()
+        print("JSON received for update:", data)
+
+        student_id = data.get('id')  # Get the student ID
+        programme = data.get('programme')
+        total_students = data.get('total_students')
+        coordinator_id = data.get('coordinator_id')
+
+        if not student_id:
+            print("Missing student ID for update")
+            return jsonify({'message': 'Student ID is required for update'}), 400
+
+        # Find the student program by ID
+        student_program = Students.query.get(student_id)
+        if not student_program:
+            print("Student Program not found")
+            return jsonify({'message': 'Student Program not found'}), 404
+
+        # Update fields if provided
+        if programme is not None:
+            student_program.programme = programme
+        if total_students is not None:
+            student_program.total_students = total_students
+        if coordinator_id is not None:
+            student_program.coordinator_id = coordinator_id
+
+        db.session.commit()
+        print("Student Program updated successfully")
+
+        return jsonify({'message': 'Student Program updated successfully'}), 200
+
+    except Exception as e:
+        db.session.rollback()
+        print("Exception occurred during update:", str(e))
+        return jsonify({'message': 'Error while updating Student Program', 'error': str(e)}), 500
 
 
 @app.route('/upload-students', methods=['POST'])
@@ -604,18 +596,35 @@ def get_course_matrix_view():
     return jsonify(data)
 
 
-# @app.route('/generate-timetable', methods=['POST'])
-# def generate_timetable_route():
-#     try:
-#         generate_timetable(app)
-#         return jsonify({"message": "Timetable generated successfully.", "status": "success"}), 200
-#     except Exception as e:
-#         return jsonify({"message": str(e), "status": "error"}), 500
+
+@app.route('/api/fetch-timetable-json', methods=['GET'])
+def fetch_timetable_json():
+    try:
+        filename = os.path.join('saved_files', 'timetable.json')
+
+        with open(filename, 'r') as f:
+            data = json.load(f)
+
+        return jsonify(data), 200
+
+    except Exception as e:
+        return jsonify({
+            "message": str(e),
+            "status": "error",
+            "data": []
+        }), 500
 
 @app.route('/api/generate-timetable', methods=['POST'])
 def generate_timetable_route():
     try:
+        data = request.get_json()
+
+        gaps = data.get('gaps')  
+        selected_semester = data.get('selected_semester')
+        tutorial_start_time = data.get('tutorial_start_time') 
+
         timetable = generate_timetable(app)
+
         return jsonify({
             "message": "Timetable generated successfully.",
             "status": "success",
@@ -627,8 +636,31 @@ def generate_timetable_route():
             "status": "error"
         }), 500
     
+@app.route('/api/save-timetable-json', methods=['POST'])
+def save_timetable_json():
+    try:
+        
+        data = request.get_json()
 
-    
+        
+        save_folder = 'saved_files'
+        os.makedirs(save_folder, exist_ok=True)
+        filename = os.path.join(save_folder, 'timetable.json')
+
+        with open(filename, 'w') as f:
+            json.dump(data, f, indent=4)
+
+        return jsonify({
+            "message": "Timetable saved successfully as JSON.",
+            "status": "success"
+        }), 200
+
+    except Exception as e:
+        return jsonify({
+            "message": str(e),
+            "status": "error"
+        }), 500
+
 @app.route('/generate_exam_timetable', methods=['GET'])
 def generate_exam_timetable_route():
     timetable = generate_exam_timetable()
@@ -642,7 +674,7 @@ def generate_exam_timetable_route():
 @app.route('/api/last-timetable', methods=['GET'])
 def get_last_timetable():
     try:
-        # Load the last generated timetable from the JSON file
+      
         with open('last_timetable.json', 'r') as json_file:
             timetable = json.load(json_file)
 

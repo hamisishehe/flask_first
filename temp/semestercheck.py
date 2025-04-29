@@ -3,31 +3,55 @@ from fpdf import FPDF
 from datetime import datetime, timedelta
 from models import db, Course, Students, Venue, Instructor, Course_matrix
 
-def generate_timetable(app):
+def generate_timetable(app, gaps, tutorial_start_time):
     with app.app_context(): 
 
         ## Step 1: Problem variables
-        
-        venue = {v.name: v.teaching_capacity for v in Venue.query.all()}
-        student_groups = {s.programme: int(s.total_students) for s in Students.query.all()}
+        print("Starting timetable generation...")
+
+        try:
+            venue = {v.name: v.teaching_capacity for v in Venue.query.all()}
+            print("Venue data loaded.")
+        except Exception as e:
+            print(f"Error loading venue data: {e}")
+            return None
+
+        try:
+            student_groups = {s.programme: int(s.total_students) for s in Students.query.all()}
+            print("Student group data loaded.")
+        except Exception as e:
+            print(f"Error loading student groups: {e}")
+            return None
 
         course_group_mapping = {}
-        matrix_entries = Course_matrix.query.all()
+        try:
+            matrix_entries = Course_matrix.query.all()
+            print("Course matrix data loaded.")
+        except Exception as e:
+            print(f"Error loading course matrix: {e}")
+            return None
+
         for entry in matrix_entries:
-            course_code = entry.course.course_code  # changed here
-            programme = entry.student.programme
-            course_group_mapping.setdefault(course_code, [])
-            if programme not in course_group_mapping[course_code]:
-                course_group_mapping[course_code].append(programme)
+            try:
+                course_code = entry.course.course_code  # changed here
+                programme = entry.student.programme
+                course_group_mapping.setdefault(course_code, [])
+                if programme not in course_group_mapping[course_code]:
+                    course_group_mapping[course_code].append(programme)
+            except Exception as e:
+                print(f"Error processing matrix entry: {e}")
 
         course_instructor_mapping = {}
         for entry in matrix_entries:
-            course_code = entry.course.course_code  # changed here
-            instructor = entry.instructor
-            full_name = f"{instructor.first_name} {instructor.middle_name + ' ' if instructor.middle_name else ''}{instructor.last_name or ''}".strip()
-            title = instructor.title or "Mr./Ms."
-            instructor_display = f"{title}. {full_name}"
-            course_instructor_mapping[course_code] = instructor_display
+            try:
+                course_code = entry.course.course_code  # changed here
+                instructor = entry.instructor
+                full_name = f"{instructor.first_name} {instructor.middle_name + ' ' if instructor.middle_name else ''}{instructor.last_name or ''}".strip()
+                title = instructor.title or "Mr./Ms."
+                instructor_display = f"{title}. {full_name}"
+                course_instructor_mapping[course_code] = instructor_display
+            except Exception as e:
+                print(f"Error processing instructor data: {e}")
 
         days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
         start_time = datetime.strptime("07:30", "%H:%M")
@@ -35,7 +59,7 @@ def generate_timetable(app):
                      (start_time + timedelta(hours=2 * (i + 1))).strftime("%H:%M") for i in range(4)]
 
         # Include tutorial timeslots (1 hour slots in afternoon)
-        tutorial_start = datetime.strptime("17:30", "%H:%M")
+        tutorial_start = datetime.strptime(tutorial_start_time, "%H:%M")
         tutorial_slots = [(tutorial_start + timedelta(hours=i)).strftime("%H:%M") + "-" +
                           (tutorial_start + timedelta(hours=i + 1)).strftime("%H:%M") for i in range(2)]
 
@@ -44,28 +68,32 @@ def generate_timetable(app):
         for cls, groups in course_group_mapping.items():
             try:
                 total_students = sum(student_groups[group] for group in groups)
-            except KeyError:
+            except KeyError as e:
+                print(f"KeyError in student_groups for class {cls}: {e}")
                 continue
 
-            valid_lecture_slots = [
-                (day, slot, room)
-                for day in days
-                for slot in timeslots
-                for room in venue
-                if venue[room] >= total_students
-            ]
-            if valid_lecture_slots:
-                lecture_domains[cls] = valid_lecture_slots
+            try:
+                valid_lecture_slots = [
+                    (day, slot, room)
+                    for day in days
+                    for slot in timeslots
+                    for room in venue
+                    if venue[room] >= total_students
+                ]
+                if valid_lecture_slots:
+                    lecture_domains[cls] = valid_lecture_slots
 
-            valid_tutorial_slots = [
-                (day, slot, room)
-                for day in days
-                for slot in tutorial_slots
-                for room in venue
-                if venue[room] >= total_students
-            ]
-            if valid_tutorial_slots:
-                tutorial_domains[cls + " (Tutorial)"] = valid_tutorial_slots
+                valid_tutorial_slots = [
+                    (day, slot, room)
+                    for day in days
+                    for slot in tutorial_slots
+                    for room in venue
+                    if venue[room] >= total_students
+                ]
+                if valid_tutorial_slots:
+                    tutorial_domains[cls + " (Tutorial)"] = valid_tutorial_slots
+            except Exception as e:
+                print(f"Error generating valid slots for {cls}: {e}")
 
         all_courses = list(lecture_domains.keys()) + list(tutorial_domains.keys())
 
@@ -97,24 +125,14 @@ def generate_timetable(app):
                     # Add rest gap for lecture sessions only
                     if "Tutorial" not in unassigned_class:
                         idx = timeslots.index(time) if time in timeslots else -1
-                        if idx > 0 and (day, timeslots[idx - 1]) in student_group_schedule.get(group, set()):
-                            conflict = True
-                            break
-                        if idx < len(timeslots) - 1 and (day, timeslots[idx + 1]) in student_group_schedule.get(group, set()):
-                            conflict = True
-                            break
-                        if idx > 1 and (day, timeslots[idx - 2]) in student_group_schedule.get(group, set()):
-                            conflict = True
-                            break
-                        if idx < len(timeslots) - 2 and (day, timeslots[idx + 2]) in student_group_schedule.get(group, set()):
-                            conflict = True
-                            break
-                        if idx > 2 and (day, timeslots[idx - 3]) in student_group_schedule.get(group, set()):
-                            conflict = True
-                            break
-                     
-
-                        
+                        if idx != -1:
+                            for gap in range(1, gaps + 1):
+                                if idx - gap >= 0 and (day, timeslots[idx - gap]) in student_group_schedule.get(group, set()):
+                                    conflict = True
+                                    break
+                                if idx + gap < len(timeslots) and (day, timeslots[idx + gap]) in student_group_schedule.get(group, set()):
+                                   conflict = True
+                                   break
 
                 if conflict:
                     continue
@@ -155,7 +173,7 @@ def generate_timetable(app):
                     "time": time,
                     "venue": room,
                     "instructor": instructor,
-                    "groups":groups
+                    "groups": groups
                 })
 
                 day_order = {day: index for index, day in enumerate(days)}
@@ -166,4 +184,5 @@ def generate_timetable(app):
             return timetable
         
         else:
+            print("No solution found.")
             return None
