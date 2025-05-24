@@ -20,7 +20,7 @@ def seed_users():
                 "last_name": "timetablemaster",
                 "phone_number": "0744982310",
                 "email": "timetablemaster@udom.co.tz",
-                "password": "password123",
+                "password": "Password123",
                 "role": Role.TIMETABLEMASTER
             },
             {
@@ -29,7 +29,7 @@ def seed_users():
                 "last_name": "coordinator",
                 "phone_number": "1234567890",
                 "email": "coordinator@udom.co.tz",
-                "password": "password123",
+                "password": "Password123",
                 "role": Role.COORDINATOR
             },
             {
@@ -38,7 +38,7 @@ def seed_users():
                 "last_name": "admin",
                 "phone_number": "0987654321",
                 "email": "admin@udom.co.tz",
-                "password": "securepass",
+                "password": "securepass123",
                 "role": Role.ADMIN
             }
         ]

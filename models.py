@@ -38,19 +38,20 @@ class CourseMatrixView(db.Model):
 
     course_matrix_id = db.Column(db.Integer, primary_key=True)
     course_id = db.Column(db.Integer)
-    course_name = db.Column(db.String)
-    course_code = db.Column(db.String)
+    course_name = db.Column(db.String(100))
+    course_code = db.Column(db.String(100))
     semester = db.Column(db.Integer)
 
     instructor_id = db.Column(db.Integer)
-    instructor_first_name = db.Column(db.String)
-    instructor_last_name = db.Column(db.String)
-    instructor_email = db.Column(db.String)
-    instructor_title = db.Column(db.String)
+    instructor_first_name = db.Column(db.String(100))
+    instructor_last_name = db.Column(db.String(100))
+    instructor_email = db.Column(db.String(100))
+    instructor_title = db.Column(db.String(100))
 
     student_id = db.Column(db.Integer)
-    programme = db.Column(db.String)
-    total_students = db.Column(db.String)
+    programme = db.Column(db.String(100))
+    programme_code = db.Column(db.String(100))
+    total_students = db.Column(db.String(100))
 
 class Course_matrix(db.Model):
     __tablename__ = 'course_matrix'
@@ -66,13 +67,18 @@ class Course_matrix(db.Model):
 
 
 class Course(db.Model):
+    __tablename__ = "course"
+    
+    
     id = db.Column(db.Integer, primary_key=True)
     course_name = db.Column(db.String(100), nullable=False)
     course_code = db.Column(db.String(10), nullable=False)
+    duration = db.Column(db.String(10), nullable=False)
     semester = db.Column(db.Integer, nullable=False)
     is_tutorial = db.Column(db.Boolean, nullable=False)
     is_lecture = db.Column(db.Boolean, nullable=False)
-    time_difference = db.Column(db.Integer, nullable=False)
+    is_practical = db.Column(db.Boolean, nullable=False)
+    
 
     coordinator_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)  # New FK to coordinator
 
@@ -86,7 +92,8 @@ class Course(db.Model):
 class Students(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     programme = db.Column(db.String(100), nullable=False)
-    total_students = db.Column(db.String(10), nullable=False)
+    programme_code = db.Column(db.String(100), nullable=False)
+    total_students = db.Column(db.String(10))
 
     coordinator_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
@@ -99,16 +106,51 @@ class Instructor(db.Model):
     first_name = db.Column(db.String(100), nullable=False)
     middle_name = db.Column(db.String(100), nullable=True)
     last_name = db.Column(db.String(100), nullable=True)
+    gender = db.Column(db.String(120), nullable=False)
     phone_number = db.Column(db.String(15), nullable=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     title = db.Column(db.String(120), nullable=False)
 
     coordinator_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    department_id = db.Column(db.Integer, db.ForeignKey('department.id'), nullable=False)
+    
 
     def __repr__(self):
         return f"<Instructor {self.first_name} {self.last_name}, Title {self.title}>"
 
+class Collage(db.Model):
+    __tablename__ = 'collage' 
 
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    short_name = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(100), nullable=False)
+
+    # One-to-many relationship
+    departments = db.relationship('Department', backref='collage', lazy=True)
+
+    def __repr__(self):
+        return f"<name {self.name}, description {self.description}>"
+
+class Department(db.Model):
+    __tablename__ = 'department'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    short_name = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(100), nullable=False)
+    
+  
+    collage_id = db.Column(db.Integer, db.ForeignKey('collage.id'), nullable=False)
+    
+    instructors = db.relationship('Instructor', backref='department', lazy=True)
+
+    def __repr__(self):
+        return f"<name {self.name}, description {self.description}>"
+    
+        
+    
+    
 class Venue(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
@@ -116,9 +158,6 @@ class Venue(db.Model):
     exam_capacity = db.Column(db.Integer, nullable=False)
     teaching_capacity = db.Column(db.Integer, nullable=False)
     type = db.Column(db.Enum(VenueType), nullable=False, default=VenueType.CLASS)
-
-    coordinator_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
     def __repr__(self):
         return f"<Venue {self.name}, Location {self.location}>"
 
@@ -146,7 +185,6 @@ class User(db.Model):
     # Relationships
     students = db.relationship('Students', backref='coordinator', lazy=True)
     instructors = db.relationship('Instructor', backref='coordinator', lazy=True)
-    venues = db.relationship('Venue', backref='coordinator', lazy=True)
     courses = db.relationship('Course', backref='coordinator', lazy=True)  # Added relationship
 
     def set_password(self, password):

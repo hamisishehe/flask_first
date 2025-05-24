@@ -6,7 +6,7 @@ from flask import Flask, json, request, jsonify, send_file ,send_from_directory,
 import jwt
 from flask import session 
 from exam_api import generate_exam_timetable
-from models import Role, User, db
+from models import Department, Role, User, VenueType, db
 import config
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
@@ -16,6 +16,7 @@ from models import Course
 from models import Course_matrix
 from models import CourseMatrixView
 from models import Venue
+from models import Collage
 from algorithm_api import generate_timetable
 
 
@@ -114,93 +115,202 @@ def get_profile(current_user):
     return jsonify(profile_data), 200
 
 
+@app.route('/add_collage', methods=['POST'])
+def add_collage():
+    data = request.get_json()
+    name = data.get('name')
+    short_name = data.get('short_name')
+
+    if not all([name, short_name]):
+        return jsonify({'error': 'All fields are required'}), 400
+
+    collage = Collage(name=name, short_name=short_name, description=short_name)
+    db.session.add(collage)
+    db.session.commit()
+
+    return jsonify({'message': 'Collage added successfully', 'collage_id': collage.id}), 201
+
+@app.route('/collages', methods=['GET'])
+def get_collages():
+    collages = Collage.query.all()
+    result = []
+
+    for collage in collages:
+        result.append({
+            'id': collage.id,
+            'name': collage.name,
+            'short_name': collage.short_name,
+            
+        })
+
+    return jsonify(result), 200
+
+
+@app.route('/add_venue', methods=['POST'])
+def add_venue():
+    data = request.get_json()
+
+    name = data.get('name')
+    location = data.get('location')
+    exam_capacity = data.get('exam_capacity')
+    teaching_capacity = data.get('teaching_capacity')
+    venue_type = data.get('type')
+
+    if not all([name, location, exam_capacity, teaching_capacity, venue_type]):
+        return jsonify({'error': 'All fields are required'}), 400
+
+    try:
+        venue_enum = VenueType[venue_type.upper()] 
+    except KeyError:
+        return jsonify({'error': 'Invalid venue type'}), 400
+
+    venue = Venue(
+        name=name,
+        location=location,
+        exam_capacity=int(exam_capacity),
+        teaching_capacity=int(teaching_capacity),
+        type=venue_enum
+    )
+    db.session.add(venue)
+    db.session.commit()
+
+    return jsonify({'message': 'Venue added successfully', 'venue_id': venue.id}), 201
+
+
+
 @app.route('/venues', methods=['GET'])
-def list_venues():
+def get_venues():
     venues = Venue.query.all()
-    venue_list = [{
-        "id": v.id,
-        "name": v.name,
-        "location": v.location,
-        "exam_capacity": v.exam_capacity,
-        "teaching_capacity": v.teaching_capacity,
-        "type": v.type.name,
-        "coordinator_id": v.coordinator_id
-    } for v in venues]
-    return jsonify(venue_list)
+    result = []
+
+    for venue in venues:
+        result.append({
+            'id': venue.id,
+            'name': venue.name,
+            'location': venue.location,
+            'exam_capacity': venue.exam_capacity,
+            'teaching_capacity': venue.teaching_capacity,
+            'type': venue.type.name  
+        })
+
+    return jsonify(result), 200
+
+@app.route('/add_departments', methods=['POST'])
+def add_department():
+    data = request.get_json()
+    try:
+        new_department = Department(
+            name=data['name'],
+            short_name=data['short_name'],
+            description=data['short_name'],
+            collage_id=data['collage_id']
+        )
+        db.session.add(new_department)
+        db.session.commit()
+        return jsonify({'message': 'Department added successfully'}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 400
+
+
+@app.route('/departments', methods=['GET'])
+def get_departments():
+    departments = Department.query.all()
+    result = []
+
+    for dept in departments:
+        result.append({
+            'id': dept.id,
+            'name': dept.name,
+            'short_name': dept.short_name,
+            'description': dept.description,
+            'collage': {
+                'id': dept.collage.id,
+                'name': dept.collage.name,
+                'short_name': dept.collage.short_name,
+                'description': dept.collage.description
+            }
+        })
+
+    return jsonify(result), 200
 
 
 @app.route('/add_instructor', methods=['POST'])
 def add_instructor():
-    try:
-        data = request.get_json()
-        print("✅ JSON received:", data)
+    data = request.get_json()
 
-        first_name = data.get('first_name')
-        middle_name = data.get('middle_name')
-        last_name = data.get('last_name')
-        phone_number = data.get('phone_number')
-        email = data.get('email')
-        title = data.get('title')
-        coordinator_id = data.get('coordinator_id')
+    first_name = data.get('first_name')
+    middle_name = data.get('middle_name')
+    last_name = data.get('last_name')
+    gender = data.get('gender')
+    phone_number = data.get('phone_number')
+    email = data.get('email')
+    title = data.get('title')
+    coordinator_id = data.get('coordinator_id')
+    department_id = data.get('department_id')
 
-        print("✅ Extracted values:")
-        print(first_name, middle_name, last_name, phone_number, email, title, coordinator_id)
+    if not all([first_name, gender, email, title, coordinator_id, department_id]):
+        return jsonify({'error': 'Missing required fields'}), 400
 
-        if not all([first_name, last_name, phone_number, email, title, coordinator_id]):
-            print("❌ Missing required fields")
-            return jsonify({'message': 'Missing required fields'}), 400
+    existing = Instructor.query.filter_by(email=email).first()
+    if existing:
+        return jsonify({'error': 'Instructor with this email already exists'}), 409
 
-        # Optional: check if email or title already exists
-        existing = Instructor.query.filter((Instructor.email == email)).first()
-        if existing:
-            print("❌ Instructor already exists")
-            return jsonify({'message': 'Instructor with this email or title already exists'}), 409
+    instructor = Instructor(
+        first_name=first_name,
+        middle_name=middle_name,
+        last_name=last_name,
+        gender=gender,
+        phone_number=phone_number,
+        email=email,
+        title=title,
+        coordinator_id=coordinator_id,
+        department_id=department_id
+    )
 
-        # ✅ Try saving
-        new_instructor = Instructor(
-            first_name=first_name,
-            middle_name=middle_name,
-            last_name=last_name,
-            phone_number=phone_number,
-            email=email,
-            title=title,
-            coordinator_id=coordinator_id
-        )
+    db.session.add(instructor)
+    db.session.commit()
 
-        db.session.add(new_instructor)
-        db.session.commit()
-        print("✅ Instructor saved")
+    return jsonify({'message': 'Instructor added successfully', 'instructor_id': instructor.id}), 201
 
-        return jsonify({'message': 'Instructor added successfully'}), 201
 
-    except Exception as e:
-        db.session.rollback()
-        print("🔥 Exception occurred:", str(e))
-        return jsonify({'message': 'Error while adding instructor', 'error': str(e)}), 500
+
 
 @app.route('/instructors', methods=['GET'])
-def get_instructors():
-    try:
-        instructors = Instructor.query.all()
-        result = []
+def get_instructors_full_info():
+    instructors = Instructor.query.join(Department).join(Collage).all()
+    result = []
 
-        for inst in instructors:
-            instructor_data = {
-                'id': inst.id,
-                'first_name': inst.first_name,
-                'middle_name': inst.middle_name,
-                'last_name': inst.last_name,
-                'email': inst.email,
-                'phone_number': inst.phone_number,
-                'title': inst.title,
+    for inst in instructors:
+        department = inst.department
+        collage = department.collage  # because of backref='collage'
+
+        result.append({
+            'id': inst.id,
+            'first_name': inst.first_name,
+            'middle_name': inst.middle_name,
+            'last_name': inst.last_name,
+            'gender': inst.gender,
+            'phone_number': inst.phone_number,
+            'email': inst.email,
+            'title': inst.title,
+            'coordinator_id': inst.coordinator_id,
+            'department': {
+                'id': department.id,
+                'name': department.name,
+                'short_name': department.short_name,
+                'description': department.description
+            },
+            'collage': {
+                'id': collage.id,
+                'name': collage.name,
+                'short_name': collage.short_name,
+                'description': collage.description
             }
-            result.append(instructor_data)
+        })
 
-        return jsonify(result), 200
+    return jsonify(result), 200
 
-    except Exception as e:
-        print("🔥 Error fetching instructors:", str(e))
-        return jsonify({'message': 'Error fetching instructors', 'error': str(e)}), 500
 
 
 @app.route('/add_student_program', methods=['POST'])
@@ -210,12 +320,12 @@ def add_Student():
         print(" JSON received:", data)
 
         programme = data.get('programme')
-        total_students = data.get('total_students')
+        programme_code = data.get('programme_code ')
         coordinator_id = data.get('coordinator_id')
 
       
 
-        if not all([programme, total_students,  coordinator_id]):
+        if not all([programme, programme_code,  coordinator_id]):
             print(" Missing required fields")
             return jsonify({'message': 'Missing required fields'}), 400
 
@@ -228,7 +338,7 @@ def add_Student():
         #  Try saving
         new_Student = Students(
             programme = programme,
-            total_students = total_students,
+            programme_code = programme_code,
             coordinator_id=coordinator_id
         )
 
