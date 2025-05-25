@@ -177,7 +177,6 @@ def add_venue():
     return jsonify({'message': 'Venue added successfully', 'venue_id': venue.id}), 201
 
 
-
 @app.route('/venues', methods=['GET'])
 def get_venues():
     venues = Venue.query.all()
@@ -194,6 +193,40 @@ def get_venues():
         })
 
     return jsonify(result), 200
+
+
+@app.route('/update_venue/<int:venue_id>', methods=['PUT'])
+def update_venue(venue_id):
+    data = request.get_json()
+
+    name = data.get('name')
+    location = data.get('location')
+    exam_capacity = data.get('exam_capacity')
+    teaching_capacity = data.get('teaching_capacity')
+    venue_type = data.get('type')
+
+    if not all([name, location, exam_capacity, teaching_capacity, venue_type]):
+        return jsonify({'error': 'All fields are required'}), 400
+
+    venue = Venue.query.get(venue_id)
+    if not venue:
+        return jsonify({'error': 'Venue not found'}), 404
+
+    try:
+        venue_enum = VenueType[venue_type.upper()] 
+    except KeyError:
+        return jsonify({'error': 'Invalid venue type'}), 400
+
+    venue.name = name
+    venue.location = location
+    venue.exam_capacity = int(exam_capacity)
+    venue.teaching_capacity = int(teaching_capacity)
+    venue.type = venue_enum
+
+    db.session.commit()
+
+    return jsonify({'message': 'Venue updated successfully'})
+
 
 @app.route('/add_departments', methods=['POST'])
 def add_department():
@@ -248,6 +281,8 @@ def add_instructor():
     title = data.get('title')
     coordinator_id = data.get('coordinator_id')
     department_id = data.get('department_id')
+    
+     
 
     if not all([first_name, gender, email, title, coordinator_id, department_id]):
         return jsonify({'error': 'Missing required fields'}), 400
@@ -778,9 +813,7 @@ def generate_exam_timetable_route():
         return jsonify(timetable)  # Return the timetable as a sorted list of dictionaries
     else:
         return jsonify({"error": "Could not generate timetable"}), 500  # Return error if no timetable generated
-    
-
-    
+        
 @app.route('/api/last-timetable', methods=['GET'])
 def get_last_timetable():
     try:
@@ -803,10 +836,90 @@ def get_last_timetable():
 def download_timetable():
     return send_file("static/timetable.pdf", as_attachment=True)
 
+# ADD USERS
+@app.route('/add_user', methods=['POST'])
+def create_user():
+    data = request.get_json()
+    if not data:
+        return jsonify({'error': 'No input data provided'}), 400
 
+    try:
+        user = User(
+            first_name=data['first_name'],
+            middle_name=data.get('middle_name'),
+            last_name=data['last_name'],
+            phone_number=data['phone_number'],
+            email=data['email'],
+            department=data.get('department'),
+            role=Role[data.get('role', 'COORDINATOR').upper()]
+        )
+        user.set_password(data['first_name'])
+        db.session.add(user)
+        db.session.commit()
+        return jsonify({'message': 'User created successfully', 'id': user.id}), 201
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
+# READ All Users
+@app.route('/view_users', methods=['GET'])
+def get_users():
+    users = User.query.all()
+    return jsonify([{
+        'id': u.id,
+        'first_name': u.first_name,
+        'middle_name': u.middle_name,
+        'last_name': u.last_name,
+        'phone_number': u.phone_number,
+        'email': u.email,
+        'department': u.department,
+        'role': u.role.name
+    } for u in users]), 200
 
+# READ Single User by ID
+@app.route('/users/<int:user_id>', methods=['GET'])
+def get_user(user_id):
+    user = User.query.get_or_404(user_id)
+    return jsonify({
+        'id': user.id,
+        'first_name': user.first_name,
+        'middle_name': user.middle_name,
+        'last_name': user.last_name,
+        'phone_number': user.phone_number,
+        'email': user.email,
+        'department': user.department,
+        'role': user.role.name
+    }), 200
 
+# UPDATE User
+@app.route('/users/<int:user_id>', methods=['PUT'])
+def update_user(user_id):
+    user = User.query.get_or_404(user_id)
+    data = request.get_json()
+
+    try:
+        user.first_name = data.get('first_name', user.first_name)
+        user.middle_name = data.get('middle_name', user.middle_name)
+        user.last_name = data.get('last_name', user.last_name)
+        user.phone_number = data.get('phone_number', user.phone_number)
+        user.email = data.get('email', user.email)
+        user.department = data.get('department', user.department)
+        if 'role' in data:
+            user.role = Role[data['role'].upper()]
+        if 'password' in data:
+            user.set_password(data['password'])
+
+        db.session.commit()
+        return jsonify({'message': 'User updated successfully'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# DELETE User
+@app.route('/users/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    user = User.query.get_or_404(user_id)
+    db.session.delete(user)
+    db.session.commit()
+    return jsonify({'message': 'User deleted successfully'}), 200
 
 if __name__ == "__main__":
     app.run(debug=True)
