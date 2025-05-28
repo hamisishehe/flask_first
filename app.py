@@ -510,23 +510,26 @@ def get_students():
         return jsonify({"message": "Error fetching Students", "error": str(e)}), 500
 
 
-@app.route("/update_student_program/<int:student_id>", methods=["PATCH"])
+@app.route("/update_student_program/<int:student_id>", methods=["PUT"])
 def update_student(student_id):
     try:
         data = request.get_json()
-        print(f"Update request for student ID {student_id}: {data}")
+        
+        
+        programme = data.get("programme")
+        programme_code = data.get("programme_code")
+        total_students = data.get("total_students")
+     
 
         student = Students.query.get(student_id)
         if not student:
             return jsonify({"message": "Student not found"}), 404
 
         # Update fields if provided
-        if "programme" in data:
-            student.programme = data["programme"]
-        if "programme_code" in data:
-            student.programme_code = data["programme_code"]
-        if "total_students" in data:
-            student.total_students = data["total_students"]
+       
+        student.programme = programme
+        student.programme_code =programme_code
+        student.total_students =total_students
 
         db.session.commit()
         return jsonify({"message": "Student program updated successfully"}), 200
@@ -645,6 +648,7 @@ def assign_Course():
         instructor_id = data.get("instructor_id")
         course_id = data.get("course_id")
         student_ids = data.get("student_id")
+        program_group= data.get("program_group")
 
         if not all([course_id, instructor_id, student_ids]):
             print("Missing required fields")
@@ -674,6 +678,7 @@ def assign_Course():
                 instructor_id=instructor_id,
                 course_id=course_id,
                 student_id=student_id,
+                program_group = program_group
             )
             db.session.add(new_assign_course)
             assigned.append(student_id)
@@ -709,6 +714,11 @@ def get_course_matrix_view():
     for row in results:
         item = {
             "course_matrix_id": row.course_matrix_id,
+            
+            "course_matrix": {
+                "program_group": row.program_group
+            },
+            
             "course": {
                 "id": row.course_id,
                 "name": row.course_name,
@@ -717,13 +727,14 @@ def get_course_matrix_view():
             },
             "instructor": {
                 "id": row.instructor_id,
-                "name": f"{row.instructor_first_name} {row.instructor_last_name}",
+                "name": f"{row.instructor_first_name or ''} {row.instructor_last_name or ''}".strip(),
                 "email": row.instructor_email,
                 "title": row.instructor_title,
             },
             "student": {
                 "id": row.student_id,
                 "programme": row.programme,
+                "programme_code": row.programme_code,
                 "total_students": row.total_students,
             },
         }

@@ -38,6 +38,8 @@ class CourseMatrixView(db.Model):
     __table_args__ = {"extend_existing": True}
 
     course_matrix_id = db.Column(db.Integer, primary_key=True)
+    program_group = db.Column(db.String(100))
+    
     course_id = db.Column(db.Integer)
     course_name = db.Column(db.String(100))
     course_code = db.Column(db.String(100))
@@ -62,6 +64,7 @@ class Course_matrix(db.Model):
     instructor_id = db.Column(db.Integer, db.ForeignKey("instructor.id"))
     course_id = db.Column(db.Integer, db.ForeignKey("course.id"))
     student_id = db.Column(db.Integer, db.ForeignKey("students.id"))
+    program_group = db.Column(db.String(100))
 
     instructor = db.relationship("Instructor", backref="course_matrices")
     course = db.relationship("Course", backref="course_matrices")
@@ -131,6 +134,18 @@ class Instructor(db.Model):
         return f"<Instructor {self.first_name} {self.last_name}, Title {self.title}>"
 
 
+class Venue(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    location = db.Column(db.String(100), nullable=False)
+    exam_capacity = db.Column(db.Integer, nullable=False)
+    teaching_capacity = db.Column(db.Integer, nullable=False)
+    type = db.Column(db.Enum(VenueType), nullable=False, default=VenueType.CLASS)
+
+    def __repr__(self):
+        return f"<Venue {self.name}, Location {self.location}>"
+
+
 class Collage(db.Model):
     __tablename__ = "collage"
 
@@ -163,17 +178,6 @@ class Department(db.Model):
     def __repr__(self):
         return f"<name {self.name}, description {self.description}>"
 
-
-class Venue(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    location = db.Column(db.String(100), nullable=False)
-    exam_capacity = db.Column(db.Integer, nullable=False)
-    teaching_capacity = db.Column(db.Integer, nullable=False)
-    type = db.Column(db.Enum(VenueType), nullable=False, default=VenueType.CLASS)
-
-    def __repr__(self):
-        return f"<Venue {self.name}, Location {self.location}>"
 
 
 class ScheduledClass(db.Model):
