@@ -762,11 +762,10 @@ def generate_timetable_route():
     try:
         data = request.get_json()
 
-        gaps = data.get("gaps")
-        selected_semester = data.get("selected_semester")
-        tutorial_start_time = data.get("tutorial_start_time")
-
-        timetable = generate_timetable(app)
+        start_time = data.get("start_time")
+        semester = int(data.get("semester"))
+   
+        timetable = generate_timetable(app,semester,start_time)
 
         return (
             jsonify(

@@ -1,0 +1,327 @@
+[
+    {
+        "course_code": "Discrete M",
+        "course_name": "TN 111",
+        "day": "Monday",
+        "groups": [
+            "Health Information System",
+            "Computer Networks and Information Security  Engineering",
+            "Computer Science",
+            "Software Engineering",
+            "Multimedia Technology and Animation",
+            "Computer Engineering",
+            "Business Information System",
+            "Cyber Security and Digital Forensics  Engineering "
+        ],
+        "instructor": "Mr.. Nasolwa Edson Edson",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "Developmen",
+        "course_name": "DS 102",
+        "day": "Monday",
+        "groups": [
+            "Instructional Design and Information  Technology ",
+            "Computer Engineering",
+            "Software Engineering",
+            "Business Information System",
+            "Health Information System",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Computer Science",
+            "Computer Networks and Information Security  Engineering",
+            "Multimedia Technology and Animation"
+        ],
+        "instructor": "Dr.. Lucian Ngeze Ngeze",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "Discrete M",
+        "course_name": "TN 111",
+        "day": "Monday",
+        "groups": [
+            "Health Information System",
+            "Computer Networks and Information Security  Engineering",
+            "Computer Science",
+            "Software Engineering",
+            "Multimedia Technology and Animation",
+            "Computer Engineering",
+            "Business Information System",
+            "Cyber Security and Digital Forensics  Engineering "
+        ],
+        "instructor": "Mr.. Nasolwa Edson Edson",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "Developmen",
+        "course_name": "DS 102",
+        "day": "Monday",
+        "groups": [
+            "Instructional Design and Information  Technology ",
+            "Computer Engineering",
+            "Software Engineering",
+            "Business Information System",
+            "Health Information System",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Computer Science",
+            "Computer Networks and Information Security  Engineering",
+            "Multimedia Technology and Animation"
+        ],
+        "instructor": "Dr.. Lucian Ngeze Ngeze",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "Discrete M",
+        "course_name": "TN 111",
+        "day": "Monday",
+        "groups": [
+            "Health Information System",
+            "Computer Networks and Information Security  Engineering",
+            "Computer Science",
+            "Software Engineering",
+            "Multimedia Technology and Animation",
+            "Computer Engineering",
+            "Business Information System",
+            "Cyber Security and Digital Forensics  Engineering "
+        ],
+        "instructor": "Mr.. Nasolwa Edson Edson",
+        "semester": 1,
+        "session_type": "Practical",
+        "time": "15:30-17:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "Developmen",
+        "course_name": "DS 102",
+        "day": "Monday",
+        "groups": [
+            "Instructional Design and Information  Technology ",
+            "Computer Engineering",
+            "Software Engineering",
+            "Business Information System",
+            "Health Information System",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Computer Science",
+            "Computer Networks and Information Security  Engineering",
+            "Multimedia Technology and Animation"
+        ],
+        "instructor": "Dr.. Lucian Ngeze Ngeze",
+        "semester": 1,
+        "session_type": "Practical",
+        "time": "17:30-19:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "ICT Entrep",
+        "course_name": "EME 314",
+        "day": "Tuesday",
+        "groups": [
+            "Multimedia Technology and Animation",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Business Information System",
+            "Computer Networks and Information Security  Engineering",
+            "Instructional Design and Information  Technology ",
+            "Computer Engineering"
+        ],
+        "instructor": "Dr.. Gilbert Gilbert Gilbert",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "Mathematic",
+        "course_name": "IA 112",
+        "day": "Tuesday",
+        "groups": [
+            "Computer Science",
+            "Software Engineering"
+        ],
+        "instructor": "Mr.. Nasolwa Edson Edson",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "Communicat",
+        "course_name": "LG 102",
+        "day": "Tuesday",
+        "groups": [
+            "Software Engineering",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Computer Networks and Information Security  Engineering",
+            "Health Information System",
+            "Multimedia Technology and Animation",
+            "Business Information System",
+            "Computer Engineering",
+            "Instructional Design and Information  Technology "
+        ],
+        "instructor": "Dr. Andwele Mwakasege Mwakasege",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "ICT Entrep",
+        "course_name": "EME 314",
+        "day": "Tuesday",
+        "groups": [
+            "Multimedia Technology and Animation",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Business Information System",
+            "Computer Networks and Information Security  Engineering",
+            "Instructional Design and Information  Technology ",
+            "Computer Engineering"
+        ],
+        "instructor": "Dr.. Gilbert Gilbert Gilbert",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "Mathematic",
+        "course_name": "IA 112",
+        "day": "Tuesday",
+        "groups": [
+            "Computer Science",
+            "Software Engineering"
+        ],
+        "instructor": "Mr.. Nasolwa Edson Edson",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "Communicat",
+        "course_name": "LG 102",
+        "day": "Tuesday",
+        "groups": [
+            "Software Engineering",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Computer Networks and Information Security  Engineering",
+            "Health Information System",
+            "Multimedia Technology and Animation",
+            "Business Information System",
+            "Computer Engineering",
+            "Instructional Design and Information  Technology "
+        ],
+        "instructor": "Dr. Andwele Mwakasege Mwakasege",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "Communicat",
+        "course_name": "LG 102",
+        "day": "Tuesday",
+        "groups": [
+            "Software Engineering",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Computer Networks and Information Security  Engineering",
+            "Health Information System",
+            "Multimedia Technology and Animation",
+            "Business Information System",
+            "Computer Engineering",
+            "Instructional Design and Information  Technology "
+        ],
+        "instructor": "Dr. Andwele Mwakasege Mwakasege",
+        "semester": 1,
+        "session_type": "Practical",
+        "time": "15:30-17:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "CP 555",
+        "course_name": "Development PerspectGGGGGGGGGGGGGGG",
+        "day": "Wednesday",
+        "groups": [
+            "Business Information System"
+        ],
+        "instructor": "Ms.. Mevis Steven Steven",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "CP 666",
+        "course_name": "GGGGGG GGGGGGGGGGGGGGG",
+        "day": "Wednesday",
+        "groups": [
+            "Software Engineering"
+        ],
+        "instructor": "Dr. Christina Murro",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "LRB 106"
+    },
+    {
+        "course_code": "Principles",
+        "course_name": "MG 111",
+        "day": "Wednesday",
+        "groups": [
+            "Business Information System"
+        ],
+        "instructor": "Mr. Chande Kasita",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "CP 555",
+        "course_name": "Development PerspectGGGGGGGGGGGGGGG",
+        "day": "Wednesday",
+        "groups": [
+            "Business Information System"
+        ],
+        "instructor": "Ms.. Mevis Steven Steven",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "CP 666",
+        "course_name": "GGGGGG GGGGGGGGGGGGGGG",
+        "day": "Wednesday",
+        "groups": [
+            "Software Engineering"
+        ],
+        "instructor": "Dr. Christina Murro",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "LRB 106"
+    },
+    {
+        "course_code": "Principles",
+        "course_name": "MG 111",
+        "day": "Wednesday",
+        "groups": [
+            "Business Information System"
+        ],
+        "instructor": "Mr. Chande Kasita",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "LRB 105"
+    }
+]

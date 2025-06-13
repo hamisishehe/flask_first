@@ -1,9 +1,0 @@
-{
-    "data": {
-        "data": null,
-        "message": "No valid timetable could be generated.",
-        "status": "fail"
-    },
-    "message": "Timetable generated successfully.",
-    "status": "success"
-}

@@ -1,0 +1,110 @@
+[
+    {
+        "course_code": "Developmen",
+        "course_name": "DS 102",
+        "actual_date": "2023-04-30",
+        "time": "08:00-11:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "Multimedia Technology and Animation",
+            "Computer Engineering",
+            "Software Engineering",
+            "Instructional Design and Information  Technology ",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Computer Networks and Information Security  Engineering",
+            "Computer Science",
+            "Health Information System",
+            "Business Information System"
+        ]
+    },
+    {
+        "course_code": "Communicat",
+        "course_name": "LG 102",
+        "actual_date": "2023-04-30",
+        "time": "11:30-13:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "Multimedia Technology and Animation",
+            "Instructional Design and Information  Technology ",
+            "Computer Networks and Information Security  Engineering",
+            "Business Information System",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Software Engineering",
+            "Health Information System",
+            "Computer Engineering"
+        ]
+    },
+    {
+        "course_code": "Discrete M",
+        "course_name": "TN 111",
+        "actual_date": "2023-04-30",
+        "time": "14:00-17:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "Multimedia Technology and Animation",
+            "Computer Engineering",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Health Information System",
+            "Computer Networks and Information Security  Engineering",
+            "Software Engineering",
+            "Business Information System",
+            "Computer Science"
+        ]
+    },
+    {
+        "course_code": "Mathematic",
+        "course_name": "IA 112",
+        "actual_date": "2023-05-01",
+        "time": "08:00-11:00",
+        "venue": "LRB 105",
+        "groups": [
+            "Software Engineering",
+            "Computer Science"
+        ]
+    },
+    {
+        "course_code": "CP 555",
+        "course_name": "Development PerspectGGGGGGGGGGGGGGG",
+        "actual_date": "2023-05-01",
+        "time": "08:00-11:00",
+        "venue": "LRB 106",
+        "groups": [
+            "Business Information System"
+        ]
+    },
+    {
+        "course_code": "ICT Entrep",
+        "course_name": "EME 314",
+        "actual_date": "2023-05-01",
+        "time": "11:30-13:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "Computer Engineering",
+            "Instructional Design and Information  Technology ",
+            "Business Information System",
+            "Cyber Security and Digital Forensics  Engineering ",
+            "Multimedia Technology and Animation",
+            "Computer Networks and Information Security  Engineering"
+        ]
+    },
+    {
+        "course_code": "CP 666",
+        "course_name": "GGGGGG GGGGGGGGGGGGGGG",
+        "actual_date": "2023-05-01",
+        "time": "11:30-13:00",
+        "venue": "LRB 105",
+        "groups": [
+            "Software Engineering"
+        ]
+    },
+    {
+        "course_code": "Principles",
+        "course_name": "MG 111",
+        "actual_date": "2023-05-01",
+        "time": "14:00-17:00",
+        "venue": "LRB 105",
+        "groups": [
+            "Business Information System"
+        ]
+    }
+]
