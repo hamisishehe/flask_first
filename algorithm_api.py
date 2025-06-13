@@ -11,6 +11,7 @@ def generate_timetable(app, semester, s_start_time):
     and no conflicts in instructor, room, or student group assignments, with rest gaps for lectures. Saves the 
     timetable to a JSON file named timetable_semester_{semester}.json.
     
+    gg
     Args:
         app: Flask application instance for database context.
         semester: Integer (1 or 2) to filter courses by semester.
