@@ -743,6 +743,11 @@ def get_course_matrix_view():
     return jsonify(data)
 
 
+
+@app.route('/timetable_semester_<int:semester>.json')
+def serve_timetable(semester):
+    return send_from_directory('.', f'timetable_semester_{semester}.json')
+
 @app.route("/api/fetch-timetable-json", methods=["GET"])
 def fetch_timetable_json():
     try:
@@ -756,6 +761,18 @@ def fetch_timetable_json():
     except Exception as e:
         return jsonify({"message": str(e), "status": "error", "data": []}), 500
 
+
+@app.route("/api/update-timetable-json", methods=["POST"])
+def update_timetable_json():
+    try:
+        data = request.get_json()
+        filename = os.path.join("saved_files", "timetable.json")
+        with open(filename, "w") as f:
+            json.dump(data, f, indent=2)
+        return jsonify({"message": "Timetable updated successfully", "status": "success"}), 200
+    except Exception as e:
+        return jsonify({"message": str(e), "status": "error"}), 500
+    
 
 @app.route("/api/generate-timetable", methods=["POST"])
 def generate_timetable_route():
