@@ -20,9 +20,8 @@ from models import Collage
 from algorithm_api import generate_timetable
 from flask_migrate import Migrate
 
-
 app = Flask(__name__)
-app.config.from_object(config)
+app.config.from_object(config.current_config)
 
 
 app.config["SECRET_KEY"] = "your-secret-key"
