@@ -1,161 +1,273 @@
 [
     {
-        "course_code": "Discrete M",
-        "course_name": "TN 111",
+        "course_code": "BT 413",
+        "course_name": "ICT Project Management",
         "day": "Monday",
         "groups": [
-            "Computer Engineering",
-            "Multimedia Technology and Animation",
-            "Cyber Security and Digital Forensics  Engineering ",
-            "Software Engineering",
-            "Computer Science",
-            "Business Information System",
-            "Health Information System",
-            "Computer Networks and Information Security  Engineering"
+            "IDIT3",
+            "SE4",
+            "CS3",
+            "CSDFE4",
+            "BIS3",
+            "HIS3",
+            "CNISE4"
         ],
-        "instructor": "Mr.. Nasolwa Edson Edson",
+        "instructor": "Dr. Majuto Manyilizu",
         "semester": 1,
         "session_type": "Lecture",
         "time": "07:30-09:30",
         "venue": "Auditoriam"
     },
     {
-        "course_code": "ICT Entrep",
-        "course_name": "EME 314",
+        "course_code": "CN 211",
+        "course_name": "Computer Networking Protocols",
         "day": "Monday",
         "groups": [
-            "Computer Engineering",
-            "Business Information System",
-            "Instructional Design and Information  Technology ",
-            "Multimedia Technology and Animation",
-            "Cyber Security and Digital Forensics  Engineering ",
-            "Computer Networks and Information Security  Engineering"
+            "CS2",
+            "SE2",
+            "CSDFE2",
+            "CE2",
+            "CNISE2"
         ],
-        "instructor": "Dr.. Gilbert Gilbert Gilbert",
+        "instructor": "Dr. Daniel Ngondya",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "CT 413",
+        "course_name": "Operating Systems Internals",
+        "day": "Monday",
+        "groups": [
+            "CE4"
+        ],
+        "instructor": "Dr. Mustafa Mohsin",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "DS 102",
+        "course_name": "Development Perspectives",
+        "day": "Monday",
+        "groups": [
+            "HIS1",
+            "SE1",
+            "CS1",
+            "IDIT1",
+            "CSDFE1",
+            "BIS1",
+            "CNISE1",
+            "MTA1",
+            "CE1"
+        ],
+        "instructor": "Dr.. Lucian Ngeze Ngeze",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "09:30-11:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "SI 311",
+        "course_name": "Professional Ethics and Conduct",
+        "day": "Monday",
+        "groups": [
+            "IDIT3",
+            "CSDFE4",
+            "BIS3",
+            "CNISE4",
+            "CE4",
+            "CS3",
+            "SE4",
+            "MTA3"
+        ],
+        "instructor": "Mr.. Hamis Fereji hamis",
         "semester": 1,
         "session_type": "Lecture",
         "time": "11:30-13:00",
         "venue": "Auditoriam"
     },
     {
-        "course_code": "Mathematic",
-        "course_name": "IA 112",
+        "course_code": "CP 211",
+        "course_name": "Introduction To Linux/Unix Systems",
         "day": "Monday",
         "groups": [
-            "Software Engineering",
-            "Computer Science"
+            "CS2",
+            "SE2",
+            "CNISE2",
+            "CSDFE2",
+            "HIS2"
         ],
-        "instructor": "Mr.. Nasolwa Edson Edson",
+        "instructor": "Mr. justin woiso justin",
         "semester": 1,
         "session_type": "Lecture",
         "time": "11:30-13:00",
-        "venue": "LRB 105"
+        "venue": "FL 2"
     },
     {
-        "course_code": "Discrete M",
-        "course_name": "TN 111",
+        "course_code": "BT 413",
+        "course_name": "ICT Project Management",
         "day": "Monday",
         "groups": [
-            "Computer Engineering",
-            "Multimedia Technology and Animation",
-            "Cyber Security and Digital Forensics  Engineering ",
-            "Software Engineering",
-            "Computer Science",
-            "Business Information System",
-            "Health Information System",
-            "Computer Networks and Information Security  Engineering"
+            "IDIT3",
+            "SE4",
+            "CS3",
+            "CSDFE4",
+            "BIS3",
+            "HIS3",
+            "CNISE4"
         ],
-        "instructor": "Mr.. Nasolwa Edson Edson",
+        "instructor": "Dr. Majuto Manyilizu",
         "semester": 1,
         "session_type": "Tutorial",
         "time": "17:30-18:30",
         "venue": "Auditoriam"
     },
     {
-        "course_code": "ICT Entrep",
-        "course_name": "EME 314",
+        "course_code": "TN 112",
+        "course_name": "Linear Algebra for ICT",
         "day": "Monday",
         "groups": [
-            "Computer Engineering",
-            "Business Information System",
-            "Instructional Design and Information  Technology ",
-            "Multimedia Technology and Animation",
-            "Cyber Security and Digital Forensics  Engineering ",
-            "Computer Networks and Information Security  Engineering"
+            "CNISE1",
+            "CS1",
+            "CE1",
+            "CSDFE1",
+            "SE1"
         ],
-        "instructor": "Dr.. Gilbert Gilbert Gilbert",
+        "instructor": "Mr. Pascal Charles Charles",
         "semester": 1,
         "session_type": "Tutorial",
-        "time": "18:30-19:30",
-        "venue": "Auditoriam"
+        "time": "17:30-18:30",
+        "venue": "FL 2"
     },
     {
-        "course_code": "Mathematic",
-        "course_name": "IA 112",
+        "course_code": "CP 213",
+        "course_name": "Data Structures and Algorithms Analysis",
         "day": "Monday",
         "groups": [
-            "Software Engineering",
-            "Computer Science"
+            "SE2",
+            "CS2",
+            "CE2"
         ],
-        "instructor": "Mr.. Nasolwa Edson Edson",
+        "instructor": "Mr.. Isaac Mahenge Isaac",
         "semester": 1,
         "session_type": "Tutorial",
-        "time": "18:30-19:30",
+        "time": "17:30-18:30",
         "venue": "LRB 105"
     },
     {
-        "course_code": "Discrete M",
-        "course_name": "TN 111",
+        "course_code": "CT 413",
+        "course_name": "Operating Systems Internals",
         "day": "Monday",
         "groups": [
-            "Computer Engineering",
-            "Multimedia Technology and Animation",
-            "Cyber Security and Digital Forensics  Engineering ",
-            "Software Engineering",
-            "Computer Science",
-            "Business Information System",
-            "Health Information System",
-            "Computer Networks and Information Security  Engineering"
+            "CE4"
         ],
-        "instructor": "Mr.. Nasolwa Edson Edson",
+        "instructor": "Dr. Mustafa Mohsin",
         "semester": 1,
-        "session_type": "Practical",
-        "time": "15:30-17:30",
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "LRB 106"
+    },
+    {
+        "course_code": "SI 311",
+        "course_name": "Professional Ethics and Conduct",
+        "day": "Monday",
+        "groups": [
+            "IDIT3",
+            "CSDFE4",
+            "BIS3",
+            "CNISE4",
+            "CE4",
+            "CS3",
+            "SE4",
+            "MTA3"
+        ],
+        "instructor": "Mr.. Hamis Fereji hamis",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
         "venue": "Auditoriam"
     },
     {
-        "course_code": "Communicat",
-        "course_name": "LG 102",
+        "course_code": "IT 111",
+        "course_name": "Introduction to Information Technology",
         "day": "Monday",
         "groups": [
-            "Multimedia Technology and Animation",
-            "Cyber Security and Digital Forensics  Engineering ",
-            "Computer Engineering",
-            "Instructional Design and Information  Technology ",
-            "Business Information System",
-            "Health Information System",
-            "Computer Networks and Information Security  Engineering",
-            "Software Engineering"
+            "CS1",
+            "CNISE1",
+            "SE1",
+            "CSDFE1",
+            "CE1"
         ],
-        "instructor": "Dr. Andwele Mwakasege Mwakasege",
+        "instructor": "Mr.. Isaac Mahenge Isaac",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "CN 211",
+        "course_name": "Computer Networking Protocols",
+        "day": "Monday",
+        "groups": [
+            "CS2",
+            "SE2",
+            "CSDFE2",
+            "CE2",
+            "CNISE2"
+        ],
+        "instructor": "Dr. Daniel Ngondya",
+        "semester": 1,
+        "session_type": "Practical",
+        "time": "15:30-17:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "CT 411",
+        "course_name": "Embedded Systems I",
+        "day": "Monday",
+        "groups": [
+            "CE4"
+        ],
+        "instructor": "Dr.. Rukia Mwifunyi mwifunyi",
+        "semester": 1,
+        "session_type": "Practical",
+        "time": "15:30-17:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "CP 211",
+        "course_name": "Introduction To Linux/Unix Systems",
+        "day": "Monday",
+        "groups": [
+            "CS2",
+            "SE2",
+            "CNISE2",
+            "CSDFE2",
+            "HIS2"
+        ],
+        "instructor": "Mr. justin woiso justin",
         "semester": 1,
         "session_type": "Practical",
         "time": "17:30-19:30",
-        "venue": "Auditoriam"
+        "venue": "FL 2"
     },
     {
-        "course_code": "Communicat",
-        "course_name": "LG 102",
+        "course_code": "LG 102",
+        "course_name": "Communication Skills",
         "day": "Tuesday",
         "groups": [
-            "Multimedia Technology and Animation",
-            "Cyber Security and Digital Forensics  Engineering ",
-            "Computer Engineering",
-            "Instructional Design and Information  Technology ",
-            "Business Information System",
-            "Health Information System",
-            "Computer Networks and Information Security  Engineering",
-            "Software Engineering"
+            "CSDFE1",
+            "CS1",
+            "HIS1",
+            "IDIT1",
+            "CE1",
+            "CNISE1",
+            "BIS1",
+            "SE1",
+            "MTA1"
         ],
         "instructor": "Dr. Andwele Mwakasege Mwakasege",
         "semester": 1,
@@ -164,161 +276,745 @@
         "venue": "Auditoriam"
     },
     {
-        "course_code": "Developmen",
-        "course_name": "DS 102",
+        "course_code": "IM 411",
+        "course_name": "Human-Computer Interaction",
         "day": "Tuesday",
         "groups": [
-            "Business Information System",
-            "Computer Networks and Information Security  Engineering",
-            "Software Engineering",
-            "Cyber Security and Digital Forensics  Engineering ",
-            "Computer Science",
-            "Health Information System",
-            "Instructional Design and Information  Technology ",
-            "Computer Engineering",
-            "Multimedia Technology and Animation"
+            "CNISE4",
+            "SE4",
+            "CS3",
+            "BIS3",
+            "CSDFE4"
         ],
-        "instructor": "Dr.. Lucian Ngeze Ngeze",
+        "instructor": "Mr. Yona Zakaria",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "CP 213",
+        "course_name": "Data Structures and Algorithms Analysis",
+        "day": "Tuesday",
+        "groups": [
+            "SE2",
+            "CS2",
+            "CE2"
+        ],
+        "instructor": "Mr.. Isaac Mahenge Isaac",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "CT 412",
+        "course_name": "Parallel Computing",
+        "day": "Tuesday",
+        "groups": [
+            "CE4"
+        ],
+        "instructor": "Mr.. Nasolwa Edson Edson",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "LRB 106"
+    },
+    {
+        "course_code": "CP 111",
+        "course_name": "Principles of Programming Languages",
+        "day": "Tuesday",
+        "groups": [
+            "MTA1",
+            "CS1",
+            "BIS1",
+            "CNISE1",
+            "CE1",
+            "SE1",
+            "HIS1",
+            "IDIT1"
+        ],
+        "instructor": "Mr.. Isaac Mahenge Isaac",
         "semester": 1,
         "session_type": "Lecture",
         "time": "11:30-13:00",
         "venue": "Auditoriam"
     },
     {
-        "course_code": "Communicat",
-        "course_name": "LG 102",
+        "course_code": "EME 314",
+        "course_name": "ICT Entrepreneurship",
         "day": "Tuesday",
         "groups": [
-            "Multimedia Technology and Animation",
-            "Cyber Security and Digital Forensics  Engineering ",
-            "Computer Engineering",
-            "Instructional Design and Information  Technology ",
-            "Business Information System",
-            "Health Information System",
-            "Computer Networks and Information Security  Engineering",
-            "Software Engineering"
+            "CNISE4",
+            "CE4",
+            "CSDFE4"
         ],
-        "instructor": "Dr. Andwele Mwakasege Mwakasege",
+        "instructor": "Dr.. Rukia Mwifunyi mwifunyi",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "CP 412",
+        "course_name": "C# Programming",
+        "day": "Tuesday",
+        "groups": [
+            "SE4"
+        ],
+        "instructor": "Dr. Deo Shao",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "DS 102",
+        "course_name": "Development Perspectives",
+        "day": "Tuesday",
+        "groups": [
+            "HIS1",
+            "SE1",
+            "CS1",
+            "IDIT1",
+            "CSDFE1",
+            "BIS1",
+            "CNISE1",
+            "MTA1",
+            "CE1"
+        ],
+        "instructor": "Dr.. Lucian Ngeze Ngeze",
         "semester": 1,
         "session_type": "Tutorial",
         "time": "17:30-18:30",
         "venue": "Auditoriam"
     },
     {
-        "course_code": "Developmen",
-        "course_name": "DS 102",
+        "course_code": "IM 411",
+        "course_name": "Human-Computer Interaction",
         "day": "Tuesday",
         "groups": [
-            "Business Information System",
-            "Computer Networks and Information Security  Engineering",
-            "Software Engineering",
-            "Cyber Security and Digital Forensics  Engineering ",
-            "Computer Science",
-            "Health Information System",
-            "Instructional Design and Information  Technology ",
-            "Computer Engineering",
-            "Multimedia Technology and Animation"
+            "CNISE4",
+            "SE4",
+            "CS3",
+            "BIS3",
+            "CSDFE4"
         ],
-        "instructor": "Dr.. Lucian Ngeze Ngeze",
+        "instructor": "Mr. Yona Zakaria",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "CT 412",
+        "course_name": "Parallel Computing",
+        "day": "Tuesday",
+        "groups": [
+            "CE4"
+        ],
+        "instructor": "Mr.. Nasolwa Edson Edson",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "LG 102",
+        "course_name": "Communication Skills",
+        "day": "Tuesday",
+        "groups": [
+            "CSDFE1",
+            "CS1",
+            "HIS1",
+            "IDIT1",
+            "CE1",
+            "CNISE1",
+            "BIS1",
+            "SE1",
+            "MTA1"
+        ],
+        "instructor": "Dr. Andwele Mwakasege Mwakasege",
         "semester": 1,
         "session_type": "Tutorial",
         "time": "18:30-19:30",
         "venue": "Auditoriam"
     },
     {
-        "course_code": "Developmen",
-        "course_name": "DS 102",
+        "course_code": "EME 314",
+        "course_name": "ICT Entrepreneurship",
         "day": "Tuesday",
         "groups": [
-            "Business Information System",
-            "Computer Networks and Information Security  Engineering",
-            "Software Engineering",
-            "Cyber Security and Digital Forensics  Engineering ",
-            "Computer Science",
-            "Health Information System",
-            "Instructional Design and Information  Technology ",
-            "Computer Engineering",
-            "Multimedia Technology and Animation"
+            "CNISE4",
+            "CE4",
+            "CSDFE4"
         ],
-        "instructor": "Dr.. Lucian Ngeze Ngeze",
+        "instructor": "Dr.. Rukia Mwifunyi mwifunyi",
         "semester": 1,
-        "session_type": "Practical",
-        "time": "15:30-17:30",
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "CP 412",
+        "course_name": "C# Programming",
+        "day": "Tuesday",
+        "groups": [
+            "SE4"
+        ],
+        "instructor": "Dr. Deo Shao",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "cp 215",
+        "course_name": "Object Oriented Programming in Java",
+        "day": "Wednesday",
+        "groups": [
+            "CE2",
+            "MTA2",
+            "IDIT2",
+            "BIS2",
+            "CS2",
+            "CSDFE2",
+            "HIS1",
+            "CNISE2",
+            "SE2"
+        ],
+        "instructor": "Mr. Everyjustus Barongo",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
         "venue": "Auditoriam"
     },
     {
-        "course_code": "CP 555",
-        "course_name": "Development PerspectGGGGGGGGGGGGGGG",
+        "course_code": "TN 112",
+        "course_name": "Linear Algebra for ICT",
         "day": "Wednesday",
         "groups": [
-            "Business Information System"
+            "CNISE1",
+            "CS1",
+            "CE1",
+            "CSDFE1",
+            "SE1"
         ],
-        "instructor": "Ms.. Mevis Steven Steven",
+        "instructor": "Mr. Pascal Charles Charles",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "CP 314",
+        "course_name": "Distributed Computing",
+        "day": "Wednesday",
+        "groups": [
+            "CS3",
+            "SE4",
+            "CNISE4"
+        ],
+        "instructor": "Mr. Aliko Matola",
         "semester": 1,
         "session_type": "Lecture",
         "time": "07:30-09:30",
         "venue": "LRB 105"
     },
     {
-        "course_code": "CP 666",
-        "course_name": "GGGGGG GGGGGGGGGGGGGGG",
+        "course_code": "IA 314",
+        "course_name": "Biometric Security",
         "day": "Wednesday",
         "groups": [
-            "Software Engineering"
+            "CE4",
+            "CSDFE4"
         ],
-        "instructor": "Dr. Christina Murro",
+        "instructor": "Dr. Amani David",
         "semester": 1,
         "session_type": "Lecture",
         "time": "07:30-09:30",
         "venue": "LRB 106"
     },
     {
-        "course_code": "Principles",
-        "course_name": "MG 111",
+        "course_code": "IT 111",
+        "course_name": "Introduction to Information Technology",
         "day": "Wednesday",
         "groups": [
-            "Business Information System"
+            "CS1",
+            "CNISE1",
+            "SE1",
+            "CSDFE1",
+            "CE1"
         ],
-        "instructor": "Mr. Chande Kasita",
+        "instructor": "Mr.. Isaac Mahenge Isaac",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "BT 312",
+        "course_name": "Electronic and Mobile Commerce",
+        "day": "Wednesday",
+        "groups": [
+            "CS3",
+            "CNISE4",
+            "SE4"
+        ],
+        "instructor": "Mr. Emanuel Malya",
         "semester": 1,
         "session_type": "Lecture",
         "time": "11:30-13:00",
         "venue": "LRB 105"
     },
     {
-        "course_code": "CP 555",
-        "course_name": "Development PerspectGGGGGGGGGGGGGGG",
+        "course_code": "CT 411",
+        "course_name": "Embedded Systems I",
         "day": "Wednesday",
         "groups": [
-            "Business Information System"
+            "CE4"
         ],
-        "instructor": "Ms.. Mevis Steven Steven",
+        "instructor": "Dr.. Rukia Mwifunyi mwifunyi",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "LRB 106"
+    },
+    {
+        "course_code": "CS 418",
+        "course_name": "Cyber Security and Digital Forensics Engineering Project I",
+        "day": "Wednesday",
+        "groups": [
+            "CSDFE4"
+        ],
+        "instructor": "Dr. Amani David",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "LRB 101"
+    },
+    {
+        "course_code": "CP 111",
+        "course_name": "Principles of Programming Languages",
+        "day": "Wednesday",
+        "groups": [
+            "MTA1",
+            "CS1",
+            "BIS1",
+            "CNISE1",
+            "CE1",
+            "SE1",
+            "HIS1",
+            "IDIT1"
+        ],
+        "instructor": "Mr.. Isaac Mahenge Isaac",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "CN 211",
+        "course_name": "Computer Networking Protocols",
+        "day": "Wednesday",
+        "groups": [
+            "CS2",
+            "SE2",
+            "CSDFE2",
+            "CE2",
+            "CNISE2"
+        ],
+        "instructor": "Dr. Daniel Ngondya",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "CP 314",
+        "course_name": "Distributed Computing",
+        "day": "Wednesday",
+        "groups": [
+            "CS3",
+            "SE4",
+            "CNISE4"
+        ],
+        "instructor": "Mr. Aliko Matola",
         "semester": 1,
         "session_type": "Tutorial",
         "time": "17:30-18:30",
         "venue": "LRB 105"
     },
     {
-        "course_code": "CP 666",
-        "course_name": "GGGGGG GGGGGGGGGGGGGGG",
+        "course_code": "IA 314",
+        "course_name": "Biometric Security",
         "day": "Wednesday",
         "groups": [
-            "Software Engineering"
+            "CE4",
+            "CSDFE4"
         ],
-        "instructor": "Dr. Christina Murro",
+        "instructor": "Dr. Amani David",
         "semester": 1,
         "session_type": "Tutorial",
         "time": "17:30-18:30",
         "venue": "LRB 106"
     },
     {
-        "course_code": "Principles",
-        "course_name": "MG 111",
+        "course_code": "cp 215",
+        "course_name": "Object Oriented Programming in Java",
         "day": "Wednesday",
         "groups": [
-            "Business Information System"
+            "CE2",
+            "MTA2",
+            "IDIT2",
+            "BIS2",
+            "CS2",
+            "CSDFE2",
+            "HIS1",
+            "CNISE2",
+            "SE2"
         ],
-        "instructor": "Mr. Chande Kasita",
+        "instructor": "Mr. Everyjustus Barongo",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "IA 112",
+        "course_name": "Mathematical Foundations of Info Security",
+        "day": "Wednesday",
+        "groups": [
+            "CNISE1",
+            "SE1",
+            "CS1"
+        ],
+        "instructor": "Mr.. Nasolwa Edson Edson",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "BT 312",
+        "course_name": "Electronic and Mobile Commerce",
+        "day": "Wednesday",
+        "groups": [
+            "CS3",
+            "CNISE4",
+            "SE4"
+        ],
+        "instructor": "Mr. Emanuel Malya",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "CT 411",
+        "course_name": "Embedded Systems I",
+        "day": "Wednesday",
+        "groups": [
+            "CE4"
+        ],
+        "instructor": "Dr.. Rukia Mwifunyi mwifunyi",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "LRB 106"
+    },
+    {
+        "course_code": "CS 418",
+        "course_name": "Cyber Security and Digital Forensics Engineering Project I",
+        "day": "Wednesday",
+        "groups": [
+            "CSDFE4"
+        ],
+        "instructor": "Dr. Amani David",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "LRB 101"
+    },
+    {
+        "course_code": "IA 112",
+        "course_name": "Mathematical Foundations of Info Security",
+        "day": "Thursday",
+        "groups": [
+            "CNISE1",
+            "SE1",
+            "CS1"
+        ],
+        "instructor": "Mr.. Nasolwa Edson Edson",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "IA 414",
+        "course_name": "Database Security",
+        "day": "Thursday",
+        "groups": [
+            "CSDFE4",
+            "CNISE4"
+        ],
+        "instructor": "Dr. Daniel Ngondya",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "TN 413",
+        "course_name": "Information Theory and Coding",
+        "day": "Thursday",
+        "groups": [
+            "CE4"
+        ],
+        "instructor": "Mr. Pascal Charles Charles",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "LRB 106"
+    },
+    {
+        "course_code": "TN 113",
+        "course_name": "Calculus",
+        "day": "Thursday",
+        "groups": [
+            "SE1",
+            "CS1",
+            "CSDFE1",
+            "CNISE1"
+        ],
+        "instructor": "Mr. Pascal Charles Charles",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "IA 417",
+        "course_name": "Cyber Threat Intelligence",
+        "day": "Thursday",
+        "groups": [
+            "CNISE4",
+            "CSDFE4"
+        ],
+        "instructor": "Dr. Daniel Ngondya",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "CG 221",
+        "course_name": "Fundamentals of IoT",
+        "day": "Thursday",
+        "groups": [
+            "CE4"
+        ],
+        "instructor": "Mr.. Nasolwa Edson Edson",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "LRB 106"
+    },
+    {
+        "course_code": "TN 113",
+        "course_name": "Calculus",
+        "day": "Thursday",
+        "groups": [
+            "SE1",
+            "CS1",
+            "CSDFE1",
+            "CNISE1"
+        ],
+        "instructor": "Mr. Pascal Charles Charles",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "CP 211",
+        "course_name": "Introduction To Linux/Unix Systems",
+        "day": "Thursday",
+        "groups": [
+            "CS2",
+            "SE2",
+            "CNISE2",
+            "CSDFE2",
+            "HIS2"
+        ],
+        "instructor": "Mr. justin woiso justin",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "Auditoriam"
+    },
+    {
+        "course_code": "IA 414",
+        "course_name": "Database Security",
+        "day": "Thursday",
+        "groups": [
+            "CSDFE4",
+            "CNISE4"
+        ],
+        "instructor": "Dr. Daniel Ngondya",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "CG 221",
+        "course_name": "Fundamentals of IoT",
+        "day": "Thursday",
+        "groups": [
+            "CE4"
+        ],
+        "instructor": "Mr.. Nasolwa Edson Edson",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "LRB 106"
+    },
+    {
+        "course_code": "TN 111",
+        "course_name": "Discrete Mathematics for ICT",
+        "day": "Thursday",
+        "groups": [
+            "SE1",
+            "CSDFE1",
+            "CS1",
+            "CNISE1",
+            "CE1"
+        ],
+        "instructor": "Mr. Pascal Charles Charles",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "IA 417",
+        "course_name": "Cyber Threat Intelligence",
+        "day": "Thursday",
+        "groups": [
+            "CNISE4",
+            "CSDFE4"
+        ],
+        "instructor": "Dr. Daniel Ngondya",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "18:30-19:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "TN 111",
+        "course_name": "Discrete Mathematics for ICT",
+        "day": "Friday",
+        "groups": [
+            "SE1",
+            "CSDFE1",
+            "CS1",
+            "CNISE1",
+            "CE1"
+        ],
+        "instructor": "Mr. Pascal Charles Charles",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "FL 2"
+    },
+    {
+        "course_code": "CS 419",
+        "course_name": "Computer Networks and Information Security",
+        "day": "Friday",
+        "groups": [
+            "CNISE4"
+        ],
+        "instructor": "Dr. Daniel Ngondya",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "LW 4110",
+        "course_name": "Legal Aspects in Cyber Security",
+        "day": "Friday",
+        "groups": [
+            "CSDFE4"
+        ],
+        "instructor": "Dr. Amani David",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "07:30-09:30",
+        "venue": "LRB 106"
+    },
+    {
+        "course_code": "CN 411",
+        "course_name": "Wireless Networks and Mobile Computing",
+        "day": "Friday",
+        "groups": [
+            "CNISE4"
+        ],
+        "instructor": "Mr.. Baraka Jungwa baraka",
+        "semester": 1,
+        "session_type": "Lecture",
+        "time": "11:30-13:00",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "CS 419",
+        "course_name": "Computer Networks and Information Security",
+        "day": "Friday",
+        "groups": [
+            "CNISE4"
+        ],
+        "instructor": "Dr. Daniel Ngondya",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "LRB 105"
+    },
+    {
+        "course_code": "TN 413",
+        "course_name": "Information Theory and Coding",
+        "day": "Friday",
+        "groups": [
+            "CE4"
+        ],
+        "instructor": "Mr. Pascal Charles Charles",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "LRB 106"
+    },
+    {
+        "course_code": "LW 4110",
+        "course_name": "Legal Aspects in Cyber Security",
+        "day": "Friday",
+        "groups": [
+            "CSDFE4"
+        ],
+        "instructor": "Dr. Amani David",
+        "semester": 1,
+        "session_type": "Tutorial",
+        "time": "17:30-18:30",
+        "venue": "LRB 101"
+    },
+    {
+        "course_code": "CN 411",
+        "course_name": "Wireless Networks and Mobile Computing",
+        "day": "Friday",
+        "groups": [
+            "CNISE4"
+        ],
+        "instructor": "Mr.. Baraka Jungwa baraka",
         "semester": 1,
         "session_type": "Tutorial",
         "time": "18:30-19:30",
