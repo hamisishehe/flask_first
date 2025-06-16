@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2025 at 09:39 AM
+-- Generation Time: Jun 16, 2025 at 11:51 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -82,56 +82,58 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`id`, `course_name`, `course_code`, `semester`, `is_tutorial`, `is_lecture`, `is_practical`, `coordinator_id`, `department_id`) VALUES
-(1, 'LG 102', 'Communicat', 1, 1, 1, 0, 4, 3),
-(2, 'CP 111', 'Principles', 1, 1, 1, 1, 5, 5),
-(3, 'DS 102', 'Developmen', 1, 1, 1, 0, 4, 3),
-(4, 'IT 111', 'Introducti', 1, 1, 1, 0, 5, 5),
-(5, 'TN 112', 'Linear Alg', 1, 1, 1, 0, 5, 5),
-(6, 'TN 111', 'Discrete M', 1, 1, 1, 0, 5, 5),
-(7, 'IA 112', 'Mathematic', 1, 1, 1, 0, 5, 5),
-(8, 'TN 113', 'Calculus', 1, 1, 1, 0, 5, 5),
-(16, 'IA 417', 'Cyber Thre', 1, 1, 1, 1, 5, 5),
-(17, 'CG 221', 'Fundamenta', 1, 1, 1, 1, 5, 5),
-(18, 'CT 411', 'Embedded S', 1, 1, 1, 1, 5, 5),
-(19, 'CT 412', 'Parallel C', 1, 1, 1, 1, 5, 5),
-(20, 'TN 412', 'Digital Si', 1, 1, 1, 0, 5, 5),
-(21, 'CG 411', 'Computer E', 1, 1, 1, 0, 5, 5),
-(22, 'CT 413', 'Operating ', 1, 1, 1, 0, 5, 5),
-(23, 'IA 314', 'Biometric ', 1, 1, 1, 0, 5, 5),
-(24, 'CS 431', 'Software E', 1, 1, 1, 0, 5, 5),
-(25, 'CT 312', 'Computer M', 1, 1, 1, 1, 5, 5),
-(26, 'IM 411', 'Human-Comp', 1, 1, 1, 0, 5, 5),
-(27, 'CP 412', 'C sharp Pr', 1, 1, 1, 1, 5, 5),
-(28, 'CS 411', 'Software R', 1, 1, 1, 0, 5, 5),
-(29, 'BT 312', 'Electronic', 1, 1, 1, 0, 5, 5),
-(30, 'CD 312', 'Multimedia', 1, 1, 1, 0, 4, 3),
-(31, 'CP 314', 'Distribute', 1, 1, 1, 0, 5, 5),
-(32, 'TN 411', 'Mobile Com', 1, 1, 1, 0, 5, 5),
-(33, 'TN 413', 'Informatio', 1, 1, 1, 0, 5, 5),
-(34, 'TN 431', 'Telecommun', 1, 1, 1, 0, 5, 5),
-(35, 'IA 311', 'Network Fo', 1, 1, 1, 0, 5, 5),
-(36, 'CD 431', 'Content En', 1, 1, 1, 0, 4, 3),
-(37, 'CD 411', 'Project St', 1, 1, 1, 0, 4, 3),
-(38, 'CD 412', 'Video and ', 1, 1, 1, 1, 4, 3),
-(39, 'IM 411', 'Human Comp', 1, 1, 1, 0, 4, 3),
-(40, 'SI 312', 'Organizati', 1, 1, 1, 0, 4, 3),
-(41, 'LW 4110', 'Legal Aspe', 1, 1, 1, 0, 5, 5),
-(42, 'IA 418', 'Cyber Crim', 1, 1, 1, 0, 5, 5),
-(43, 'CS 418', 'Cyber Secu', 1, 1, 1, 0, 5, 5),
-(44, 'LW 4110', 'Legal Aspe', 1, 1, 1, 0, 5, 5),
-(47, 'AF 111', 'Introducti', 1, 1, 1, 0, 4, 3),
-(48, 'MG 111', 'Principles', 1, 1, 1, 0, 4, 3),
-(54, 'CD 112', 'Foundation', 1, 1, 1, 0, 4, 3),
-(63, 'CD 111', 'Digital Me', 1, 1, 1, 0, 4, 3),
-(72, 'EC 111', 'Fundamenta', 1, 1, 1, 1, 5, 5),
-(78, 'CD 113', 'Fundamenta', 1, 1, 1, 1, 4, 3),
-(79, 'CN 111', 'Fundamenta', 1, 1, 1, 1, 5, 5),
-(80, 'CD 111', 'Digital Me', 1, 1, 1, 0, 4, 3),
-(81, 'EME 314', 'ICT Entrep', 1, 1, 1, 0, 4, 3),
-(82, 'S1 311', 'Profession', 1, 1, 1, 0, 4, 3),
-(83, 'BT 413', 'ICT Projec', 1, 1, 1, 0, 4, 3),
-(85, 'Development PerspectGGGGGGGGGGGGGGG', 'CP 555', 1, 1, 1, 0, 4, 3),
-(86, 'GGGGGG GGGGGGGGGGGGGGG', 'CP 666', 1, 1, 1, 0, 4, 3);
+(87, 'Communication Skills', 'LG 102', 1, 1, 1, 0, 2, 3),
+(88, 'Development Perspectives', 'DS 102', 1, 1, 1, 0, 2, 3),
+(89, 'Calculus', 'TN 113', 1, 1, 1, 0, 2, 5),
+(90, 'Principles of Programming Languages', 'CP 111', 1, 1, 1, 0, 2, 5),
+(91, 'Discrete Mathematics for ICT', 'TN 111', 1, 1, 1, 0, 2, 5),
+(92, 'Introduction to Information Technology', 'IT 111', 1, 1, 1, 0, 2, 5),
+(93, 'Mathematical Foundations of Info Security', 'IA 112', 1, 1, 1, 0, 2, 5),
+(94, 'Linear Algebra for ICT', 'TN 112', 1, 1, 1, 0, 2, 5),
+(95, 'Object Oriented Programming in Java', 'cp 215', 1, 1, 1, 0, 2, 5),
+(96, 'Data Structures and Algorithms Analysis', 'CP 213', 1, 1, 1, 0, 2, 5),
+(97, 'Information Security Technologies', 'IA 211', 1, 1, 1, 0, 2, 5),
+(98, 'Computer Networking Protocols', 'CN 211', 1, 1, 1, 1, 2, 5),
+(99, 'Computer Organization and Architecture I', 'CT 211', 1, 1, 1, 0, 2, 5),
+(100, 'Systems Analysis and Design', 'CP 212', 1, 1, 1, 0, 2, 5),
+(101, 'Introduction To Linux/Unix Systems', 'CP 211', 1, 1, 1, 1, 2, 5),
+(102, 'Measurements and Instrumentation Engineering', 'EC 212', 1, 1, 1, 0, 2, 5),
+(103, 'Calculus for Engineers', 'TN 211', 1, 1, 1, 0, 2, 5),
+(104, 'Analogue Electronics', 'CT 212', 1, 1, 1, 1, 2, 5),
+(105, 'Computer Forensics and Investigation', 'IA 212', 1, 1, 1, 0, 2, 5),
+(106, 'ICT Entrepreneurship', 'EME 314', 1, 1, 1, 0, 2, 5),
+(107, 'Professional Ethics and Conduct', 'SI 311', 1, 1, 1, 0, 2, 5),
+(108, 'Database Security', 'IA 414', 1, 1, 1, 0, 2, 5),
+(109, 'ICT Project Management', 'BT 413', 1, 1, 1, 0, 2, 5),
+(110, 'Computer Networks and Information Security', 'CS 419', 1, 1, 1, 0, 2, 5),
+(111, 'Cloud Computing Security', 'IA 416', 1, 1, 1, 0, 2, 5),
+(112, 'Wireless Networks and Mobile Computing', 'CN 411', 1, 1, 1, 0, 2, 5),
+(113, 'Information Security Management and Standards', 'IA 415', 1, 1, 1, 0, 2, 5),
+(114, 'Cyber Threat Intelligence', 'IA 417', 1, 1, 1, 0, 2, 5),
+(115, 'Fundamentals of IoT', 'CG 221', 1, 1, 1, 0, 2, 5),
+(116, 'Embedded Systems I', 'CT 411', 1, 1, 1, 1, 2, 5),
+(117, 'Parallel Computing', 'CT 412', 1, 1, 1, 0, 2, 5),
+(118, 'Digital Signal Processing', 'TN 412', 1, 1, 1, 0, 2, 5),
+(119, 'Computer Engineering Project I', 'CG 411', 1, 1, 1, 0, 2, 5),
+(120, 'Operating Systems Internals', 'CT 413', 1, 1, 1, 0, 2, 5),
+(121, 'Biometric Security', 'IA 314', 1, 1, 1, 0, 2, 5),
+(122, 'Software Engineering Project I', 'CS 431', 1, 1, 1, 0, 2, 5),
+(123, 'Computer Maintenance', 'CT 312', 1, 1, 1, 0, 2, 5),
+(124, 'Human-Computer Interaction', 'IM 411', 1, 1, 1, 0, 2, 5),
+(125, 'C# Programming', 'CP 412', 1, 1, 1, 0, 2, 5),
+(126, 'Software Reverse Engineering', 'CS 411', 1, 1, 1, 0, 2, 5),
+(127, 'Electronic and Mobile Commerce', 'BT 312', 1, 1, 1, 0, 2, 5),
+(128, 'Multimedia Content Development', 'CD 312', 1, 1, 1, 0, 2, 5),
+(129, 'Distributed Computing', 'CP 314', 1, 1, 1, 0, 2, 5),
+(130, 'Mobile Communication', 'TN 411', 1, 1, 1, 0, 2, 5),
+(131, 'Information Theory and Coding', 'TN 413', 1, 1, 1, 0, 2, 5),
+(132, 'Telecommunications Engineering Project I', 'TN 431', 1, 1, 1, 0, 2, 5),
+(133, 'Network Forensics', 'IA 311', 1, 1, 1, 0, 2, 5),
+(134, 'Content Engineering Project I', 'CD 431', 1, 1, 1, 0, 2, 5),
+(135, 'Project Studio Production and Sound Synthesis', 'CD 411', 1, 1, 1, 0, 2, 5),
+(136, 'Video and Audio Systems II', 'CD 412', 1, 1, 1, 0, 2, 5),
+(137, 'Legal Aspects in Cyber Security', 'LW 4110', 1, 1, 1, 0, 2, 5),
+(138, 'Cyber Security and Digital Forensics Engineering Project I', 'CS 418', 1, 1, 1, 0, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -152,42 +154,121 @@ CREATE TABLE `course_matrix` (
 --
 
 INSERT INTO `course_matrix` (`id`, `instructor_id`, `course_id`, `student_id`, `program_group`) VALUES
-(88, 19, 1, 15, ''),
-(89, 19, 1, 21, ''),
-(90, 19, 1, 24, ''),
-(91, 19, 1, 27, ''),
-(92, 19, 1, 34, ''),
-(93, 19, 1, 38, ''),
-(94, 19, 1, 42, ''),
-(95, 19, 1, 46, ''),
-(96, 16, 3, 15, ''),
-(97, 16, 3, 21, ''),
-(98, 16, 3, 24, ''),
-(99, 16, 3, 27, ''),
-(100, 16, 3, 31, ''),
-(101, 16, 3, 34, ''),
-(102, 16, 3, 38, ''),
-(103, 16, 3, 42, ''),
-(104, 16, 3, 46, ''),
-(105, 89, 48, 15, ''),
-(106, 17, 81, 17, 'A'),
-(107, 17, 81, 23, 'A'),
-(108, 17, 81, 26, 'A'),
-(109, 18, 81, 44, 'B'),
-(110, 18, 81, 40, 'B'),
-(111, 18, 81, 37, 'B'),
-(112, 77, 6, 15, 'A'),
-(113, 77, 6, 24, 'A'),
-(114, 77, 6, 46, 'A'),
-(115, 15, 6, 27, 'B'),
-(116, 15, 6, 31, 'B'),
-(117, 15, 6, 38, 'B'),
-(118, 15, 6, 42, 'B'),
-(119, 15, 6, 34, 'B'),
-(120, 15, 7, 27, ''),
-(121, 15, 7, 31, ''),
-(122, 17, 85, 15, ''),
-(123, 97, 86, 29, '');
+(124, 105, 89, 27, ''),
+(125, 105, 89, 31, ''),
+(126, 105, 89, 38, ''),
+(127, 105, 89, 42, ''),
+(128, 1, 90, 15, 'A'),
+(129, 1, 90, 21, 'A'),
+(130, 1, 90, 24, 'A'),
+(131, 106, 90, 27, 'B'),
+(132, 106, 90, 31, 'B'),
+(133, 106, 90, 34, 'B'),
+(134, 106, 90, 38, 'B'),
+(135, 106, 90, 46, 'B'),
+(136, 105, 91, 27, 'A'),
+(137, 105, 91, 31, 'A'),
+(138, 105, 91, 34, 'A'),
+(139, 105, 91, 38, 'A'),
+(140, 105, 91, 42, 'A'),
+(141, 1, 92, 27, 'A'),
+(142, 1, 92, 34, 'A'),
+(143, 1, 92, 38, 'A'),
+(144, 1, 92, 42, 'A'),
+(145, 1, 92, 31, 'A'),
+(146, 15, 93, 27, ''),
+(147, 15, 93, 31, ''),
+(148, 15, 93, 38, ''),
+(149, 105, 94, 27, ''),
+(150, 105, 94, 34, ''),
+(151, 105, 94, 38, ''),
+(152, 105, 94, 42, ''),
+(153, 105, 94, 31, ''),
+(154, 19, 87, 15, ''),
+(155, 19, 87, 21, ''),
+(156, 19, 87, 24, ''),
+(157, 19, 87, 27, ''),
+(158, 19, 87, 31, ''),
+(159, 19, 87, 34, ''),
+(160, 19, 87, 38, ''),
+(161, 19, 87, 42, ''),
+(162, 19, 87, 46, ''),
+(163, 16, 88, 15, ''),
+(164, 16, 88, 21, ''),
+(165, 16, 88, 24, ''),
+(166, 16, 88, 27, ''),
+(167, 16, 88, 31, ''),
+(168, 16, 88, 34, ''),
+(169, 16, 88, 38, ''),
+(170, 16, 88, 42, ''),
+(171, 16, 88, 46, ''),
+(172, 107, 95, 16, 'A'),
+(173, 107, 95, 22, 'A'),
+(174, 107, 95, 25, 'A'),
+(175, 107, 95, 46, 'A'),
+(176, 96, 95, 32, 'B'),
+(177, 96, 95, 35, 'B'),
+(178, 96, 95, 28, 'B'),
+(179, 96, 95, 39, 'B'),
+(180, 96, 95, 43, 'B'),
+(181, 1, 96, 28, ''),
+(182, 1, 96, 32, ''),
+(183, 1, 96, 35, ''),
+(184, 98, 98, 28, ''),
+(185, 98, 98, 32, ''),
+(186, 98, 98, 35, ''),
+(187, 98, 98, 39, ''),
+(188, 98, 98, 43, ''),
+(189, 110, 101, 28, 'A'),
+(190, 110, 101, 32, 'A'),
+(191, 110, 101, 43, 'A'),
+(192, 110, 101, 47, 'A'),
+(193, 110, 101, 39, 'A'),
+(194, 4, 106, 37, 'A'),
+(195, 4, 106, 41, 'A'),
+(196, 4, 106, 45, 'A'),
+(197, 6, 107, 17, ''),
+(198, 6, 107, 26, ''),
+(199, 6, 107, 30, ''),
+(200, 6, 107, 37, ''),
+(201, 6, 107, 41, ''),
+(202, 6, 107, 45, ''),
+(203, 6, 107, 33, ''),
+(204, 6, 107, 23, ''),
+(205, 98, 108, 41, ''),
+(206, 98, 108, 45, ''),
+(207, 98, 110, 41, ''),
+(208, 82, 109, 17, ''),
+(209, 82, 109, 23, ''),
+(210, 82, 109, 30, ''),
+(211, 82, 109, 33, ''),
+(212, 82, 109, 45, ''),
+(213, 82, 109, 48, ''),
+(214, 82, 109, 41, ''),
+(215, 3, 112, 41, ''),
+(216, 98, 114, 41, ''),
+(217, 98, 114, 45, ''),
+(218, 15, 115, 37, ''),
+(219, 4, 116, 37, ''),
+(220, 15, 117, 37, ''),
+(221, 77, 120, 37, ''),
+(222, 77, 121, 37, ''),
+(223, 84, 124, 30, ''),
+(224, 84, 124, 41, ''),
+(225, 84, 124, 33, ''),
+(226, 84, 124, 45, ''),
+(227, 84, 124, 17, ''),
+(228, 102, 125, 30, ''),
+(229, 103, 127, 30, ''),
+(230, 103, 127, 33, ''),
+(231, 103, 127, 41, ''),
+(232, 93, 129, 30, ''),
+(233, 93, 129, 33, ''),
+(234, 93, 129, 41, ''),
+(235, 105, 131, 37, ''),
+(236, 99, 138, 45, ''),
+(237, 99, 137, 45, ''),
+(238, 99, 121, 45, '');
 
 -- --------------------------------------------------------
 
@@ -307,7 +388,14 @@ INSERT INTO `instructor` (`id`, `first_name`, `middle_name`, `last_name`, `gende
 (101, 'Godfrey', '', 'Molela', 'MALE', '700000026', 'godfreymolela@udom.to.tz', 'Mr', 5, 5),
 (102, 'Deo', '', 'Shao', 'MALE', '700000027', 'deoshao@udom.to.tz', 'Dr', 5, 5),
 (103, 'Emanuel', '', 'Malya', 'MALE', '700000028', 'emanuelmalya@udom.to.tz', 'Mr', 5, 5),
-(104, 'Leyla', 'leyla', 'layla', 'FEMALE', '777676767', 'leyla@udom.co.tz', 'Mrs', 5, 5);
+(104, 'Leyla', 'leyla', 'layla', 'FEMALE', '777676767', 'leyla@udom.co.tz', 'Mrs', 5, 5),
+(105, 'Pascal', 'Charles', 'Charles', 'Male', '0711121212', 'pascalcharles@gmail.com', 'Mr', 2, 5),
+(106, 'Leonard', 'Msele', 'Msele', 'Male', '0711232323', 'leonard@gmail.com', 'Prof', 2, 5),
+(107, 'feruzi', 'hassan', 'hassan', 'Male', '0713112233', 'feruzihassan@gmail.com', 'Mr', 2, 5),
+(108, 'Everijustus', 'Balo', 'Balo', 'Male', '0711121223', 'Everijustus@gmail.com', 'Mr', 2, 5),
+(109, 'Bakii', 'seif', 'bakii', 'Male', '0712121212', 'bakii@gmail.com', 'Mr', 2, 5),
+(110, 'justin', 'woiso', 'justin', 'Male', '0712112233', 'justin@gmail.com', 'Mr', 2, 5),
+(111, 'Christina', 'Murro', 'Murro', 'Female', '0712332244', 'Christina@gmail.com', 'Dr', 2, 5);
 
 -- --------------------------------------------------------
 
@@ -346,8 +434,8 @@ CREATE TABLE `scheduled_class` (
 
 CREATE TABLE `students` (
   `id` int(11) NOT NULL,
-  `programme` varchar(100) NOT NULL,
   `programme_code` varchar(100) NOT NULL,
+  `programme` varchar(100) NOT NULL,
   `total_students` varchar(11) DEFAULT NULL,
   `coordinator_id` int(11) NOT NULL,
   `department_id` int(11) NOT NULL
@@ -357,7 +445,7 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `programme`, `programme_code`, `total_students`, `coordinator_id`, `department_id`) VALUES
+INSERT INTO `students` (`id`, `programme_code`, `programme`, `total_students`, `coordinator_id`, `department_id`) VALUES
 (15, 'Business Information System', 'BIS1', '78', 4, 3),
 (16, 'Business Information System', 'BIS2', '62', 4, 3),
 (17, 'Business Information System', 'BIS3', '69', 4, 3),
@@ -426,7 +514,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `first_name`, `middle_name`, `last_name`, `phone_number`, `email`, `department`, `password_hash`, `role`) VALUES
 (1, 'timetablemaster', 'B.', 'timetablemaster', '0744982310', 'timetablemaster@udom.co.tz', '', 'scrypt:32768:8:1$egKoVC3dKbmtQOTs$2cdfcaf9b2ba8dd428ba97111443b911bc8476e4d6b6ca50527c4a6a85707e3176db5c40a60b15640c0ca80f7cad9973e1897a7b8252a2da350d482933a6a7bd', 'TIMETABLEMASTER'),
-(2, 'coordinator', 'A.', 'coordinator', '1234567890', 'coordinator@udom.co.tz', '', 'scrypt:32768:8:1$EGl4tNpQU70d2evf$e91f38fb3b2082edfcb6376872aa5c6b11b36c6dffd46ae84434f060eff727e011366f6ec19b2ffa1ccac5811ad364f11369bcf2f5ec3bdb974e7e006a865a8c', 'COORDINATOR'),
+(2, 'coordinator', 'A.', 'coordinator', '1234567890', 'coordinator@udom.co.tz', 'CSE', 'scrypt:32768:8:1$EGl4tNpQU70d2evf$e91f38fb3b2082edfcb6376872aa5c6b11b36c6dffd46ae84434f060eff727e011366f6ec19b2ffa1ccac5811ad364f11369bcf2f5ec3bdb974e7e006a865a8c', 'COORDINATOR'),
 (3, 'admin', NULL, 'admin', '0987654321', 'admin@udom.co.tz', '', 'scrypt:32768:8:1$BTtyNjr65KDYgKk1$f585ac54d8d77d3c52b16e590968c99490be8f67ae41c12f15309b221b3799574a721689593b417c1d3be78577a796fd99f3f585eb3033d4795c026ffe991e96', 'ADMIN'),
 (4, 'Hamisi', 'shafii', 'shehe', '0744982380', 'hamisishehe@gmail.com', 'IST', 'scrypt:32768:8:1$DNiSCjFS0Ttb4Nkj$f8ed7896f95c28c7e5a8df5a895804f458eaf12a4f258aea1bdaba3b31832fc68abfb0b6fabbb29655365d73f65d86e4fada5aa108e6da3a4fbbcfb9cef9b252', 'COORDINATOR'),
 (5, 'hamisi', 'nuru', 'shehe', '0653918817', 'hamisinuru83@gmail.com', 'CSE', 'scrypt:32768:8:1$exwky7niNwXJilr8$d9dc1f8c1bb39854ad608d364e75dacdeb147cd50a3a6a9ad08993b15bed53fd82eac2ece96b2cb9f37114a31b452e792b1ba89feb1dbeed3a89aedabe32e2a1', 'COORDINATOR');
@@ -591,13 +679,13 @@ ALTER TABLE `collage`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `course_matrix`
 --
 ALTER TABLE `course_matrix`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -609,7 +697,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `instructor`
 --
 ALTER TABLE `instructor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `instructor_course`
