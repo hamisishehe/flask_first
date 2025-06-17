@@ -5,35 +5,35 @@
             "course_name": "Communication Skills",
             "day": "Monday",
             "groups": [
-                "CSDFE1",
+                "SE1",
                 "IDIT1",
                 "CE1",
-                "MTA1",
                 "CNISE1",
-                "CS1",
                 "HIS1",
-                "SE1",
-                "BIS1"
+                "BIS1",
+                "CS1",
+                "CSDFE1",
+                "MTA1"
             ],
-            "groupsStr": "CSDFE1, IDIT1, CE1, MTA1, CNISE1, CS1, HIS1, SE1, BIS1",
-            "instructor": "Dr Andwele  Mwakasege",
+            "groupsStr": "SE1, IDIT1, CE1, CNISE1, HIS1, BIS1, CS1, CSDFE1, MTA1",
+            "instructor": "Dr Andwele Mwakasege Mwakasege",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
-            "venue": "MULT_LAB"
+            "time": "07:30-09:30",
+            "venue": "Auditoriam"
         },
         {
             "course_code": "CP 213",
             "course_name": "Data Structures and Algorithms Analysis",
             "day": "Monday",
             "groups": [
+                "SE2",
                 "CE2",
-                "CS2",
-                "SE2"
+                "CS2"
             ],
-            "groupsStr": "CE2, CS2, SE2",
+            "groupsStr": "SE2, CE2, CS2",
             "instructor": "Mr. Isaac Mahenge Isaac",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "LRB 105"
         },
         {
@@ -43,12 +43,13 @@
             "groups": [
                 "CSDFE4",
                 "CE4",
-                "CNISE4"
+                "CNISE4",
+                "A"
             ],
-            "groupsStr": "CSDFE4, CE4, CNISE4",
+            "groupsStr": "CSDFE4, CE4, CNISE4, A",
             "instructor": "Dr. Rukia Mwifunyi mwifunyi",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "FL 2"
         },
         {
@@ -56,12 +57,13 @@
             "course_name": "C# Programming",
             "day": "Monday",
             "groups": [
-                "SE4"
+                "SE4",
+                "B"
             ],
-            "groupsStr": "SE4",
-            "instructor": "Dr Deo  Shao",
+            "groupsStr": "SE4, B",
+            "instructor": "Mr. Baraka Jungwa baraka",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "LRB 106"
         },
         {
@@ -69,20 +71,20 @@
             "course_name": "Communication Skills",
             "day": "Monday",
             "groups": [
-                "CSDFE1",
+                "SE1",
                 "IDIT1",
                 "CE1",
-                "MTA1",
                 "CNISE1",
-                "CS1",
                 "HIS1",
-                "SE1",
-                "BIS1"
+                "BIS1",
+                "CS1",
+                "CSDFE1",
+                "MTA1"
             ],
-            "groupsStr": "CSDFE1, IDIT1, CE1, MTA1, CNISE1, CS1, HIS1, SE1, BIS1",
+            "groupsStr": "SE1, IDIT1, CE1, CNISE1, HIS1, BIS1, CS1, CSDFE1, MTA1",
             "instructor": "Dr Andwele Mwakasege Mwakasege",
             "session_type": "Tutorial",
-            "time": "10:00-11:00",
+            "time": "09:30-10:30",
             "venue": "Auditoriam"
         },
         {
@@ -90,14 +92,14 @@
             "course_name": "Data Structures and Algorithms Analysis",
             "day": "Monday",
             "groups": [
+                "SE2",
                 "CE2",
-                "CS2",
-                "SE2"
+                "CS2"
             ],
-            "groupsStr": "CE2, CS2, SE2",
+            "groupsStr": "SE2, CE2, CS2",
             "instructor": "Mr. Isaac Mahenge Isaac",
             "session_type": "Tutorial",
-            "time": "10:00-11:00",
+            "time": "09:30-10:30",
             "venue": "LRB 105"
         },
         {
@@ -107,12 +109,13 @@
             "groups": [
                 "CSDFE4",
                 "CE4",
-                "CNISE4"
+                "CNISE4",
+                "A"
             ],
-            "groupsStr": "CSDFE4, CE4, CNISE4",
+            "groupsStr": "CSDFE4, CE4, CNISE4, A",
             "instructor": "Dr. Rukia Mwifunyi mwifunyi",
             "session_type": "Tutorial",
-            "time": "10:00-11:00",
+            "time": "09:30-10:30",
             "venue": "FL 2"
         },
         {
@@ -120,12 +123,13 @@
             "course_name": "C# Programming",
             "day": "Monday",
             "groups": [
-                "SE4"
+                "SE4",
+                "B"
             ],
-            "groupsStr": "SE4",
-            "instructor": "Dr Deo  Shao",
+            "groupsStr": "SE4, B",
+            "instructor": "Mr. Baraka Jungwa baraka",
             "session_type": "Tutorial",
-            "time": "10:00-11:00",
+            "time": "09:30-10:30",
             "venue": "LRB 106"
         },
         {
@@ -133,20 +137,20 @@
             "course_name": "Development Perspectives",
             "day": "Monday",
             "groups": [
-                "CSDFE1",
+                "SE1",
                 "IDIT1",
                 "CE1",
-                "MTA1",
                 "CNISE1",
-                "CS1",
                 "HIS1",
-                "SE1",
-                "BIS1"
+                "BIS1",
+                "CS1",
+                "CSDFE1",
+                "MTA1"
             ],
-            "groupsStr": "CSDFE1, IDIT1, CE1, MTA1, CNISE1, CS1, HIS1, SE1, BIS1",
+            "groupsStr": "SE1, IDIT1, CE1, CNISE1, HIS1, BIS1, CS1, CSDFE1, MTA1",
             "instructor": "Dr. Lucian Ngeze Ngeze",
             "session_type": "Tutorial",
-            "time": "11:00-12:00",
+            "time": "10:30-11:30",
             "venue": "Auditoriam"
         },
         {
@@ -154,16 +158,16 @@
             "course_name": "Computer Networking Protocols",
             "day": "Monday",
             "groups": [
-                "CS2",
-                "SE2",
                 "CE2",
                 "CNISE2",
+                "SE2",
+                "CS2",
                 "CSDFE2"
             ],
-            "groupsStr": "CS2, SE2, CE2, CNISE2, CSDFE2",
+            "groupsStr": "CE2, CNISE2, SE2, CS2, CSDFE2",
             "instructor": "Dr Daniel  Ngondya",
             "session_type": "Tutorial",
-            "time": "11:00-12:00",
+            "time": "10:30-11:30",
             "venue": "FL 2"
         },
         {
@@ -176,7 +180,7 @@
             "groupsStr": "CNISE4",
             "instructor": "Mr. Baraka Jungwa baraka",
             "session_type": "Tutorial",
-            "time": "11:00-12:00",
+            "time": "10:30-11:30",
             "venue": "LRB 105"
         },
         {
@@ -189,7 +193,7 @@
             "groupsStr": "CE4",
             "instructor": "Mr. Nasolwa Edson Edson",
             "session_type": "Tutorial",
-            "time": "11:00-12:00",
+            "time": "10:30-11:30",
             "venue": "LRB 106"
         },
         {
@@ -202,7 +206,7 @@
             "groupsStr": "CSDFE4",
             "instructor": "Dr Amani  David",
             "session_type": "Tutorial",
-            "time": "11:00-12:00",
+            "time": "10:30-11:30",
             "venue": "LRB 101"
         },
         {
@@ -210,15 +214,15 @@
             "course_name": "Calculus",
             "day": "Monday",
             "groups": [
-                "CSDFE1",
-                "SE1",
                 "CNISE1",
-                "CS1"
+                "SE1",
+                "CS1",
+                "CSDFE1"
             ],
-            "groupsStr": "CSDFE1, SE1, CNISE1, CS1",
+            "groupsStr": "CNISE1, SE1, CS1, CSDFE1",
             "instructor": "Mr Pascal Charles Charles",
             "session_type": "Tutorial",
-            "time": "12:00-13:00",
+            "time": "11:30-12:30",
             "venue": "FL 2"
         },
         {
@@ -226,20 +230,22 @@
             "course_name": "Object Oriented Programming in Java",
             "day": "Monday",
             "groups": [
-                "CS2",
-                "SE2",
-                "BIS2",
-                "CE2",
                 "MTA2",
-                "IDIT2",
+                "CE2",
                 "CNISE2",
+                "IDIT2",
+                "BIS2",
+                "SE2",
                 "HIS1",
-                "CSDFE2"
+                "CS2",
+                "CSDFE2",
+                "A",
+                "B"
             ],
-            "groupsStr": "CS2, SE2, BIS2, CE2, MTA2, IDIT2, CNISE2, HIS1, CSDFE2",
+            "groupsStr": "MTA2, CE2, CNISE2, IDIT2, BIS2, SE2, HIS1, CS2, CSDFE2, A, B",
             "instructor": "Mr Everyjustus  Barongo",
             "session_type": "Tutorial",
-            "time": "12:00-13:00",
+            "time": "11:30-12:30",
             "venue": "Auditoriam"
         },
         {
@@ -253,7 +259,7 @@
             "groupsStr": "CSDFE4, CNISE4",
             "instructor": "Dr Daniel  Ngondya",
             "session_type": "Tutorial",
-            "time": "12:00-13:00",
+            "time": "11:30-12:30",
             "venue": "LRB 105"
         },
         {
@@ -266,7 +272,7 @@
             "groupsStr": "CE4",
             "instructor": "Dr. Rukia Mwifunyi mwifunyi",
             "session_type": "Tutorial",
-            "time": "12:00-13:00",
+            "time": "11:30-12:30",
             "venue": "LRB 106"
         },
         {
@@ -274,19 +280,21 @@
             "course_name": "Principles of Programming Languages",
             "day": "Monday",
             "groups": [
+                "SE1",
                 "IDIT1",
                 "CE1",
-                "MTA1",
                 "CNISE1",
-                "CS1",
                 "HIS1",
-                "SE1",
-                "BIS1"
+                "BIS1",
+                "CS1",
+                "MTA1",
+                "A",
+                "B"
             ],
-            "groupsStr": "IDIT1, CE1, MTA1, CNISE1, CS1, HIS1, SE1, BIS1",
+            "groupsStr": "SE1, IDIT1, CE1, CNISE1, HIS1, BIS1, CS1, MTA1, A, B",
             "instructor": "Prof Leonard Msele Msele",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "Auditoriam"
         },
         {
@@ -294,16 +302,17 @@
             "course_name": "Introduction To Linux/Unix Systems",
             "day": "Monday",
             "groups": [
-                "CS2",
+                "CNISE2",
                 "SE2",
                 "HIS2",
-                "CNISE2",
-                "CSDFE2"
+                "CS2",
+                "CSDFE2",
+                "A"
             ],
-            "groupsStr": "CS2, SE2, HIS2, CNISE2, CSDFE2",
+            "groupsStr": "CNISE2, SE2, HIS2, CS2, CSDFE2, A",
             "instructor": "Mr justin woiso justin",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "FL 2"
         },
         {
@@ -316,7 +325,7 @@
             "groupsStr": "CNISE4",
             "instructor": "Dr Daniel  Ngondya",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "LRB 105"
         },
         {
@@ -329,7 +338,7 @@
             "groupsStr": "CE4",
             "instructor": "Mr. Nasolwa Edson Edson",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "LRB 106"
         },
         {
@@ -342,7 +351,7 @@
             "groupsStr": "CSDFE4",
             "instructor": "Dr Amani  David",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "LRB 101"
         },
         {
@@ -350,20 +359,20 @@
             "course_name": "Development Perspectives",
             "day": "Monday",
             "groups": [
-                "CSDFE1",
+                "SE1",
                 "IDIT1",
                 "CE1",
-                "MTA1",
                 "CNISE1",
-                "CS1",
                 "HIS1",
-                "SE1",
-                "BIS1"
+                "BIS1",
+                "CS1",
+                "CSDFE1",
+                "MTA1"
             ],
-            "groupsStr": "CSDFE1, IDIT1, CE1, MTA1, CNISE1, CS1, HIS1, SE1, BIS1",
+            "groupsStr": "SE1, IDIT1, CE1, CNISE1, HIS1, BIS1, CS1, CSDFE1, MTA1",
             "instructor": "Dr. Lucian Ngeze Ngeze",
             "session_type": "Lecture",
-            "time": "16:00-18:00",
+            "time": "15:30-17:30",
             "venue": "Auditoriam"
         },
         {
@@ -371,16 +380,16 @@
             "course_name": "Computer Networking Protocols",
             "day": "Monday",
             "groups": [
-                "CS2",
-                "SE2",
                 "CE2",
                 "CNISE2",
+                "SE2",
+                "CS2",
                 "CSDFE2"
             ],
-            "groupsStr": "CS2, SE2, CE2, CNISE2, CSDFE2",
+            "groupsStr": "CE2, CNISE2, SE2, CS2, CSDFE2",
             "instructor": "Dr Daniel  Ngondya",
             "session_type": "Lecture",
-            "time": "16:00-18:00",
+            "time": "15:30-17:30",
             "venue": "FL 2"
         },
         {
@@ -393,7 +402,7 @@
             "groupsStr": "CNISE4",
             "instructor": "Mr. Baraka Jungwa baraka",
             "session_type": "Lecture",
-            "time": "16:00-18:00",
+            "time": "15:30-17:30",
             "venue": "LRB 105"
         },
         {
@@ -406,7 +415,7 @@
             "groupsStr": "CE4",
             "instructor": "Mr. Nasolwa Edson Edson",
             "session_type": "Lecture",
-            "time": "16:00-18:00",
+            "time": "15:30-17:30",
             "venue": "LRB 106"
         },
         {
@@ -419,7 +428,7 @@
             "groupsStr": "CSDFE4",
             "instructor": "Dr Amani  David",
             "session_type": "Lecture",
-            "time": "16:00-18:00",
+            "time": "15:30-17:30",
             "venue": "LRB 101"
         },
         {
@@ -427,15 +436,15 @@
             "course_name": "Calculus",
             "day": "Tuesday",
             "groups": [
-                "CSDFE1",
-                "SE1",
                 "CNISE1",
-                "CS1"
+                "SE1",
+                "CS1",
+                "CSDFE1"
             ],
-            "groupsStr": "CSDFE1, SE1, CNISE1, CS1",
+            "groupsStr": "CNISE1, SE1, CS1, CSDFE1",
             "instructor": "Mr Pascal Charles Charles",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "FL 2"
         },
         {
@@ -443,20 +452,22 @@
             "course_name": "Object Oriented Programming in Java",
             "day": "Tuesday",
             "groups": [
-                "CS2",
-                "SE2",
-                "BIS2",
-                "CE2",
                 "MTA2",
-                "IDIT2",
+                "CE2",
                 "CNISE2",
+                "IDIT2",
+                "BIS2",
+                "SE2",
                 "HIS1",
-                "CSDFE2"
+                "CS2",
+                "CSDFE2",
+                "A",
+                "B"
             ],
-            "groupsStr": "CS2, SE2, BIS2, CE2, MTA2, IDIT2, CNISE2, HIS1, CSDFE2",
+            "groupsStr": "MTA2, CE2, CNISE2, IDIT2, BIS2, SE2, HIS1, CS2, CSDFE2, A, B",
             "instructor": "Mr Everyjustus  Barongo",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "Auditoriam"
         },
         {
@@ -470,7 +481,7 @@
             "groupsStr": "CSDFE4, CNISE4",
             "instructor": "Dr Daniel  Ngondya",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "LRB 105"
         },
         {
@@ -483,7 +494,7 @@
             "groupsStr": "CE4",
             "instructor": "Dr. Rukia Mwifunyi mwifunyi",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "LRB 106"
         },
         {
@@ -491,19 +502,21 @@
             "course_name": "Principles of Programming Languages",
             "day": "Tuesday",
             "groups": [
+                "SE1",
                 "IDIT1",
                 "CE1",
-                "MTA1",
                 "CNISE1",
-                "CS1",
                 "HIS1",
-                "SE1",
-                "BIS1"
+                "BIS1",
+                "CS1",
+                "MTA1",
+                "A",
+                "B"
             ],
-            "groupsStr": "IDIT1, CE1, MTA1, CNISE1, CS1, HIS1, SE1, BIS1",
+            "groupsStr": "SE1, IDIT1, CE1, CNISE1, HIS1, BIS1, CS1, MTA1, A, B",
             "instructor": "Prof Leonard Msele Msele",
             "session_type": "Lecture",
-            "time": "10:00-12:00",
+            "time": "09:30-11:30",
             "venue": "Auditoriam"
         },
         {
@@ -511,16 +524,16 @@
             "course_name": "Computer Networking Protocols",
             "day": "Tuesday",
             "groups": [
-                "CS2",
-                "SE2",
                 "CE2",
                 "CNISE2",
+                "SE2",
+                "CS2",
                 "CSDFE2"
             ],
-            "groupsStr": "CS2, SE2, CE2, CNISE2, CSDFE2",
+            "groupsStr": "CE2, CNISE2, SE2, CS2, CSDFE2",
             "instructor": "Dr Daniel  Ngondya",
             "session_type": "Practical",
-            "time": "10:00-12:00",
+            "time": "09:30-11:30",
             "venue": "FL 2"
         },
         {
@@ -533,7 +546,7 @@
             "groupsStr": "CE4",
             "instructor": "Dr. Rukia Mwifunyi mwifunyi",
             "session_type": "Practical",
-            "time": "10:00-12:00",
+            "time": "09:30-11:30",
             "venue": "LRB 105"
         },
         {
@@ -548,7 +561,7 @@
             "groupsStr": "CS3, SE4, CNISE4",
             "instructor": "Mr Emanuel  Malya",
             "session_type": "Lecture",
-            "time": "10:00-12:00",
+            "time": "09:30-11:30",
             "venue": "LRB 106"
         },
         {
@@ -561,7 +574,7 @@
             "groupsStr": "CSDFE4",
             "instructor": "Dr Amani  David",
             "session_type": "Lecture",
-            "time": "10:00-12:00",
+            "time": "09:30-11:30",
             "venue": "LRB 101"
         },
         {
@@ -569,16 +582,17 @@
             "course_name": "Discrete Mathematics for ICT",
             "day": "Tuesday",
             "groups": [
-                "CSDFE1",
+                "SE1",
                 "CE1",
                 "CNISE1",
                 "CS1",
-                "SE1"
+                "CSDFE1",
+                "A"
             ],
-            "groupsStr": "CSDFE1, CE1, CNISE1, CS1, SE1",
+            "groupsStr": "SE1, CE1, CNISE1, CS1, CSDFE1, A",
             "instructor": "Mr Pascal Charles Charles",
             "session_type": "Tutorial",
-            "time": "12:00-13:00",
+            "time": "11:30-12:30",
             "venue": "FL 2"
         },
         {
@@ -586,19 +600,19 @@
             "course_name": "Professional Ethics and Conduct",
             "day": "Tuesday",
             "groups": [
-                "IDIT3",
-                "MTA3",
-                "CE4",
                 "SE4",
-                "CSDFE4",
                 "CS3",
                 "BIS3",
-                "CNISE4"
+                "IDIT3",
+                "CSDFE4",
+                "CNISE4",
+                "CE4",
+                "MTA3"
             ],
-            "groupsStr": "IDIT3, MTA3, CE4, SE4, CSDFE4, CS3, BIS3, CNISE4",
+            "groupsStr": "SE4, CS3, BIS3, IDIT3, CSDFE4, CNISE4, CE4, MTA3",
             "instructor": "Mr. Hamis Fereji hamis",
             "session_type": "Tutorial",
-            "time": "12:00-13:00",
+            "time": "11:30-12:30",
             "venue": "Auditoriam"
         },
         {
@@ -606,16 +620,17 @@
             "course_name": "Introduction to Information Technology",
             "day": "Tuesday",
             "groups": [
-                "CSDFE1",
+                "SE1",
                 "CE1",
                 "CNISE1",
                 "CS1",
-                "SE1"
+                "CSDFE1",
+                "A"
             ],
-            "groupsStr": "CSDFE1, CE1, CNISE1, CS1, SE1",
+            "groupsStr": "SE1, CE1, CNISE1, CS1, CSDFE1, A",
             "instructor": "Mr. Isaac Mahenge Isaac",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "FL 2"
         },
         {
@@ -625,16 +640,16 @@
             "groups": [
                 "SE4",
                 "CS3",
+                "BIS3",
+                "IDIT3",
                 "CSDFE4",
                 "CNISE4",
-                "HIS3",
-                "BIS3",
-                "IDIT3"
+                "HIS3"
             ],
-            "groupsStr": "SE4, CS3, CSDFE4, CNISE4, HIS3, BIS3, IDIT3",
+            "groupsStr": "SE4, CS3, BIS3, IDIT3, CSDFE4, CNISE4, HIS3",
             "instructor": "Dr Majuto  Manyilizu",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "Auditoriam"
         },
         {
@@ -647,7 +662,7 @@
             "groupsStr": "CE4",
             "instructor": "Dr Mustafa  Mohsin",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "LRB 105"
         },
         {
@@ -655,16 +670,17 @@
             "course_name": "Discrete Mathematics for ICT",
             "day": "Tuesday",
             "groups": [
-                "CSDFE1",
+                "SE1",
                 "CE1",
                 "CNISE1",
                 "CS1",
-                "SE1"
+                "CSDFE1",
+                "A"
             ],
-            "groupsStr": "CSDFE1, CE1, CNISE1, CS1, SE1",
+            "groupsStr": "SE1, CE1, CNISE1, CS1, CSDFE1, A",
             "instructor": "Mr Pascal Charles Charles",
             "session_type": "Lecture",
-            "time": "16:00-18:00",
+            "time": "15:30-17:30",
             "venue": "FL 2"
         },
         {
@@ -672,16 +688,17 @@
             "course_name": "Introduction To Linux/Unix Systems",
             "day": "Tuesday",
             "groups": [
-                "CS2",
+                "CNISE2",
                 "SE2",
                 "HIS2",
-                "CNISE2",
-                "CSDFE2"
+                "CS2",
+                "CSDFE2",
+                "A"
             ],
-            "groupsStr": "CS2, SE2, HIS2, CNISE2, CSDFE2",
+            "groupsStr": "CNISE2, SE2, HIS2, CS2, CSDFE2, A",
             "instructor": "Mr justin woiso justin",
             "session_type": "Lecture",
-            "time": "16:00-18:00",
+            "time": "15:30-17:30",
             "venue": "Auditoriam"
         },
         {
@@ -694,7 +711,7 @@
             "groupsStr": "CNISE4",
             "instructor": "Dr Daniel  Ngondya",
             "session_type": "Lecture",
-            "time": "16:00-18:00",
+            "time": "15:30-17:30",
             "venue": "LRB 105"
         },
         {
@@ -707,7 +724,7 @@
             "groupsStr": "CE4",
             "instructor": "Mr. Nasolwa Edson Edson",
             "session_type": "Lecture",
-            "time": "16:00-18:00",
+            "time": "15:30-17:30",
             "venue": "LRB 106"
         },
         {
@@ -715,16 +732,17 @@
             "course_name": "Introduction to Information Technology",
             "day": "Wednesday",
             "groups": [
-                "CSDFE1",
+                "SE1",
                 "CE1",
                 "CNISE1",
                 "CS1",
-                "SE1"
+                "CSDFE1",
+                "A"
             ],
-            "groupsStr": "CSDFE1, CE1, CNISE1, CS1, SE1",
+            "groupsStr": "SE1, CE1, CNISE1, CS1, CSDFE1, A",
             "instructor": "Mr. Isaac Mahenge Isaac",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "FL 2"
         },
         {
@@ -732,16 +750,17 @@
             "course_name": "Introduction To Linux/Unix Systems",
             "day": "Wednesday",
             "groups": [
-                "CS2",
+                "CNISE2",
                 "SE2",
                 "HIS2",
-                "CNISE2",
-                "CSDFE2"
+                "CS2",
+                "CSDFE2",
+                "A"
             ],
-            "groupsStr": "CS2, SE2, HIS2, CNISE2, CSDFE2",
+            "groupsStr": "CNISE2, SE2, HIS2, CS2, CSDFE2, A",
             "instructor": "Mr justin woiso justin",
             "session_type": "Practical",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "Auditoriam"
         },
         {
@@ -755,7 +774,7 @@
             "groupsStr": "CSDFE4, CNISE4",
             "instructor": "Dr Daniel  Ngondya",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "LRB 105"
         },
         {
@@ -768,7 +787,7 @@
             "groupsStr": "CE4",
             "instructor": "Dr Mustafa  Mohsin",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "LRB 106"
         },
         {
@@ -776,14 +795,14 @@
             "course_name": "Mathematical Foundations of Info Security",
             "day": "Wednesday",
             "groups": [
-                "SE1",
                 "CNISE1",
+                "SE1",
                 "CS1"
             ],
-            "groupsStr": "SE1, CNISE1, CS1",
+            "groupsStr": "CNISE1, SE1, CS1",
             "instructor": "Mr. Nasolwa Edson Edson",
             "session_type": "Lecture",
-            "time": "10:00-12:00",
+            "time": "09:30-11:30",
             "venue": "FL 2"
         },
         {
@@ -791,19 +810,19 @@
             "course_name": "Professional Ethics and Conduct",
             "day": "Wednesday",
             "groups": [
-                "IDIT3",
-                "MTA3",
-                "CE4",
                 "SE4",
-                "CSDFE4",
                 "CS3",
                 "BIS3",
-                "CNISE4"
+                "IDIT3",
+                "CSDFE4",
+                "CNISE4",
+                "CE4",
+                "MTA3"
             ],
-            "groupsStr": "IDIT3, MTA3, CE4, SE4, CSDFE4, CS3, BIS3, CNISE4",
+            "groupsStr": "SE4, CS3, BIS3, IDIT3, CSDFE4, CNISE4, CE4, MTA3",
             "instructor": "Mr. Hamis Fereji hamis",
             "session_type": "Lecture",
-            "time": "10:00-12:00",
+            "time": "09:30-11:30",
             "venue": "Auditoriam"
         },
         {
@@ -811,14 +830,14 @@
             "course_name": "Mathematical Foundations of Info Security",
             "day": "Wednesday",
             "groups": [
-                "SE1",
                 "CNISE1",
+                "SE1",
                 "CS1"
             ],
-            "groupsStr": "SE1, CNISE1, CS1",
+            "groupsStr": "CNISE1, SE1, CS1",
             "instructor": "Mr. Nasolwa Edson Edson",
             "session_type": "Tutorial",
-            "time": "12:00-13:00",
+            "time": "11:30-12:30",
             "venue": "FL 2"
         },
         {
@@ -832,7 +851,7 @@
             "groupsStr": "CSDFE4, CNISE4",
             "instructor": "Dr Daniel  Ngondya",
             "session_type": "Tutorial",
-            "time": "12:00-13:00",
+            "time": "11:30-12:30",
             "venue": "LRB 105"
         },
         {
@@ -845,7 +864,7 @@
             "groupsStr": "CE4",
             "instructor": "Mr Pascal Charles Charles",
             "session_type": "Tutorial",
-            "time": "12:00-13:00",
+            "time": "11:30-12:30",
             "venue": "LRB 106"
         },
         {
@@ -853,16 +872,16 @@
             "course_name": "Linear Algebra for ICT",
             "day": "Wednesday",
             "groups": [
-                "CSDFE1",
+                "SE1",
                 "CE1",
                 "CNISE1",
                 "CS1",
-                "SE1"
+                "CSDFE1"
             ],
-            "groupsStr": "CSDFE1, CE1, CNISE1, CS1, SE1",
+            "groupsStr": "SE1, CE1, CNISE1, CS1, CSDFE1",
             "instructor": "Mr Pascal Charles Charles",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "FL 2"
         },
         {
@@ -876,7 +895,7 @@
             "groupsStr": "CSDFE4, CE4",
             "instructor": "Dr Amani  David",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "LRB 105"
         },
         {
@@ -891,7 +910,7 @@
             "groupsStr": "CS3, SE4, CNISE4",
             "instructor": "Mr Emanuel  Malya",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "LRB 106"
         },
         {
@@ -899,16 +918,16 @@
             "course_name": "Linear Algebra for ICT",
             "day": "Wednesday",
             "groups": [
-                "CSDFE1",
+                "SE1",
                 "CE1",
                 "CNISE1",
                 "CS1",
-                "SE1"
+                "CSDFE1"
             ],
-            "groupsStr": "CSDFE1, CE1, CNISE1, CS1, SE1",
+            "groupsStr": "SE1, CE1, CNISE1, CS1, CSDFE1",
             "instructor": "Mr Pascal Charles Charles",
             "session_type": "Lecture",
-            "time": "16:00-18:00",
+            "time": "15:30-17:30",
             "venue": "FL 2"
         },
         {
@@ -918,16 +937,16 @@
             "groups": [
                 "SE4",
                 "CS3",
+                "BIS3",
+                "IDIT3",
                 "CSDFE4",
                 "CNISE4",
-                "HIS3",
-                "BIS3",
-                "IDIT3"
+                "HIS3"
             ],
-            "groupsStr": "SE4, CS3, CSDFE4, CNISE4, HIS3, BIS3, IDIT3",
+            "groupsStr": "SE4, CS3, BIS3, IDIT3, CSDFE4, CNISE4, HIS3",
             "instructor": "Dr Majuto  Manyilizu",
             "session_type": "Lecture",
-            "time": "16:00-18:00",
+            "time": "15:30-17:30",
             "venue": "Auditoriam"
         },
         {
@@ -941,7 +960,7 @@
             "groupsStr": "CSDFE4, CE4",
             "instructor": "Dr Amani  David",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "LRB 105"
         },
         {
@@ -956,7 +975,7 @@
             "groupsStr": "CS3, SE4, CNISE4",
             "instructor": "Mr Aliko  Matola",
             "session_type": "Lecture",
-            "time": "08:00-10:00",
+            "time": "07:30-09:30",
             "venue": "LRB 106"
         },
         {
@@ -966,14 +985,14 @@
             "groups": [
                 "SE4",
                 "CS3",
-                "CSDFE4",
                 "BIS3",
+                "CSDFE4",
                 "CNISE4"
             ],
-            "groupsStr": "SE4, CS3, CSDFE4, BIS3, CNISE4",
+            "groupsStr": "SE4, CS3, BIS3, CSDFE4, CNISE4",
             "instructor": "Mr Yona  Zakaria",
             "session_type": "Lecture",
-            "time": "10:00-12:00",
+            "time": "09:30-11:30",
             "venue": "FL 2"
         },
         {
@@ -986,7 +1005,7 @@
             "groupsStr": "CE4",
             "instructor": "Mr Pascal Charles Charles",
             "session_type": "Lecture",
-            "time": "10:00-12:00",
+            "time": "09:30-11:30",
             "venue": "LRB 105"
         },
         {
@@ -996,14 +1015,14 @@
             "groups": [
                 "SE4",
                 "CS3",
-                "CSDFE4",
                 "BIS3",
+                "CSDFE4",
                 "CNISE4"
             ],
-            "groupsStr": "SE4, CS3, CSDFE4, BIS3, CNISE4",
+            "groupsStr": "SE4, CS3, BIS3, CSDFE4, CNISE4",
             "instructor": "Mr Yona  Zakaria",
             "session_type": "Tutorial",
-            "time": "12:00-13:00",
+            "time": "11:30-12:30",
             "venue": "FL 2"
         },
         {
@@ -1018,7 +1037,7 @@
             "groupsStr": "CS3, SE4, CNISE4",
             "instructor": "Mr Aliko  Matola",
             "session_type": "Tutorial",
-            "time": "15:00-16:00",
+            "time": "14:30-15:30",
             "venue": "LRB 105"
         }
     ],

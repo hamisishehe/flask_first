@@ -357,6 +357,28 @@ def get_instructors_full_info():
     return jsonify(result), 200
 
 
+@app.route("/update_instructor/<int:instructor_id>", methods=["PUT"])
+def update_instructor(instructor_id):
+    data = request.get_json()
+
+    instructor = Instructor.query.get_or_404(instructor_id)
+
+    # Update only fields sent in the payload
+    instructor.first_name = data.get("first_name", instructor.first_name)
+    instructor.middle_name = data.get("middle_name", instructor.middle_name)
+    instructor.last_name = data.get("last_name", instructor.last_name)
+    instructor.gender = data.get("gender", instructor.gender)
+    instructor.phone_number = data.get("phone_number", instructor.phone_number)
+    instructor.email = data.get("email", instructor.email)
+    instructor.title = data.get("title", instructor.title)
+
+    try:
+        db.session.commit()
+        return jsonify({"message": "Instructor updated successfully"}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": "Failed to update instructor", "details": str(e)}), 500
+
 @app.route("/add_student_program", methods=["POST"])
 def add_student():
     try:
@@ -558,8 +580,6 @@ def add_Course():
                 course_code,
                 course_name,
                 semester,
-                is_lecture,
-                is_tutorial,
                 department_id,
                 coordinator_id,
             ]
@@ -568,10 +588,10 @@ def add_Course():
             return jsonify({"message": "Missing required fields"}), 400
 
         # Optional: check if Course  already exists
-        existing = Course.query.filter((Course.course_code == course_code)).first()
-        if existing:
-            print("❌ Course already exists")
-            return jsonify({"message": "Course already exists"}), 409
+        # existing = Course.query.filter((Course.course_code == course_code)).first()
+        # if existing:
+        #     print("❌ Course already exists")
+        #     return jsonify({"message": "Course already exists"}), 409
 
         # ✅ Try saving
         new_Course = Course(
@@ -657,7 +677,7 @@ def assign_Course():
 
         for student_id in student_ids:
             existing = Course_matrix.query.filter_by(
-                course_id=course_id, student_id=student_id
+                course_id=course_id, instructor_id=student_id
             ).first()
             if existing:
                 skipped.append(student_id)
@@ -779,8 +799,11 @@ def generate_timetable_route():
 
         start_time = data.get("start_time")
         semester = int(data.get("semester"))
+        b_start_time = data.get("b_start_time")
+        b_end_time = data.get("b_end_time")
+        t_days = data.get("days")
    
-        timetable = generate_timetable(app, semester, start_time)
+        timetable = generate_timetable(app, semester, start_time, b_start_time,b_end_time,t_days)
 
         return (
             jsonify(

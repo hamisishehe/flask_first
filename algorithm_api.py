@@ -13,7 +13,7 @@ def parse_time_range(time_range):
 def times_overlap(start1, end1, start2, end2):
     return max(start1, start2) < min(end1, end2)
 
-def generate_timetable(app, semester, t_start_time):
+def generate_timetable(app, semester, t_start_time, b_start_time, b_end_time, t_days):
     with app.app_context():
         venues = {v.name: v.teaching_capacity for v in Venue.query.all()}
         if not venues:
@@ -64,10 +64,10 @@ def generate_timetable(app, semester, t_start_time):
         for k in course_program_groups_mapping:
             course_program_groups_mapping[k] = list(course_program_groups_mapping[k])
 
-        days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+        days = t_days
         start_time = datetime.strptime(t_start_time, "%H:%M")
-        lunch_start = datetime.strptime("13:30", "%H:%M")
-        lunch_end = datetime.strptime("14:30", "%H:%M")
+        lunch_start = datetime.strptime(b_start_time, "%H:%M")
+        lunch_end = datetime.strptime(b_end_time, "%H:%M")
 
         def slot_overlaps_lunch(slot_start, slot_end):
             return times_overlap(slot_start, slot_end, lunch_start, lunch_end)
