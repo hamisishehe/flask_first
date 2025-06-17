@@ -4,7 +4,6 @@ import pandas as pd
 import os
 from flask import Flask, json, request, jsonify, send_file, send_from_directory, url_for
 import jwt
-from flask import session
 from exam_api import generate_exam_timetable
 from models import Department, Role, User, VenueType, db
 import config
@@ -21,7 +20,7 @@ from algorithm_api import generate_timetable
 from flask_migrate import Migrate
 
 app = Flask(__name__)
-app.config.from_object(config.current_config)
+app.config.from_object(config)
 
 
 app.config["SECRET_KEY"] = "your-secret-key"
@@ -781,7 +780,7 @@ def generate_timetable_route():
         start_time = data.get("start_time")
         semester = int(data.get("semester"))
    
-        timetable = generate_timetable(app,semester,start_time)
+        timetable = generate_timetable(app, semester, start_time)
 
         return (
             jsonify(

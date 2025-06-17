@@ -180,15 +180,6 @@ class Department(db.Model):
 
 
 
-class ScheduledClass(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    course_name = db.Column(db.String(100), nullable=False)
-    day = db.Column(db.String(20), nullable=False)
-    time_slot = db.Column(db.String(20), nullable=False)
-    venue = db.Column(db.String(100), nullable=False)
-    student_groups = db.Column(db.String(200), nullable=False)
-    instructor = db.Column(db.String(100), nullable=False)
-
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -216,3 +207,14 @@ class User(db.Model):
 
     def __repr__(self):
         return f"<User {self.first_name} {self.last_name}, Role {self.role.name}>"
+
+
+class ScheduledClass(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    course_name = db.Column(db.String(100), nullable=False)
+    day = db.Column(db.String(20), nullable=False)
+    time_slot = db.Column(db.String(20), nullable=False)
+    venue = db.Column(db.String(100), nullable=False)
+    student_groups = db.Column(db.String(200), nullable=False)
+    instructor = db.Column(db.String(100), nullable=False)
+

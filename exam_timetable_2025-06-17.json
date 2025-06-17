@@ -1,0 +1,396 @@
+[
+    {
+        "course_code": "SI 311",
+        "course_name": "Professional Ethics and Conduct",
+        "actual_date": "2023-04-30",
+        "time": "08:00-11:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "BIS3",
+            "SE4",
+            "IDIT3",
+            "CS3",
+            "MTA3",
+            "CNISE4",
+            "CE4",
+            "CSDFE4"
+        ]
+    },
+    {
+        "course_code": "CP 213",
+        "course_name": "Data Structures and Algorithms Analysis",
+        "actual_date": "2023-04-30",
+        "time": "08:00-11:00",
+        "venue": "LRB 106",
+        "groups": [
+            "CS2",
+            "SE2",
+            "CE2"
+        ]
+    },
+    {
+        "course_code": "IA 417",
+        "course_name": "Cyber Threat Intelligence",
+        "actual_date": "2023-04-30",
+        "time": "11:30-13:00",
+        "venue": "LRB 106",
+        "groups": [
+            "CNISE4",
+            "CSDFE4"
+        ]
+    },
+    {
+        "course_code": "TN 112",
+        "course_name": "Linear Algebra for ICT",
+        "actual_date": "2023-04-30",
+        "time": "11:30-13:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "SE1",
+            "CSDFE1",
+            "CE1",
+            "CNISE1",
+            "CS1"
+        ]
+    },
+    {
+        "course_code": "CG 221",
+        "course_name": "Fundamentals of IoT",
+        "actual_date": "2023-04-30",
+        "time": "11:30-13:00",
+        "venue": "LRB 105",
+        "groups": [
+            "CE4"
+        ]
+    },
+    {
+        "course_code": "CP 412",
+        "course_name": "C# Programming",
+        "actual_date": "2023-04-30",
+        "time": "11:30-13:00",
+        "venue": "LRB 102",
+        "groups": [
+            "SE4"
+        ]
+    },
+    {
+        "course_code": "DS 102",
+        "course_name": "Development Perspectives",
+        "actual_date": "2023-04-30",
+        "time": "14:00-17:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "CNISE1",
+            "CE1",
+            "SE1",
+            "CS1",
+            "MTA1",
+            "CSDFE1",
+            "IDIT1",
+            "BIS1",
+            "HIS1"
+        ]
+    },
+    {
+        "course_code": "BT 312",
+        "course_name": "Electronic and Mobile Commerce",
+        "actual_date": "2023-04-30",
+        "time": "14:00-17:00",
+        "venue": "LRB 106",
+        "groups": [
+            "CS3",
+            "SE4",
+            "CNISE4"
+        ]
+    },
+    {
+        "course_code": "CT 413",
+        "course_name": "Operating Systems Internals",
+        "actual_date": "2023-04-30",
+        "time": "14:00-17:00",
+        "venue": "LRB 105",
+        "groups": [
+            "CE4"
+        ]
+    },
+    {
+        "course_code": "CS 418",
+        "course_name": "Cyber Security and Digital Forensics Engineering Project I",
+        "actual_date": "2023-04-30",
+        "time": "14:00-17:00",
+        "venue": "LRB 101",
+        "groups": [
+            "CSDFE4"
+        ]
+    },
+    {
+        "course_code": "IM 411",
+        "course_name": "Human-Computer Interaction",
+        "actual_date": "2023-05-01",
+        "time": "08:00-11:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "CS3",
+            "CNISE4",
+            "CSDFE4",
+            "BIS3",
+            "SE4"
+        ]
+    },
+    {
+        "course_code": "CT 412",
+        "course_name": "Parallel Computing",
+        "actual_date": "2023-05-01",
+        "time": "08:00-11:00",
+        "venue": "LRB 105",
+        "groups": [
+            "CE4"
+        ]
+    },
+    {
+        "course_code": "BT 413",
+        "course_name": "ICT Project Management",
+        "actual_date": "2023-05-01",
+        "time": "11:30-13:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "BIS3",
+            "SE4",
+            "CSDFE4",
+            "IDIT3",
+            "CS3",
+            "CNISE4",
+            "HIS3"
+        ]
+    },
+    {
+        "course_code": "CT 411",
+        "course_name": "Embedded Systems I",
+        "actual_date": "2023-05-01",
+        "time": "11:30-13:00",
+        "venue": "LRB 105",
+        "groups": [
+            "CE4"
+        ]
+    },
+    {
+        "course_code": "IT 111",
+        "course_name": "Introduction to Information Technology",
+        "actual_date": "2023-05-01",
+        "time": "14:00-17:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "SE1",
+            "CS1",
+            "CNISE1",
+            "CE1",
+            "CSDFE1"
+        ]
+    },
+    {
+        "course_code": "CP 314",
+        "course_name": "Distributed Computing",
+        "actual_date": "2023-05-01",
+        "time": "14:00-17:00",
+        "venue": "LRB 106",
+        "groups": [
+            "SE4",
+            "CNISE4",
+            "CS3"
+        ]
+    },
+    {
+        "course_code": "IA 314",
+        "course_name": "Biometric Security",
+        "actual_date": "2023-05-01",
+        "time": "14:00-17:00",
+        "venue": "FL 1",
+        "groups": [
+            "CE4",
+            "CSDFE4"
+        ]
+    },
+    {
+        "course_code": "IA 112",
+        "course_name": "Mathematical Foundations of Info Security",
+        "actual_date": "2023-05-02",
+        "time": "08:00-11:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "SE1",
+            "CS1",
+            "CNISE1"
+        ]
+    },
+    {
+        "course_code": "CN 411",
+        "course_name": "Wireless Networks and Mobile Computing",
+        "actual_date": "2023-05-02",
+        "time": "08:00-11:00",
+        "venue": "LRB 105",
+        "groups": [
+            "CNISE4"
+        ]
+    },
+    {
+        "course_code": "TN 413",
+        "course_name": "Information Theory and Coding",
+        "actual_date": "2023-05-02",
+        "time": "08:00-11:00",
+        "venue": "LRB 106",
+        "groups": [
+            "CE4"
+        ]
+    },
+    {
+        "course_code": "LW 4110",
+        "course_name": "Legal Aspects in Cyber Security",
+        "actual_date": "2023-05-02",
+        "time": "08:00-11:00",
+        "venue": "LRB 101",
+        "groups": [
+            "CSDFE4"
+        ]
+    },
+    {
+        "course_code": "EME 314",
+        "course_name": "ICT Entrepreneurship",
+        "actual_date": "2023-05-02",
+        "time": "11:30-13:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "CNISE4",
+            "CSDFE4",
+            "CE4"
+        ]
+    },
+    {
+        "course_code": "CP 111",
+        "course_name": "Principles of Programming Languages",
+        "actual_date": "2023-05-02",
+        "time": "14:00-17:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "BIS1",
+            "CNISE1",
+            "SE1",
+            "HIS1",
+            "CS1",
+            "CE1",
+            "IDIT1",
+            "MTA1"
+        ]
+    },
+    {
+        "course_code": "IA 414",
+        "course_name": "Database Security",
+        "actual_date": "2023-05-02",
+        "time": "14:00-17:00",
+        "venue": "LRB 106",
+        "groups": [
+            "CNISE4",
+            "CSDFE4"
+        ]
+    },
+    {
+        "course_code": "cp 215",
+        "course_name": "Object Oriented Programming in Java",
+        "actual_date": "2023-05-03",
+        "time": "08:00-11:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "HIS1",
+            "IDIT2",
+            "BIS2",
+            "CNISE2",
+            "CS2",
+            "MTA2",
+            "CE2",
+            "CSDFE2",
+            "SE2"
+        ]
+    },
+    {
+        "course_code": "CS 419",
+        "course_name": "Computer Networks and Information Security",
+        "actual_date": "2023-05-03",
+        "time": "08:00-11:00",
+        "venue": "LRB 105",
+        "groups": [
+            "CNISE4"
+        ]
+    },
+    {
+        "course_code": "LG 102",
+        "course_name": "Communication Skills",
+        "actual_date": "2023-05-03",
+        "time": "11:30-13:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "CE1",
+            "CS1",
+            "CNISE1",
+            "MTA1",
+            "BIS1",
+            "HIS1",
+            "SE1",
+            "IDIT1",
+            "CSDFE1"
+        ]
+    },
+    {
+        "course_code": "CP 211",
+        "course_name": "Introduction To Linux/Unix Systems",
+        "actual_date": "2023-05-03",
+        "time": "14:00-17:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "CNISE2",
+            "CS2",
+            "SE2",
+            "HIS2",
+            "CSDFE2"
+        ]
+    },
+    {
+        "course_code": "TN 113",
+        "course_name": "Calculus",
+        "actual_date": "2023-05-04",
+        "time": "08:00-11:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "CS1",
+            "CSDFE1",
+            "SE1",
+            "CNISE1"
+        ]
+    },
+    {
+        "course_code": "CN 211",
+        "course_name": "Computer Networking Protocols",
+        "actual_date": "2023-05-04",
+        "time": "11:30-13:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "CSDFE2",
+            "CE2",
+            "CS2",
+            "SE2",
+            "CNISE2"
+        ]
+    },
+    {
+        "course_code": "TN 111",
+        "course_name": "Discrete Mathematics for ICT",
+        "actual_date": "2023-05-04",
+        "time": "14:00-17:00",
+        "venue": "Auditoriam",
+        "groups": [
+            "SE1",
+            "CNISE1",
+            "CSDFE1",
+            "CE1",
+            "CS1"
+        ]
+    }
+]
