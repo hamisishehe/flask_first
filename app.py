@@ -998,18 +998,71 @@ def save_timetable_json():
         return jsonify({"message": str(e), "status": "error"}), 500
 
 
-@app.route("/generate_exam_timetable", methods=["GET"])
+@app.route("/generate_exam_timetable", methods=["POST"])
 def generate_exam_timetable_route():
-    timetable = generate_exam_timetable()
-    if timetable:
-        return jsonify(
-            timetable
-        )  # Return the timetable as a sorted list of dictionaries
-    else:
+    try:        
+         data = request.get_json()
+
+         start_time = data.get("start_time")
+         semester = int(data.get("semester"))
+         start_date = data.get("start_date")
+         t_days = data.get("days")
+         timetable = generate_exam_timetable(start_time,start_date, semester, t_days)
+
+         return (
+            jsonify(
+                {
+                    "message": "Timetable generated successfully.",
+                    "status": "success",
+                    "data": timetable,
+                }
+            ),
+            200,
+        )
+     
+    except Exception as e:
+        return jsonify({"message": str(e), "status": "error"}), 500
+
+@app.route("/api/save-exam-timetable-json", methods=["POST"])
+def save_exam_timetable_json():
+    try:
+
+        data = request.get_json()
+
+        save_exam_folder = "saved_files"
+        os.makedirs(save_exam_folder, exist_ok=True)
+        filename = os.path.join(save_exam_folder, "timetable.json")
+
+        with open(filename, "w") as f:
+            json.dump(data, f, indent=4)
+
         return (
-            jsonify({"error": "Could not generate timetable"}),
-            500,
-        )  # Return error if no timetable generated
+            jsonify(
+                {
+                    "message": "Timetable saved successfully as JSON.",
+                    "status": "success",
+                }
+            ),
+            200,
+        )
+
+    except Exception as e:
+        return jsonify({"message": str(e), "status": "error"}), 500
+
+@app.route("/api/fetch-exam-timetable-json", methods=["GET"])
+def fetch_exam_timetable_json():
+    try:
+        filename = os.path.join("exam_timetable.json")
+
+        with open(filename, "r") as f:
+            data = json.load(f)
+
+        return jsonify(data), 200
+
+    except Exception as e:
+        return jsonify({"message": str(e), "status": "error", "data": []}), 500
+
+
 
 
 @app.route("/api/last-timetable", methods=["GET"])

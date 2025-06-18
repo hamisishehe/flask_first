@@ -3,7 +3,7 @@ from models import Course, Students, Venue, Course_matrix
 from sqlalchemy.sql import func
 import json
 
-def generate_exam_timetable():
+def generate_exam_timetable(start_time,start_date,semester,t_days):
     """
     Generate an exam timetable for courses, ensuring no exams during the break time (13:00–14:00).
     Courses are fetched in random order. Saves the timetable to a JSON file named exam_timetable_YYYY-MM-DD.json.
@@ -44,8 +44,8 @@ def generate_exam_timetable():
         return None
 
     # Days and exam slots
-    start_date = datetime.strptime("2023-04-30", "%Y-%m-%d")
-    week_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+    start_date = datetime.strptime(start_date, "%Y-%m-%d")
+    week_days = t_days
     days = week_days * 4
 
     exam_timeslots = [
@@ -177,7 +177,7 @@ def generate_exam_timetable():
 
     # Save to file
     current_date = datetime.now().strftime("%Y-%m-%d")
-    json_filename = f"exam_timetable_{current_date}.json"
+    json_filename = f"exam_timetable.json"
     try:
         with open(json_filename, 'w', encoding='utf-8') as f:
             json.dump(final_schedule_with_dates, f, indent=4, ensure_ascii=False)
