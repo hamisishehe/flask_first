@@ -1,0 +1,219 @@
+[
+    {
+        "day": "Monday",
+        "date": "2023-04-30",
+        "time": "08:00-11:00",
+        "venue": "Auditoriam",
+        "schedule": "CP 111 Principles of Programming Languages: IDIT1 (50), CE1 (40), HIS1 (77), BIS1 (78), MTA1 (106), SE1 (92), CNISE1 (59), CS1 (88) [Total: 590]"
+    },
+    {
+        "day": "Monday",
+        "date": "2023-04-30",
+        "time": "08:00-11:00",
+        "venue": "LRB 105",
+        "schedule": "CP 412 C# Programming: SE4 (65) [Total: 65]"
+    },
+    {
+        "day": "Monday",
+        "date": "2023-04-30",
+        "time": "08:00-11:00",
+        "venue": "LRB 106",
+        "schedule": "CS 418 Cyber Security and Digital Forensics Engineering Project I: CSDFE4 (55) [Total: 55]"
+    },
+    {
+        "day": "Monday",
+        "date": "2023-04-30",
+        "time": "08:00-11:00",
+        "venue": "LRA 020",
+        "schedule": "CT 412 Parallel Computing: CE4 (89) [Total: 89]"
+    },
+    {
+        "day": "Monday",
+        "date": "2023-04-30",
+        "time": "08:00-11:00",
+        "venue": "LRA 103",
+        "schedule": "CS 419 Computer Networks and Information Security: CNISE4 (88) [Total: 88]"
+    },
+    {
+        "day": "Monday",
+        "date": "2023-04-30",
+        "time": "11:30-14:30",
+        "venue": "Auditoriam",
+        "schedule": "cp 215 Object Oriented Programming in Java: CS2 (69), CSDFE2 (60), CNISE2 (50), SE2 (70), HIS1 (77), MTA2 (90), CE2 (59) [Total: 475]"
+    },
+    {
+        "day": "Monday",
+        "date": "2023-04-30",
+        "time": "11:30-14:30",
+        "venue": "LRB 105",
+        "schedule": "IA 417 Cyber Threat Intelligence: CSDFE4 (55), CNISE4 (88) [Total: 143]"
+    },
+    {
+        "day": "Monday",
+        "date": "2023-04-30",
+        "time": "11:30-14:30",
+        "venue": "LRB 106",
+        "schedule": "TN 413 Information Theory and Coding: CE4 (89) [Total: 89]"
+    },
+    {
+        "day": "Monday",
+        "date": "2023-04-30",
+        "time": "15:30-18:30",
+        "venue": "Auditoriam",
+        "schedule": "TN 113 Calculus: SE1 (92), CS1 (88), CSDFE1 (80), CNISE1 (59) [Total: 319]"
+    },
+    {
+        "day": "Monday",
+        "date": "2023-04-30",
+        "time": "15:30-18:30",
+        "venue": "LRB 105",
+        "schedule": "IA 314 Biometric Security: CSDFE4 (55), CE4 (89) [Total: 144]"
+    },
+    {
+        "day": "Monday",
+        "date": "2023-04-30",
+        "time": "15:30-18:30",
+        "venue": "LRB 106",
+        "schedule": "CP 314 Distributed Computing: CNISE4 (88), SE4 (65), CS3 (40) [Total: 193]"
+    },
+    {
+        "day": "Tuesday",
+        "date": "2023-05-01",
+        "time": "08:00-11:00",
+        "venue": "Auditoriam",
+        "schedule": "CN 211 Computer Networking Protocols: CNISE2 (50), SE2 (70), CS2 (69), CSDFE2 (60), CE2 (59) [Total: 308]"
+    },
+    {
+        "day": "Tuesday",
+        "date": "2023-05-01",
+        "time": "08:00-11:00",
+        "venue": "LRB 105",
+        "schedule": "IA 414 Database Security: CSDFE4 (55), CNISE4 (88) [Total: 143]"
+    },
+    {
+        "day": "Tuesday",
+        "date": "2023-05-01",
+        "time": "08:00-11:00",
+        "venue": "LRB 106",
+        "schedule": "CG 221 Fundamentals of IoT: CE4 (89) [Total: 89]"
+    },
+    {
+        "day": "Tuesday",
+        "date": "2023-05-01",
+        "time": "11:30-14:30",
+        "venue": "Auditoriam",
+        "schedule": "BT 413 ICT Project Management: HIS3 (66), CNISE4 (88), BIS3 (69), CS3 (40), IDIT3 (95), CSDFE4 (55), SE4 (65) [Total: 478]"
+    },
+    {
+        "day": "Tuesday",
+        "date": "2023-05-01",
+        "time": "11:30-14:30",
+        "venue": "LRB 105",
+        "schedule": "CT 413 Operating Systems Internals: CE4 (89) [Total: 89]"
+    },
+    {
+        "day": "Tuesday",
+        "date": "2023-05-01",
+        "time": "11:30-14:30",
+        "venue": "LRB 106",
+        "schedule": "CP 213 Data Structures and Algorithms Analysis: CE2 (59), SE2 (70), CS2 (69) [Total: 198]"
+    },
+    {
+        "day": "Tuesday",
+        "date": "2023-05-01",
+        "time": "15:30-18:30",
+        "venue": "Auditoriam",
+        "schedule": "CP 211 Introduction To Linux/Unix Systems: CNISE2 (50), SE2 (70), HIS2 (77), CSDFE2 (60), CS2 (69) [Total: 326]"
+    },
+    {
+        "day": "Tuesday",
+        "date": "2023-05-01",
+        "time": "15:30-18:30",
+        "venue": "LRB 105",
+        "schedule": "BT 312 Electronic and Mobile Commerce: CNISE4 (88), SE4 (65), CS3 (40) [Total: 193]"
+    },
+    {
+        "day": "Tuesday",
+        "date": "2023-05-01",
+        "time": "15:30-18:30",
+        "venue": "LRB 106",
+        "schedule": "CT 411 Embedded Systems I: CE4 (89) [Total: 89]"
+    },
+    {
+        "day": "Tuesday",
+        "date": "2023-05-01",
+        "time": "15:30-18:30",
+        "venue": "LRB 101",
+        "schedule": "LW 4110 Legal Aspects in Cyber Security: CSDFE4 (55) [Total: 55]"
+    },
+    {
+        "day": "Wednesday",
+        "date": "2023-05-02",
+        "time": "08:00-11:00",
+        "venue": "Auditoriam",
+        "schedule": "SI 311 Professional Ethics and Conduct: CE4 (89), CSDFE4 (55), CNISE4 (88), MTA3 (80), BIS3 (69), IDIT3 (95), CS3 (40), SE4 (65) [Total: 581]"
+    },
+    {
+        "day": "Wednesday",
+        "date": "2023-05-02",
+        "time": "11:30-14:30",
+        "venue": "Auditoriam",
+        "schedule": "LG 102 Communication Skills: CNISE1 (59), HIS1 (77), BIS1 (78), CSDFE1 (80), IDIT1 (50), CE1 (40), SE1 (92), CS1 (88), MTA1 (106) [Total: 670]"
+    },
+    {
+        "day": "Wednesday",
+        "date": "2023-05-02",
+        "time": "11:30-14:30",
+        "venue": "LRB 105",
+        "schedule": "CN 411 Wireless Networks and Mobile Computing: CNISE4 (88) [Total: 88]"
+    },
+    {
+        "day": "Wednesday",
+        "date": "2023-05-02",
+        "time": "15:30-18:30",
+        "venue": "Auditoriam",
+        "schedule": "DS 102 Development Perspectives: CSDFE1 (80), MTA1 (106), BIS1 (78), CS1 (88), IDIT1 (50), CNISE1 (59), CE1 (40), SE1 (92), HIS1 (77) [Total: 670]"
+    },
+    {
+        "day": "Thursday",
+        "date": "2023-05-03",
+        "time": "08:00-11:00",
+        "venue": "Auditoriam",
+        "schedule": "IA 112 Mathematical Foundations of Info Security: CS1 (88), CNISE1 (59), SE1 (92) [Total: 239]"
+    },
+    {
+        "day": "Thursday",
+        "date": "2023-05-03",
+        "time": "11:30-14:30",
+        "venue": "Auditoriam",
+        "schedule": "IM 411 Human-Computer Interaction: CSDFE4 (55), SE4 (65), CNISE4 (88), CS3 (40), BIS3 (69) [Total: 317]"
+    },
+    {
+        "day": "Thursday",
+        "date": "2023-05-03",
+        "time": "15:30-18:30",
+        "venue": "Auditoriam",
+        "schedule": "TN 112 Linear Algebra for ICT: CNISE1 (59), CSDFE1 (80), CE1 (40), CS1 (88), SE1 (92) [Total: 359]"
+    },
+    {
+        "day": "Friday",
+        "date": "2023-05-04",
+        "time": "08:00-11:00",
+        "venue": "Auditoriam",
+        "schedule": "TN 111 Discrete Mathematics for ICT: CNISE1 (59), CS1 (88), CSDFE1 (80), CE1 (40), SE1 (92) [Total: 359]"
+    },
+    {
+        "day": "Friday",
+        "date": "2023-05-04",
+        "time": "11:30-14:30",
+        "venue": "Auditoriam",
+        "schedule": "IT 111 Introduction to Information Technology: CSDFE1 (80), CNISE1 (59), SE1 (92), CS1 (88), CE1 (40) [Total: 359]"
+    },
+    {
+        "day": "Friday",
+        "date": "2023-05-04",
+        "time": "15:30-18:30",
+        "venue": "Auditoriam",
+        "schedule": "EME 314 ICT Entrepreneurship: CSDFE4 (55), CNISE4 (88), CE4 (89) [Total: 232]"
+    }
+]

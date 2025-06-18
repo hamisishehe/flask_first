@@ -62,7 +62,6 @@ def token_required(f):
 
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-
 @app.route("/")
 def index():
     return ""
@@ -232,6 +231,15 @@ def update_venue(venue_id):
 
     return jsonify({"message": "Venue updated successfully"})
 
+@app.route('/department_id/<string:department_shortname>', methods=['GET'])
+def get_department_id(department_shortname):
+    dept = Department.query.filter_by(short_name=department_shortname).first()
+
+    if dept:
+        return jsonify({"department_id": dept.id})
+    else:
+        return jsonify({"error": "Department not found"}), 404
+
 
 @app.route("/add_departments", methods=["POST"])
 def add_department():
@@ -271,6 +279,78 @@ def get_departments():
                 },
             }
         )
+
+    return jsonify(result), 200
+
+@app.route("/departments/<int:department_id>", methods=["GET"])
+def get_department_by_id(department_id):
+    try:
+        dept = Department.query.get(department_id)
+
+        if not dept:
+            return jsonify({"message": f"Department with ID {department_id} not found"}), 404
+
+        department_data = {
+            "id": dept.id,
+            "name": dept.name,
+            "short_name": dept.short_name,
+            "description": dept.description,
+            "collage": {
+                "id": dept.collage.id,
+                "name": dept.collage.name,
+                "short_name": dept.collage.short_name,
+                "description": dept.collage.description,
+            },
+        }
+
+        return jsonify(department_data), 200
+
+    except Exception as e:
+        print(f"🔥 Error fetching department by ID {department_id}:", str(e))
+        return jsonify({"message": "Error fetching department", "error": str(e)}), 500
+
+
+@app.route("/instructors/by-department/<int:department_id>", methods=["GET"])
+def get_instructors_by_department_alt(department_id):
+    instructors = Instructor.query.filter_by(department_id=department_id).all()
+
+    result = []
+    for inst in instructors:
+        result.append({
+            "id": inst.id,
+            "first_name": inst.first_name,
+            "middle_name": inst.middle_name,
+            "last_name": inst.last_name,
+            "gender": inst.gender,
+            "phone_number": inst.phone_number,
+            "email": inst.email,
+            "title": inst.title,
+        })
+
+    return jsonify(result), 200
+
+
+@app.route("/departments/<int:department_id>/instructors", methods=["GET"])
+def get_instructors_by_department(department_id):
+    department = Department.query.get(department_id)
+
+    if not department:
+        return jsonify({"error": "Department not found"}), 404
+
+    instructors = department.instructors  # thanks to the relationship
+
+    result = []
+    for inst in instructors:
+        result.append({
+            "id": inst.id,
+            "first_name": inst.first_name,
+            "middle_name": inst.middle_name,
+            "last_name": inst.last_name,
+            "gender": inst.gender,
+            "phone_number": inst.phone_number,
+            "email": inst.email,
+            "title": inst.title,
+        })
 
     return jsonify(result), 200
 
@@ -407,10 +487,10 @@ def add_student():
 
         # Insert multiple records based on duration
         for i in range(1, int(duration) + 1):
-            new_code = f"{programme_code}{i}"  # e.g., SE1, SE2, SE3
+            new_code = f"{programme}{i}"  # e.g., SE1, SE2, SE3
             new_student = Students(
-                programme=programme,
-                programme_code=new_code,
+                programme=new_code,
+                programme_code=programme_code,
                 coordinator_id=coordinator_id,
                 department_id=department_id,
             )
@@ -492,6 +572,39 @@ def upload_students():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route("/students/by-department/<int:department_id>", methods=["GET"])
+def get_students_by_department(department_id):
+    try:
+        students = Students.query.filter_by(department_id=department_id).all()
+        result = []
+
+        for stu in students:
+            dept = stu.department
+
+            student_data = {
+                "id": stu.id,
+                "programme": stu.programme,
+                "programme_code": stu.programme_code,
+                "total_students": stu.total_students,
+                "department": (
+                    {
+                        "id": dept.id,
+                        "name": dept.name,
+                        "short_name": dept.short_name,
+                        "description": dept.description,
+                    }
+                    if dept else None
+                ),
+            }
+            result.append(student_data)
+
+        print(f"✅ Students for department {department_id} fetched:", result)
+        return jsonify(result), 200
+
+    except Exception as e:
+        print("🔥 Error fetching Students by department:", str(e))
+        return jsonify({"message": "Error fetching Students", "error": str(e)}), 500
 
 
 @app.route("/students", methods=["GET"])
@@ -617,6 +730,45 @@ def add_Course():
         return jsonify({"message": "Error while adding Course", "error": str(e)}), 500
 
 
+
+@app.route("/courses/by-department/<int:department_id>", methods=["GET"])
+def get_courses_by_department(department_id):
+    try:
+        courses = Course.query.filter_by(department_id=department_id).all()
+        result = []
+
+        for cou in courses:
+            dept = cou.department  # via relationship/backref
+
+            course_data = {
+                "id": cou.id,
+                "course_name": cou.course_name,
+                "course_code": cou.course_code,
+                "semester": cou.semester,
+                "is_tutorial": cou.is_tutorial,
+                "is_lecture": cou.is_lecture,
+                "is_practical": cou.is_practical,
+                "department": (
+                    {
+                        "id": dept.id,
+                        "name": dept.name,
+                        "short_name": dept.short_name,
+                        "description": dept.description,
+                    }
+                    if dept else None
+                ),
+            }
+
+            result.append(course_data)
+
+        print(f"✅ Courses for department {department_id} fetched:", result)
+        return jsonify(result), 200
+
+    except Exception as e:
+        print("🔥 Error fetching courses by department:", str(e))
+        return jsonify({"message": "Error fetching courses", "error": str(e)}), 500
+
+
 @app.route("/course_list", methods=["GET"])
 def get_course():
     try:
@@ -677,7 +829,7 @@ def assign_Course():
 
         for student_id in student_ids:
             existing = Course_matrix.query.filter_by(
-                course_id=course_id, instructor_id=student_id
+                course_id=course_id, instructor_id=instructor_id, 
             ).first()
             if existing:
                 skipped.append(student_id)

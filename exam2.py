@@ -9,7 +9,7 @@ def generate_exam_timetable():
     Courses are fetched in random order. Saves the timetable to a JSON file named exam_timetable_YYYY-MM-DD.json.
 
     Returns:
-        List of dictionaries with exam schedules (day, date, time, venue, schedule)
+        List of dictionaries with exam schedules (course_code, course_name, actual_date, time, venue, groups with counts, total_students)
         or None if no valid timetable can be generated.
     """
     # Fetch venue and student data from the database
@@ -155,23 +155,21 @@ def generate_exam_timetable():
             total_students += count
             formatted_groups.append(f"{group} ({count})")
 
-        # Format the timetable entry like the image
-        course_info = f"{course} {course_name_mapping.get(course, 'Unknown Course')}"
-        groups_str = ", ".join(formatted_groups)
-        timetable_entry = f"{course_info}: {groups_str} [Total: {total_students}]"
-
         final_schedule_with_dates.append({
+            "course_code": course,
+            "course_name": course_name_mapping.get(course, "Unknown Course"),
+            "actual_date": actual_date,
             "day": day,
-            "date": actual_date,
             "time": timeslot,
-            "venue": room,  # Use the assigned room from backtracking
-            "schedule": timetable_entry
+            "venue": room,
+            "groups": formatted_groups,
+            "total_students": total_students
         })
 
     # Sort by date and time
     time_order = {slot: idx for idx, slot in enumerate(exam_timeslots)}
     final_schedule_with_dates.sort(key=lambda x: (
-        datetime.strptime(x["date"], "%Y-%m-%d"),
+        datetime.strptime(x["actual_date"], "%Y-%m-%d"),
         time_order[x["time"]]
     ))
 
@@ -186,4 +184,3 @@ def generate_exam_timetable():
         print(f"Warning: Failed to save JSON file {json_filename}: {e}")
 
     return final_schedule_with_dates
-
