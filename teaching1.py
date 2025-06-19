@@ -3,8 +3,6 @@ from fpdf import FPDF
 from datetime import datetime, timedelta
 from sqlalchemy import func
 from models import db, Course, Students, Venue, Instructor, Course_matrix
-from random import shuffle
-import os
 
 def parse_time_range(time_range):
     start_str, end_str = time_range.split("-")
@@ -94,19 +92,15 @@ def generate_timetable(app, semester, t_start_time, b_start_time, b_end_time, t_
             if not suitable_venues:
                 continue
 
-            # Shuffle days to spread sessions across all weekdays (including Friday)
-            days_copy = days[:]
-            shuffle(days_copy)
-
             if course_session_types[course_code]["is_lecture"]:
                 lecture_domains[course_code] = [(day, f"{s.strftime('%H:%M')}-{e.strftime('%H:%M')}", room)
-                                                for day in days_copy for s,e in lecture_slots for room in suitable_venues]
+                                                for day in days for s,e in lecture_slots for room in suitable_venues]
             if course_session_types[course_code]["is_tutorial"]:
                 tutorial_domains[course_code] = [(day, f"{s.strftime('%H:%M')}-{e.strftime('%H:%M')}", room)
-                                                 for day in days_copy for s,e in tutorial_slots for room in suitable_venues]
+                                                 for day in days for s,e in tutorial_slots for room in suitable_venues]
             if course_session_types[course_code]["is_practical"]:
                 practical_domains[course_code] = [(day, f"{s.strftime('%H:%M')}-{e.strftime('%H:%M')}", room)
-                                                  for day in days_copy for s,e in practical_slots for room in suitable_venues]
+                                                  for day in days for s,e in practical_slots for room in suitable_venues]
 
         all_sessions = []
         for course_code in course_group_mapping.keys():
@@ -130,28 +124,16 @@ def generate_timetable(app, semester, t_start_time, b_start_time, b_end_time, t_
             instructor = course_instructor_mapping[course_code]
             groups = course_group_mapping[course_code]
 
-            # Calculate day load (number of assignments per day)
-            day_load = {}
-            for assigned in assignments.values():
-                day_load[assigned[0]] = day_load.get(assigned[0], 0) + 1
-
-            # Sort domain by day load ascending to prefer less busy days first
-            domain = sorted(domain, key=lambda x: day_load.get(x[0], 0))
-
             for (day, time_range, room) in domain:
                 start_time_slot, end_time_slot = parse_time_range(time_range)
 
-                # Check venue conflicts
                 if any(times_overlap(start_time_slot, end_time_slot, s, e) for d, s, e in venue_schedule.get(room, []) if d == day):
                     continue
-                # Check instructor conflicts
                 if any(times_overlap(start_time_slot, end_time_slot, s, e) for d, s, e in instructor_schedule.get(instructor, []) if d == day):
                     continue
-                # Check student group conflicts
                 if any(times_overlap(start_time_slot, end_time_slot, s, e) for group in groups for d, s, e in student_schedule.get(group, []) if d == day):
                     continue
 
-                # Assign session
                 assignments[(course_code, session_type)] = (day, time_range, room)
                 venue_schedule.setdefault(room, []).append((day, start_time_slot, end_time_slot))
                 instructor_schedule.setdefault(instructor, []).append((day, start_time_slot, end_time_slot))
@@ -162,7 +144,6 @@ def generate_timetable(app, semester, t_start_time, b_start_time, b_end_time, t_
                 if result:
                     return result
 
-                # Backtrack
                 del assignments[(course_code, session_type)]
                 venue_schedule[room].remove((day, start_time_slot, end_time_slot))
                 instructor_schedule[instructor].remove((day, start_time_slot, end_time_slot))
@@ -189,14 +170,14 @@ def generate_timetable(app, semester, t_start_time, b_start_time, b_end_time, t_
                 "time": time_range,
                 "venue": room,
                 "instructor": course_instructor_mapping.get(course_code, "Unknown Instructor"),
-                "groups": course_group_mapping.get(course_code, []) + course_program_groups_mapping.get(course_code, []),
+                "groups": course_group_mapping.get(course_code, [])  +  course_program_groups_mapping.get(course_code, [] ),
             })
 
         timetable.sort(key=lambda x: (day_order[x["day"]], get_start_time(x["time"])))
-        # Save timetable to JSON file
-        os.makedirs('saved_files', exist_ok=True)
 
-        json_filename = os.path.join('saved_files', 'timetable.json')
+
+        # Save timetable to JSON file
+        json_filename = f"timetable_semester_{semester}.json"
         try:
             with open(json_filename, 'w', encoding='utf-8') as f:
                 json.dump(timetable, f, indent=4, ensure_ascii=False)
